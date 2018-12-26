@@ -1,0 +1,36 @@
+import styled from "styled-components";
+
+const LargeWidgetsContainer = styled.div`
+    box-sizing: border-box;
+    overflow: auto;
+
+    /* Hide Scrollbar */
+    &&::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(10, 4.7em);
+    grid-template-areas:
+        "widget-j widget-j widget-j widget-j"
+        "widget-j widget-j widget-j widget-j"
+        "widget-z widget-x widget-M  widget-M"
+        "widget-c widget-v widget-M  widget-M"
+        "widget-L widget-L widget-L widget-L"
+        "widget-L widget-L widget-L widget-L"
+        "widget-e widget-e widget-r widget-r"
+        "widget-e widget-e widget-r widget-r"
+        "widget-q widget-q widget-w widget-w"
+        "widget-q widget-q widget-w widget-w";
+    grid-gap: 1em;
+    padding: 1em;
+    width: 100%;
+    background: ${props => props.theme.primary};
+    @media (min-width: 450px) {
+        width: calc(100% + 5em);
+    }
+`;
+
+export default LargeWidgetsContainer;
