@@ -5,6 +5,7 @@ import StartButtonImg from "./components/taskbar/StartButtonImg";
 import logo from "./components/taskbar/img/small-logo.svg";
 import ButtonContainer from "./components/taskbar/ButtonContainer";
 import Desktop from "./components/desktop/Desktop";
+import Icon from "./components/desktop/Icon";
 import LargeWidgetsContainer from "./components/startMenu/LargeWidgetsContainer";
 import SmallWidgetsContainer from "./components/startMenu/SmallWidgetsContainer";
 import StartMenu from "./components/startMenu/StartMenu";
@@ -31,12 +32,71 @@ class App extends Component {
     closeStartMenu = () => {
         this.setState({ startMenuOpen: "none" });
     };
+
+    resizeIcons = (num, imgWidth, imgHeigth) => {
+        const iconContainer = document.querySelectorAll(".icon-container");
+        const iconImg = document.querySelectorAll(".icon-img");
+        const imgSize = iconImg.forEach(
+            item =>
+                (item.style.width = imgWidth + "em") &&
+                (item.style.height = imgHeigth + "em")
+        );
+        const containerSize = iconContainer.forEach(
+            item =>
+                (item.style.width = num + "em") &&
+                (item.style.height = num + "em")
+        );
+
+        return containerSize && imgSize;
+    };
+
     render() {
         let { startMenuOpen } = this.state;
         return (
             <ThemeProvider theme={LightTheme}>
                 <React.Fragment>
-                    <Desktop onClick={this.closeStartMenu}>testing</Desktop>
+                    <Desktop onClick={this.closeStartMenu}>
+                        testing
+                        <Icon className="icon-container">
+                            <img
+                                className="icon-img"
+                                src={require("./components/desktop/img/folder-icon.png")}
+                                alt="test"
+                                width="80px"
+                                height="60px"
+                            />
+                            <div>My Stuff</div>
+                        </Icon>
+                        <Icon className="icon-container">
+                            <img
+                                className="icon-img"
+                                src={require("./components/desktop/img/folder-icon.png")}
+                                alt="test"
+                                width="80px"
+                                height="60px"
+                            />
+                            <div>My Stuff</div>
+                        </Icon>
+                        <Icon className="icon-container">
+                            <img
+                                className="icon-img"
+                                src={require("./components/desktop/img/folder-icon.png")}
+                                alt="test"
+                                width="80px"
+                                height="60px"
+                            />
+                            <div>My Stuff</div>
+                        </Icon>
+                        <button onClick={() => this.resizeIcons(4, 3.43, 2.56)}>
+                            size 4
+                        </button>
+                        <button onClick={() => this.resizeIcons(5.5, 5, 3.75)}>
+                            default
+                        </button>
+                        <button onClick={() => this.resizeIcons(8, 7.5, 5.62)}>
+                            size 8
+                        </button>
+                    </Desktop>
                     <StartMenu display={startMenuOpen}>
                         <SmallWidgetsContainer />
                         <LargeWidgetsContainer>
