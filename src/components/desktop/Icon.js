@@ -13,6 +13,7 @@ const Icon = styled.div`
     &&:hover {
         background: rgba(174, 192, 229, 0.4);
         border: 1px solid rgb(220, 227, 242, 0.7);
+        cursor: pointer;
     }
 `;
 

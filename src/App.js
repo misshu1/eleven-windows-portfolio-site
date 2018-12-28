@@ -1,5 +1,9 @@
 import React, { Component } from "react";
+import { Route, Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
+import Folder from "./components/folders/folderStructure/Folder";
+import MenuBar from "./components/folders/folderStructure/MenuBar";
+import NameBar from "./components/folders/folderStructure/NameBar";
 import Taskbar from "./components/taskbar/Taskbar";
 import StartButtonImg from "./components/taskbar/StartButtonImg";
 import logo from "./components/taskbar/img/small-logo.svg";
@@ -29,9 +33,6 @@ class App extends Component {
     };
 
     startMenuClickHandler = () => {
-        // this.setState({
-        //     startMenuOpen: this.state.startMenuOpen === "none" ? "flex" : "none"
-        // });
         this.setState(prevState => {
             return { startMenuOpen: !prevState.startMenuOpen };
         });
@@ -71,49 +72,94 @@ class App extends Component {
         const { startMenuOpen } = this.state;
         return (
             <ThemeProvider theme={LightTheme}>
-                <React.Fragment>
-                    <Desktop onClick={this.closeStartMenu}>
-                        testing
-                        <Icon className="icon-container">
-                            <img
-                                className="icon-img"
-                                src={require("./components/desktop/img/folder-icon.png")}
-                                alt="test"
-                                width="80px"
-                                height="60px"
-                            />
-                            <div>My Stuff</div>
-                        </Icon>
-                        <Icon className="icon-container">
-                            <img
-                                className="icon-img"
-                                src={require("./components/desktop/img/folder-icon.png")}
-                                alt="test"
-                                width="80px"
-                                height="60px"
-                            />
-                            <div>My Stuff</div>
-                        </Icon>
-                        <Icon className="icon-container">
-                            <img
-                                className="icon-img"
-                                src={require("./components/desktop/img/folder-icon.png")}
-                                alt="test"
-                                width="80px"
-                                height="60px"
-                            />
-                            <div>My Stuff</div>
-                        </Icon>
-                        <button onClick={() => this.resizeIcons(4, 3.43, 2.56)}>
-                            size 4
-                        </button>
-                        <button onClick={() => this.resizeIcons(5.5, 5, 3.75)}>
-                            default
-                        </button>
-                        <button onClick={() => this.resizeIcons(8, 7.5, 5.62)}>
-                            size 8
-                        </button>
-                        {/* <div
+                <Route
+                    path="/"
+                    render={() => (
+                        <React.Fragment>
+                            <Desktop onClick={this.closeStartMenu}>
+                                testing
+                                <Route
+                                    path="/mystuff"
+                                    render={() => (
+                                        <Folder>
+                                            <NameBar> namebar </NameBar>
+                                            <MenuBar>
+                                                <Link to="/mystuff/primul">
+                                                    my stuff primul
+                                                </Link>
+                                                <Link to="/mystuff/al2lea">
+                                                    my stuff/folder2
+                                                </Link>
+                                            </MenuBar>
+                                            <Route
+                                                exact
+                                                path="/mystuff/primul"
+                                                render={() => (
+                                                    <p>muhahahahahah</p>
+                                                )}
+                                            />
+                                            <Route
+                                                exact
+                                                path="/mystuff/al2lea"
+                                                render={() => (
+                                                    <p>hihihih folder</p>
+                                                )}
+                                            />
+                                        </Folder>
+                                    )}
+                                />
+                                <Icon className="icon-container">
+                                    <img
+                                        className="icon-img"
+                                        src={require("./components/desktop/img/folder-icon.png")}
+                                        alt="test"
+                                        width="80px"
+                                        height="60px"
+                                    />
+                                    <div>My Stuff</div>
+                                </Icon>
+                                <Icon className="icon-container">
+                                    <img
+                                        className="icon-img"
+                                        src={require("./components/desktop/img/folder-icon.png")}
+                                        alt="test"
+                                        width="80px"
+                                        height="60px"
+                                    />
+                                    <div>My Stuff</div>
+                                </Icon>
+                                <Icon className="icon-container">
+                                    <img
+                                        className="icon-img"
+                                        src={require("./components/desktop/img/folder-icon.png")}
+                                        alt="test"
+                                        width="80px"
+                                        height="60px"
+                                    />
+                                    <div>My Stuff</div>
+                                </Icon>
+                                <button
+                                    onClick={() =>
+                                        this.resizeIcons(4, 3.43, 2.56)
+                                    }
+                                >
+                                    size 4
+                                </button>
+                                <button
+                                    onClick={() =>
+                                        this.resizeIcons(5.5, 5, 3.75)
+                                    }
+                                >
+                                    default
+                                </button>
+                                <button
+                                    onClick={() =>
+                                        this.resizeIcons(8, 7.5, 5.62)
+                                    }
+                                >
+                                    size 8
+                                </button>
+                                {/* <div
                             style={{
                                 position: "absolute",
                                 width: "500px",
@@ -137,53 +183,55 @@ class App extends Component {
                             }}
                             onClick={() => this.activeWindow(2)}
                         /> */}
-                    </Desktop>
-                    <StartMenu display={this.state.startMenuOpen}>
-                        <SmallWidgetsContainer />
-                        <LargeWidgetsContainer>
-                            <Widget style={{ gridArea: "widget-j" }}>
-                                widget J
-                            </Widget>
-                            <Widget style={{ gridArea: "widget-M" }} />
-                            <Widget style={{ gridArea: "widget-z" }} />
-                            <Widget style={{ gridArea: "widget-x" }} />
-                            <Widget style={{ gridArea: "widget-c" }} />
-                            <Widget style={{ gridArea: "widget-v" }} />
-                            <Widget style={{ gridArea: "widget-L" }}>
-                                Contact
-                            </Widget>
-                            <Widget style={{ gridArea: "widget-e" }}>
-                                widget e
-                            </Widget>
-                            <Widget style={{ gridArea: "widget-r" }}>
-                                widget r
-                            </Widget>
-                            <Widget style={{ gridArea: "widget-q" }}>
-                                widget e
-                            </Widget>
-                            <Widget style={{ gridArea: "widget-w" }}>
-                                widget r
-                            </Widget>
-                        </LargeWidgetsContainer>
-                    </StartMenu>
-                    <Taskbar>
-                        <ButtonContainer />
-                        <ButtonContainer>
-                            <StartButtonImg
-                                src={logo}
-                                alt="logo"
-                                onClick={this.startMenuClickHandler}
-                            />
-                        </ButtonContainer>
-                        <ButtonContainer>
-                            <FontAwesomeIcon
-                                icon="long-arrow-alt-left"
-                                color="#000"
-                                size="2x"
-                            />
-                        </ButtonContainer>
-                    </Taskbar>
-                </React.Fragment>
+                            </Desktop>
+                            <StartMenu display={startMenuOpen}>
+                                <SmallWidgetsContainer />
+                                <LargeWidgetsContainer>
+                                    <Widget style={{ gridArea: "widget-j" }}>
+                                        widget J
+                                    </Widget>
+                                    <Widget style={{ gridArea: "widget-M" }} />
+                                    <Widget style={{ gridArea: "widget-z" }} />
+                                    <Widget style={{ gridArea: "widget-x" }} />
+                                    <Widget style={{ gridArea: "widget-c" }} />
+                                    <Widget style={{ gridArea: "widget-v" }} />
+                                    <Widget style={{ gridArea: "widget-L" }}>
+                                        Contact
+                                    </Widget>
+                                    <Widget style={{ gridArea: "widget-e" }}>
+                                        widget e
+                                    </Widget>
+                                    <Widget style={{ gridArea: "widget-r" }}>
+                                        widget r
+                                    </Widget>
+                                    <Widget style={{ gridArea: "widget-q" }}>
+                                        widget e
+                                    </Widget>
+                                    <Widget style={{ gridArea: "widget-w" }}>
+                                        widget r
+                                    </Widget>
+                                </LargeWidgetsContainer>
+                            </StartMenu>
+                            <Taskbar>
+                                <ButtonContainer />
+                                <ButtonContainer>
+                                    <StartButtonImg
+                                        src={logo}
+                                        alt="logo"
+                                        onClick={this.startMenuClickHandler}
+                                    />
+                                </ButtonContainer>
+                                <ButtonContainer>
+                                    <FontAwesomeIcon
+                                        icon="long-arrow-alt-left"
+                                        color="#000"
+                                        size="2x"
+                                    />
+                                </ButtonContainer>
+                            </Taskbar>
+                        </React.Fragment>
+                    )}
+                />
             </ThemeProvider>
         );
     }
