@@ -18,7 +18,7 @@ const StartMenu = styled.section`
     max-width: 450px;
     height: calc(100vh - 3.5rem);
     background: ${props => props.theme.primary};
-    z-index: 99999999999;
+    z-index: 150;
     animation: ${slideUp} 0.3s ease-out 1 forwards;
 
     @media (min-width: 450px) {

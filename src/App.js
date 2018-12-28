@@ -22,9 +22,10 @@ library.add(faArrowLeft, faLongArrowAltLeft);
 class App extends Component {
     state = {
         startMenuOpen: "none",
-        isActiveWindow: false,
-        indexActiveWindow: 100,
-        activeWindow: []
+        windowIndex: {
+            1: 100,
+            2: 104
+        }
     };
 
     startMenuClickHandler = () => {
@@ -32,6 +33,7 @@ class App extends Component {
             startMenuOpen: this.state.startMenuOpen === "none" ? "flex" : "none"
         });
     };
+
     closeStartMenu = () => {
         this.setState({ startMenuOpen: "none" });
     };
@@ -53,31 +55,13 @@ class App extends Component {
         return containerSize && imgSize;
     };
 
-    componentDidUpdate(prevProps, prevState) {
-        let activeWindow = [];
-        const { indexActiveWindow } = this.state;
-        const desktop = document.querySelector("#desktop");
-
-        desktop.addEventListener("click", event => {
-            if (event.target.className === "window") {
-                activeWindow.unshift(event.target);
-
-                if (activeWindow.length === 1) {
-                    if (
-                        prevState.indexActiveWindow ===
-                        this.state.indexActiveWindow
-                    ) {
-                        let increment = indexActiveWindow + 4;
-                        this.setState({ indexActiveWindow: increment });
-
-                        activeWindow[0].style.zIndex = indexActiveWindow;
-                        console.log(indexActiveWindow);
-                        console.log(activeWindow[0]);
-                        activeWindow = [];
-                    }
-                }
-            }
+    activeWindow(newActive) {
+        const newObj = {};
+        Object.keys(this.state.windowIndex).forEach(() => {
+            newObj.key = 100;
         });
+        const activeWindow = Object.assign({}, newObj, { [newActive]: 104 });
+        this.setState({ windowIndex: activeWindow });
     }
 
     render() {
@@ -85,7 +69,7 @@ class App extends Component {
         return (
             <ThemeProvider theme={LightTheme}>
                 <React.Fragment>
-                    <Desktop id="desktop" onClick={this.closeStartMenu}>
+                    <Desktop onClick={this.closeStartMenu}>
                         testing
                         <Icon className="icon-container">
                             <img
@@ -127,7 +111,6 @@ class App extends Component {
                             size 8
                         </button>
                         <div
-                            className="window"
                             style={{
                                 position: "absolute",
                                 width: "500px",
@@ -135,11 +118,11 @@ class App extends Component {
                                 top: "300px",
                                 left: "500px",
                                 background: "black",
-                                zIndex: this.state.indexActiveWindow
+                                zIndex: this.state.windowIndex[1]
                             }}
+                            onClick={() => this.activeWindow(1)}
                         />
                         <div
-                            className="window"
                             style={{
                                 position: "absolute",
                                 width: "500px",
@@ -147,8 +130,9 @@ class App extends Component {
                                 top: "200px",
                                 left: "550px",
                                 background: "green",
-                                zIndex: this.state.indexActiveWindow
+                                zIndex: this.state.windowIndex[2]
                             }}
+                            onClick={() => this.activeWindow(2)}
                         />
                     </Desktop>
                     <StartMenu display={startMenuOpen}>

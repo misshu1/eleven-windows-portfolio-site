@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Taskbar = styled.div`
     display: flex;
-    z-index: 999999999999;
+    z-index: 200;
     position: fixed;
     bottom: 0;
     left: 0;
