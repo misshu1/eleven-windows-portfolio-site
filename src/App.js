@@ -21,7 +21,7 @@ library.add(faArrowLeft, faLongArrowAltLeft);
 
 class App extends Component {
     state = {
-        startMenuOpen: "none",
+        startMenuOpen: false,
         windowIndex: {
             1: 100,
             2: 104
@@ -29,13 +29,16 @@ class App extends Component {
     };
 
     startMenuClickHandler = () => {
-        this.setState({
-            startMenuOpen: this.state.startMenuOpen === "none" ? "flex" : "none"
+        // this.setState({
+        //     startMenuOpen: this.state.startMenuOpen === "none" ? "flex" : "none"
+        // });
+        this.setState(prevState => {
+            return { startMenuOpen: !prevState.startMenuOpen };
         });
     };
 
     closeStartMenu = () => {
-        this.setState({ startMenuOpen: "none" });
+        this.setState({ startMenuOpen: false });
     };
 
     resizeIcons = (num, imgWidth, imgHeigth) => {
@@ -110,7 +113,7 @@ class App extends Component {
                         <button onClick={() => this.resizeIcons(8, 7.5, 5.62)}>
                             size 8
                         </button>
-                        <div
+                        {/* <div
                             style={{
                                 position: "absolute",
                                 width: "500px",
@@ -133,9 +136,9 @@ class App extends Component {
                                 zIndex: this.state.windowIndex[2]
                             }}
                             onClick={() => this.activeWindow(2)}
-                        />
+                        /> */}
                     </Desktop>
-                    <StartMenu display={startMenuOpen}>
+                    <StartMenu display={this.state.startMenuOpen}>
                         <SmallWidgetsContainer />
                         <LargeWidgetsContainer>
                             <Widget style={{ gridArea: "widget-j" }}>
