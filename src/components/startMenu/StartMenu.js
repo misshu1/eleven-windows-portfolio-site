@@ -16,14 +16,14 @@ const StartMenu = styled.section`
     top: 0;
     width: 100%;
     max-width: 450px;
-    height: calc(100vh - 3.5em);
+    height: calc(100vh - 3.5rem);
     background: ${props => props.theme.primary};
     z-index: 99999999999;
     animation: ${slideUp} 0.3s ease-out 1 forwards;
 
     @media (min-width: 450px) {
         height: 80%;
-        top: calc(20% - 3.5em);
+        top: calc(20% - 3.5rem);
     }
 `;
 

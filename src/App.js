@@ -21,7 +21,10 @@ library.add(faArrowLeft, faLongArrowAltLeft);
 
 class App extends Component {
     state = {
-        startMenuOpen: "none"
+        startMenuOpen: "none",
+        isActiveWindow: false,
+        indexActiveWindow: 100,
+        activeWindow: []
     };
 
     startMenuClickHandler = () => {
@@ -38,24 +41,51 @@ class App extends Component {
         const iconImg = document.querySelectorAll(".icon-img");
         const imgSize = iconImg.forEach(
             item =>
-                (item.style.width = imgWidth + "em") &&
-                (item.style.height = imgHeigth + "em")
+                (item.style.width = imgWidth + "rem") &&
+                (item.style.height = imgHeigth + "rem")
         );
         const containerSize = iconContainer.forEach(
             item =>
-                (item.style.width = num + "em") &&
-                (item.style.height = num + "em")
+                (item.style.width = num + "rem") &&
+                (item.style.height = num + "rem")
         );
 
         return containerSize && imgSize;
     };
 
+    componentDidUpdate(prevProps, prevState) {
+        let activeWindow = [];
+        const { indexActiveWindow } = this.state;
+        const desktop = document.querySelector("#desktop");
+
+        desktop.addEventListener("click", event => {
+            if (event.target.className === "window") {
+                activeWindow.unshift(event.target);
+
+                if (activeWindow.length === 1) {
+                    if (
+                        prevState.indexActiveWindow ===
+                        this.state.indexActiveWindow
+                    ) {
+                        let increment = indexActiveWindow + 4;
+                        this.setState({ indexActiveWindow: increment });
+
+                        activeWindow[0].style.zIndex = indexActiveWindow;
+                        console.log(indexActiveWindow);
+                        console.log(activeWindow[0]);
+                        activeWindow = [];
+                    }
+                }
+            }
+        });
+    }
+
     render() {
-        let { startMenuOpen } = this.state;
+        const { startMenuOpen } = this.state;
         return (
             <ThemeProvider theme={LightTheme}>
                 <React.Fragment>
-                    <Desktop onClick={this.closeStartMenu}>
+                    <Desktop id="desktop" onClick={this.closeStartMenu}>
                         testing
                         <Icon className="icon-container">
                             <img
@@ -96,6 +126,30 @@ class App extends Component {
                         <button onClick={() => this.resizeIcons(8, 7.5, 5.62)}>
                             size 8
                         </button>
+                        <div
+                            className="window"
+                            style={{
+                                position: "absolute",
+                                width: "500px",
+                                height: "500px",
+                                top: "300px",
+                                left: "500px",
+                                background: "black",
+                                zIndex: this.state.indexActiveWindow
+                            }}
+                        />
+                        <div
+                            className="window"
+                            style={{
+                                position: "absolute",
+                                width: "500px",
+                                height: "500px",
+                                top: "200px",
+                                left: "550px",
+                                background: "green",
+                                zIndex: this.state.indexActiveWindow
+                            }}
+                        />
                     </Desktop>
                     <StartMenu display={startMenuOpen}>
                         <SmallWidgetsContainer />

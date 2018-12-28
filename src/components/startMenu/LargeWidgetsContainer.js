@@ -24,12 +24,12 @@ const LargeWidgetsContainer = styled.div`
         "widget-e widget-e widget-r widget-r"
         "widget-q widget-q widget-w widget-w"
         "widget-q widget-q widget-w widget-w";
-    grid-gap: 1em;
-    padding: 1em;
+    grid-gap: 1rem;
+    padding: 1rem;
     width: 100%;
     background: ${props => props.theme.primary};
     @media (min-width: 450px) {
-        width: calc(100% + 5em);
+        width: calc(100% + 5rem);
     }
 `;
 

@@ -7,10 +7,8 @@ const Icon = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 5.5em;
-    height: 5.5em;
-    /* max-width: 6em;
-    max-height: 6em; */
+    width: 5.5rem;
+    height: 5.5rem;
     border: 1px solid transparent;
     &&:hover {
         background: rgba(174, 192, 229, 0.4);
