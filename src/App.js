@@ -1,12 +1,7 @@
 import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import Folder from "./components/folders/folderStructure/Folder";
-import MenuBar from "./components/folders/folderStructure/menuBar/MenuBar";
-import Navigation from "./components/folders/folderStructure/menuBar/Navigation";
-import NameBar from "./components/folders/folderStructure/nameBar/NameBar";
-import Name from "./components/folders/folderStructure/nameBar/Name";
-import Buttons from "./components/folders/folderStructure/nameBar/Buttons";
+import FolderApp from "./components/folders/FolderApp";
 import Taskbar from "./components/taskbar/Taskbar";
 import StartButtonImg from "./components/taskbar/StartButtonImg";
 import logo from "./components/taskbar/img/small-logo.svg";
@@ -85,63 +80,7 @@ class App extends Component {
                                 testing
                                 <Route
                                     path="/mystuff"
-                                    render={() => (
-                                        <Folder>
-                                            <NameBar>
-                                                <Name> nume aici random </Name>
-                                                <Buttons>
-                                                    <FontAwesomeIcon
-                                                        icon="window-minimize"
-                                                        size="sm"
-                                                    />
-                                                </Buttons>
-                                                <Buttons hoverBg="#ff0000">
-                                                    <FontAwesomeIcon
-                                                        icon="times"
-                                                        size="lg"
-                                                    />
-                                                </Buttons>
-                                            </NameBar>
-                                            <MenuBar>
-                                                <Navigation>
-                                                    <Link to="/projects">
-                                                        Projects
-                                                    </Link>
-                                                </Navigation>
-
-                                                <Navigation>
-                                                    <Link to="/memory-game">
-                                                        Memory Game
-                                                    </Link>
-                                                </Navigation>
-                                                <Navigation>
-                                                    <Link to="/neighborhood-map">
-                                                        Neighborhood Map
-                                                    </Link>
-                                                </Navigation>
-
-                                                <Navigation>
-                                                    <Link to="/about">
-                                                        About
-                                                    </Link>
-                                                </Navigation>
-                                            </MenuBar>
-                                            <Route
-                                                exact
-                                                path="/mystuff/primul"
-                                                render={() => (
-                                                    <p>muhahahahahah</p>
-                                                )}
-                                            />
-                                            <Route
-                                                exact
-                                                path="/mystuff/al2lea"
-                                                render={() => (
-                                                    <p>hihihih folder</p>
-                                                )}
-                                            />
-                                        </Folder>
-                                    )}
+                                    render={() => <FolderApp />}
                                 />
                                 <Icon className="icon-container">
                                     <img
@@ -173,7 +112,7 @@ class App extends Component {
                                     />
                                     <div>My Stuff</div>
                                 </Icon>
-                                <button
+                                {/* <button
                                     onClick={() =>
                                         this.resizeIcons(4, 3.43, 2.56)
                                     }
@@ -193,7 +132,7 @@ class App extends Component {
                                     }
                                 >
                                     size 8
-                                </button>
+                                </button> */}
                                 {/* <div
                             style={{
                                 position: "absolute",
