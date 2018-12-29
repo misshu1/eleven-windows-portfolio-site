@@ -1,8 +1,18 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
+
+const slideUp = keyframes`
+0% {
+    transform: translateY(80%);
+}
+100% {
+    transform: translateY(0);
+}
+`;
 
 const LargeWidgetsContainer = styled.div`
     box-sizing: border-box;
     overflow: auto;
+    animation: ${slideUp} 0.4s ease-out 1 forwards;
 
     /* Hide Scrollbar */
     &&::-webkit-scrollbar {

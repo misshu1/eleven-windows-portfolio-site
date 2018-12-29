@@ -9,7 +9,7 @@ const Folder = styled.div`
     left: 0;
     width: 100%;
     height: calc(100vh - 3.5rem);
-    background: lightcoral;
+    background: ${props => props.theme.secundary};
 
     @media (min-width: 450px) {
         height: 60%;

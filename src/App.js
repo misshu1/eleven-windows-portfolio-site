@@ -2,8 +2,11 @@ import React, { Component } from "react";
 import { Route, Link } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import Folder from "./components/folders/folderStructure/Folder";
-import MenuBar from "./components/folders/folderStructure/MenuBar";
-import NameBar from "./components/folders/folderStructure/NameBar";
+import MenuBar from "./components/folders/folderStructure/menuBar/MenuBar";
+import Navigation from "./components/folders/folderStructure/menuBar/Navigation";
+import NameBar from "./components/folders/folderStructure/nameBar/NameBar";
+import Name from "./components/folders/folderStructure/nameBar/Name";
+import Buttons from "./components/folders/folderStructure/nameBar/Buttons";
 import Taskbar from "./components/taskbar/Taskbar";
 import StartButtonImg from "./components/taskbar/StartButtonImg";
 import logo from "./components/taskbar/img/small-logo.svg";
@@ -15,13 +18,15 @@ import SmallWidgetsContainer from "./components/startMenu/SmallWidgetsContainer"
 import StartMenu from "./components/startMenu/StartMenu";
 import Widget from "./components/startMenu/Widget";
 import LightTheme from "./components/theme/Light";
+import DarkTheme from "./components/theme/Dark";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-    faArrowLeft,
-    faLongArrowAltLeft
+    faLongArrowAltLeft,
+    faWindowMinimize,
+    faTimes
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faArrowLeft, faLongArrowAltLeft);
+library.add(faLongArrowAltLeft, faWindowMinimize, faTimes);
 
 class App extends Component {
     state = {
@@ -71,7 +76,7 @@ class App extends Component {
     render() {
         const { startMenuOpen } = this.state;
         return (
-            <ThemeProvider theme={LightTheme}>
+            <ThemeProvider theme={DarkTheme}>
                 <Route
                     path="/"
                     render={() => (
@@ -82,14 +87,44 @@ class App extends Component {
                                     path="/mystuff"
                                     render={() => (
                                         <Folder>
-                                            <NameBar> namebar </NameBar>
+                                            <NameBar>
+                                                <Name> nume aici random </Name>
+                                                <Buttons>
+                                                    <FontAwesomeIcon
+                                                        icon="window-minimize"
+                                                        size="sm"
+                                                    />
+                                                </Buttons>
+                                                <Buttons hoverBg="#ff0000">
+                                                    <FontAwesomeIcon
+                                                        icon="times"
+                                                        size="lg"
+                                                    />
+                                                </Buttons>
+                                            </NameBar>
                                             <MenuBar>
-                                                <Link to="/mystuff/primul">
-                                                    my stuff primul
-                                                </Link>
-                                                <Link to="/mystuff/al2lea">
-                                                    my stuff/folder2
-                                                </Link>
+                                                <Navigation>
+                                                    <Link to="/projects">
+                                                        Projects
+                                                    </Link>
+                                                </Navigation>
+
+                                                <Navigation>
+                                                    <Link to="/memory-game">
+                                                        Memory Game
+                                                    </Link>
+                                                </Navigation>
+                                                <Navigation>
+                                                    <Link to="/neighborhood-map">
+                                                        Neighborhood Map
+                                                    </Link>
+                                                </Navigation>
+
+                                                <Navigation>
+                                                    <Link to="/about">
+                                                        About
+                                                    </Link>
+                                                </Navigation>
                                             </MenuBar>
                                             <Route
                                                 exact
