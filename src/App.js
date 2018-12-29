@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { Route, Link } from "react-router-dom";
+import { Route } from "react-router-dom";
+import history from "./history";
 import { ThemeProvider } from "styled-components";
 import FolderApp from "./components/folders/FolderApp";
 import Taskbar from "./components/taskbar/Taskbar";
@@ -67,6 +68,19 @@ class App extends Component {
         const activeWindow = Object.assign({}, newObj, { [newActive]: 104 });
         this.setState({ windowIndex: activeWindow });
     }
+    openUrlMobile = url => {
+        // Opens on mobile with onClick
+        if (window.matchMedia("(max-width: 900px)").matches) {
+            history.push(url);
+        }
+    };
+
+    openUrlDesktop = url => {
+        //  Opens on desktop with doubleClick
+        if (window.matchMedia("(min-width: 901px)").matches) {
+            history.push(url);
+        }
+    };
 
     render() {
         const { startMenuOpen } = this.state;
@@ -82,7 +96,15 @@ class App extends Component {
                                     path="/mystuff"
                                     render={() => <FolderApp />}
                                 />
-                                <Icon className="icon-container">
+                                <Icon
+                                    onClick={() =>
+                                        this.openUrlMobile("/mystuff")
+                                    }
+                                    onDoubleClick={() =>
+                                        this.openUrlDesktop("/mystuff")
+                                    }
+                                    className="icon-container"
+                                >
                                     <img
                                         className="icon-img"
                                         src={require("./components/desktop/img/folder-icon.png")}
@@ -92,7 +114,15 @@ class App extends Component {
                                     />
                                     <div>My Stuff</div>
                                 </Icon>
-                                <Icon className="icon-container">
+                                <Icon
+                                    className="icon-container"
+                                    onClick={() =>
+                                        this.openUrlMobile("/projects")
+                                    }
+                                    onDoubleClick={() =>
+                                        this.openUrlDesktop("/projects")
+                                    }
+                                >
                                     <img
                                         className="icon-img"
                                         src={require("./components/desktop/img/folder-icon.png")}
@@ -100,9 +130,15 @@ class App extends Component {
                                         width="80px"
                                         height="60px"
                                     />
-                                    <div>My Stuff</div>
+                                    <div>Projects</div>
                                 </Icon>
-                                <Icon className="icon-container">
+                                <Icon
+                                    className="icon-container"
+                                    onClick={() => this.openUrlMobile("/about")}
+                                    onDoubleClick={() =>
+                                        this.openUrlDesktop("/about")
+                                    }
+                                >
                                     <img
                                         className="icon-img"
                                         src={require("./components/desktop/img/folder-icon.png")}
@@ -110,7 +146,7 @@ class App extends Component {
                                         width="80px"
                                         height="60px"
                                     />
-                                    <div>My Stuff</div>
+                                    <div>About</div>
                                 </Icon>
                                 {/* <button
                                     onClick={() =>
