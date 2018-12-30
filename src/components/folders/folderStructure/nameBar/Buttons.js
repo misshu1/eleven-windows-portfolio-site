@@ -6,21 +6,32 @@ const Buttons = styled.div`
     justify-content: space-around;
     background: ${props => props.theme.default};
     height: 100%;
-    width: 3rem;
+    width: 6rem;
     color: ${props => props.theme.textColor};
+    && div {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 50%;
+        height: 100%;
+    }
+
     && a {
         display: flex;
         align-items: center;
         justify-content: space-around;
-        width: 100%;
+        width: 50%;
         height: 100%;
         text-decoration: none;
         color: ${props => props.theme.textColor};
     }
-    &&:hover {
-        background: ${props =>
-            props.hoverBg ? props.hoverBg : props.theme.secundary};
-        color: ${props => (props.hoverColor ? props.hoverColor : "")};
+
+    && div:hover {
+        background: ${props => props.theme.secundary};
+    }
+
+    && :nth-child(2):hover {
+        background: #ff0000;
     }
 `;
 

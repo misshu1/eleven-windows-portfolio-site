@@ -7,7 +7,6 @@ const OpenAppsContainer = styled.div`
         flex: 1;
         align-items: center;
         justify-content: left;
-        background: blue;
         height: 100%;
     }
 `;

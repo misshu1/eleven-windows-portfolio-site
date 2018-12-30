@@ -2,6 +2,8 @@ import React from "react";
 import Taskbar from "./taskbarStructure/Taskbar";
 import OpenAppsContainer from "./taskbarStructure/OpenAppsContainer";
 import LogoContainer from "./taskbarStructure/LogoContainer";
+import Logo from "./taskbarStructure/Logo";
+import BorderLogo from "./taskbarStructure/BorderLogo";
 import HomeButtonContainer from "./taskbarStructure/HomeButtonContainer";
 import ClockContainer from "./taskbarStructure/ClockContainer";
 import BackButtonContainer from "./taskbarStructure/BackButtonContainer";
@@ -11,10 +13,21 @@ const TaskbarApp = props => {
     return (
         <Taskbar>
             <HomeButtonContainer>home</HomeButtonContainer>
+
             <LogoContainer onClick={props.startMenuClickHandler}>
-                logo
+                <BorderLogo>
+                    {/* This 4 spans are used for border animation inside BorderLogo component */}
+                    <span />
+                    <span />
+                    <span />
+                    <span />
+                    <Logo
+                        src={require("./taskbarStructure/img/small-logo.svg")}
+                        alt="logo"
+                    />
+                </BorderLogo>{" "}
             </LogoContainer>
-            <OpenAppsContainer>open</OpenAppsContainer>
+            <OpenAppsContainer> </OpenAppsContainer>
             <ClockContainer>
                 <Clock />
             </ClockContainer>

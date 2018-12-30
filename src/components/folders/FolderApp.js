@@ -15,9 +15,9 @@ const FolderApp = () => {
             <NameBar>
                 <Name> nume aici random </Name>
                 <Buttons>
-                    <FontAwesomeIcon icon="window-minimize" size="sm" />
-                </Buttons>
-                <Buttons hoverBg="#ff0000">
+                    <div>
+                        <FontAwesomeIcon icon="window-minimize" size="sm" />
+                    </div>
                     <Link to="/">
                         <FontAwesomeIcon icon="times" size="lg" />
                     </Link>

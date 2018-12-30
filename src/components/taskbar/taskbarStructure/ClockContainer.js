@@ -7,9 +7,9 @@ const ClockContainer = styled.div`
         align-items: center;
         text-align: center;
         justify-content: center;
-        background: yellow;
         height: 100%;
         width: 7rem;
+        color: ${props => props.theme.textColor};
     }
 `;
 
