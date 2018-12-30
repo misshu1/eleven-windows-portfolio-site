@@ -11,9 +11,13 @@ const Icon = styled.div`
     height: 5.5rem;
     border: 1px solid transparent;
     &&:hover {
+        background: rgba(174, 192, 229, 0.2);
+        border: 1px solid rgb(220, 227, 242, 0.5);
+        cursor: pointer;
+    }
+    &&:focus {
         background: rgba(174, 192, 229, 0.4);
         border: 1px solid rgb(220, 227, 242, 0.7);
-        cursor: pointer;
     }
 `;
 

@@ -41,7 +41,7 @@ const FolderApp = () => {
             </MenuBar>
             <Route
                 exact
-                path="/mystuff/primul"
+                path="/mystuff/projects"
                 render={() => (
                     <Icon className="icon-container">
                         <img
@@ -51,7 +51,7 @@ const FolderApp = () => {
                             width="80px"
                             height="60px"
                         />
-                        <div>Projects</div>
+                        <div>Memory Game</div>
                     </Icon>
                 )}
             />
