@@ -6,7 +6,6 @@ const HomeButtonContainer = styled.div`
     justify-content: center;
     width: 33.33%;
     height: 100%;
-    background: red;
     @media (min-width: 450px) {
         display: none;
     }
