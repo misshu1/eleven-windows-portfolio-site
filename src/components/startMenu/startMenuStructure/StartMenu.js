@@ -2,9 +2,11 @@ import styled, { keyframes } from "styled-components";
 
 const slideUp = keyframes`
 0% {
-    transform: translateY(100%);
+    opacity: 0;
+    transform: translateY(10%);
 }
 100% {
+    opacity: 1;
     transform: translateY(0);
 }
 `;
@@ -19,7 +21,7 @@ const StartMenu = styled.section`
     height: calc(100vh - 3.5rem);
     background: ${props => props.theme.primary};
     z-index: 150;
-    animation: ${slideUp} 0.3s ease-out 1 forwards;
+    animation: ${slideUp} 0.4s ease-out 1 forwards;
 
     @media (min-width: 450px) {
         height: 80%;

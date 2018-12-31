@@ -4,23 +4,19 @@ import history from "./history";
 import { ThemeProvider } from "styled-components";
 import FolderApp from "./components/folders/FolderApp";
 import TaskbarApp from "./components/taskbar/TaskbarApp";
-
+import StartMenuApp from "./components/startMenu/StartMenuApp";
 import Desktop from "./components/desktop/Desktop";
 import Icon from "./components/desktop/Icon";
-import LargeWidgetsContainer from "./components/startMenu/LargeWidgetsContainer";
-import SmallWidgetsContainer from "./components/startMenu/SmallWidgetsContainer";
-import StartMenu from "./components/startMenu/StartMenu";
-import Widget from "./components/startMenu/Widget";
 import LightTheme from "./components/theme/Light";
 import DarkTheme from "./components/theme/Dark";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faLongArrowAltLeft,
     faWindowMinimize,
-    faTimes
+    faTimes,
+    faCog
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faLongArrowAltLeft, faWindowMinimize, faTimes);
+library.add(faLongArrowAltLeft, faWindowMinimize, faTimes, faCog);
 
 class App extends Component {
     state = {
@@ -43,23 +39,6 @@ class App extends Component {
         }
     };
 
-    resizeIcons = (num, imgWidth, imgHeigth) => {
-        const iconContainer = document.querySelectorAll(".icon-container");
-        const iconImg = document.querySelectorAll(".icon-img");
-        const imgSize = iconImg.forEach(
-            item =>
-                (item.style.width = imgWidth + "rem") &&
-                (item.style.height = imgHeigth + "rem")
-        );
-        const containerSize = iconContainer.forEach(
-            item =>
-                (item.style.width = num + "rem") &&
-                (item.style.height = num + "rem")
-        );
-
-        return containerSize && imgSize;
-    };
-
     activeWindow(newActive) {
         const newObj = {};
         Object.keys(this.state.windowIndex).forEach(() => {
@@ -68,6 +47,7 @@ class App extends Component {
         const activeWindow = Object.assign({}, newObj, { [newActive]: 104 });
         this.setState({ windowIndex: activeWindow });
     }
+
     openUrlMobile = url => {
         // Opens on mobile with onClick
         if (window.matchMedia("(max-width: 900px)").matches) {
@@ -127,16 +107,13 @@ class App extends Component {
                                     tabIndex="2"
                                     className="icon-container"
                                     onClick={() =>
-                                        this.openUrlMobile("/mystuff/projects")
+                                        this.openUrlMobile("/documents")
                                     }
                                     onDoubleClick={() =>
-                                        this.openUrlDesktop("/mystuff/projects")
+                                        this.openUrlDesktop("/documents")
                                     }
                                     onKeyPress={(e, url) =>
-                                        this.handleKeyPress(
-                                            e,
-                                            "/mystuff/projects"
-                                        )
+                                        this.handleKeyPress(e, "/documents")
                                     }
                                 >
                                     <img
@@ -146,7 +123,7 @@ class App extends Component {
                                         width="80px"
                                         height="60px"
                                     />
-                                    <div>Projects</div>
+                                    <div>Documents</div>
                                 </Icon>
                                 <Icon
                                     tabIndex="3"
@@ -165,27 +142,6 @@ class App extends Component {
                                     />
                                     <div>About</div>
                                 </Icon>
-                                {/* <button
-                                    onClick={() =>
-                                        this.resizeIcons(4, 3.43, 2.56)
-                                    }
-                                >
-                                    size 4
-                                </button>
-                                <button
-                                    onClick={() =>
-                                        this.resizeIcons(5.5, 5, 3.75)
-                                    }
-                                >
-                                    default
-                                </button>
-                                <button
-                                    onClick={() =>
-                                        this.resizeIcons(8, 7.5, 5.62)
-                                    }
-                                >
-                                    size 8
-                                </button> */}
                                 {/* <div
                             style={{
                                 position: "absolute",
@@ -211,34 +167,7 @@ class App extends Component {
                             onClick={() => this.activeWindow(2)}
                         /> */}
                             </Desktop>
-                            <StartMenu display={startMenuOpen}>
-                                <SmallWidgetsContainer />
-                                <LargeWidgetsContainer>
-                                    <Widget style={{ gridArea: "widget-j" }}>
-                                        widget J
-                                    </Widget>
-                                    <Widget style={{ gridArea: "widget-M" }} />
-                                    <Widget style={{ gridArea: "widget-z" }} />
-                                    <Widget style={{ gridArea: "widget-x" }} />
-                                    <Widget style={{ gridArea: "widget-c" }} />
-                                    <Widget style={{ gridArea: "widget-v" }} />
-                                    <Widget style={{ gridArea: "widget-L" }}>
-                                        Contact
-                                    </Widget>
-                                    <Widget style={{ gridArea: "widget-e" }}>
-                                        widget e
-                                    </Widget>
-                                    <Widget style={{ gridArea: "widget-r" }}>
-                                        widget r
-                                    </Widget>
-                                    <Widget style={{ gridArea: "widget-q" }}>
-                                        widget e
-                                    </Widget>
-                                    <Widget style={{ gridArea: "widget-w" }}>
-                                        widget r
-                                    </Widget>
-                                </LargeWidgetsContainer>
-                            </StartMenu>
+                            <StartMenuApp startMenuOpen={startMenuOpen} />
                             <TaskbarApp
                                 startMenuClickHandler={
                                     this.startMenuClickHandler
