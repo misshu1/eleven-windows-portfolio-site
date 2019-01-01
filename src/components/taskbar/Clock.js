@@ -29,6 +29,7 @@ class Clock extends Component {
 
     render() {
         const { h, m, year, month, day } = this.state;
+        let currentDay = day;
         let hours = h;
         let minutes = m;
         let session = " AM";
@@ -47,20 +48,23 @@ class Clock extends Component {
             "Dec"
         ];
 
+        if (currentDay < 10) {
+            currentDay = "0" + day;
+        }
         if (minutes < 10) {
             minutes = "0" + m;
         }
         if (hours > 12) {
             hours = hours - 12;
             session = " PM";
-        } else if (hours == 0) {
+        } else if (hours === 0) {
             hours = 12;
         }
 
         return (
             <React.Fragment>
                 {hours + ":" + minutes + session} <br />
-                {day + "-" + currentMonth[month] + "-" + year}
+                {currentDay + "-" + currentMonth[month] + "-" + year}
             </React.Fragment>
         );
     }

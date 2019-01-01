@@ -9,9 +9,12 @@ import Buttons from "../folders/folderStructure/nameBar/Buttons";
 import Icon from "../desktop/Icon";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const FolderApp = () => {
+const FolderApp = props => {
     return (
-        <Folder>
+        <Folder
+            style={{ zIndex: props.windowIndex[2] }}
+            onClick={() => props.activeWindow(2)}
+        >
             <NameBar>
                 <Name> nume aici random </Name>
                 <Buttons>

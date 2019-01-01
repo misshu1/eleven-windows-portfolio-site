@@ -14,9 +14,31 @@ import {
     faLongArrowAltLeft,
     faWindowMinimize,
     faTimes,
-    faCog
+    faCog,
+    faGem,
+    faPaperPlane,
+    faAnchor,
+    faBolt,
+    faCube,
+    faLeaf,
+    faBicycle,
+    faBomb
 } from "@fortawesome/free-solid-svg-icons";
-library.add(faLongArrowAltLeft, faWindowMinimize, faTimes, faCog);
+import MemoryGameApp from "./components/folders/memoryGame/MemoryGameApp";
+library.add(
+    faLongArrowAltLeft,
+    faWindowMinimize,
+    faTimes,
+    faCog,
+    faGem,
+    faPaperPlane,
+    faAnchor,
+    faBolt,
+    faCube,
+    faLeaf,
+    faBicycle,
+    faBomb
+);
 
 class App extends Component {
     state = {
@@ -44,8 +66,8 @@ class App extends Component {
         Object.keys(this.state.windowIndex).forEach(() => {
             newObj.key = 100;
         });
-        const activeWindow = Object.assign({}, newObj, { [newActive]: 104 });
-        this.setState({ windowIndex: activeWindow });
+        const activedWindow = Object.assign({}, newObj, { [newActive]: 104 });
+        this.setState({ windowIndex: activedWindow });
     }
 
     openUrlMobile = url => {
@@ -79,8 +101,21 @@ class App extends Component {
                             <Desktop onClick={this.closeStartMenu}>
                                 <Route
                                     path="/mystuff"
-                                    render={() => <FolderApp />}
+                                    render={() => (
+                                        <FolderApp
+                                            windowIndex={this.state.windowIndex}
+                                            activeWindow={this.activeWindow.bind(
+                                                this
+                                            )}
+                                        />
+                                    )}
                                 />
+
+                                <MemoryGameApp
+                                    windowIndex={this.state.windowIndex}
+                                    activeWindow={this.activeWindow.bind(this)}
+                                />
+
                                 <Icon
                                     tabIndex="1"
                                     onClick={() =>

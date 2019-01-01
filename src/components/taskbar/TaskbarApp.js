@@ -14,7 +14,7 @@ const TaskbarApp = props => {
         <Taskbar>
             <HomeButtonContainer>home</HomeButtonContainer>
 
-            <LogoContainer onClick={props.startMenuClickHandler}>
+            <LogoContainer onClick={props.startMenuClickHandler} title="Start">
                 <BorderLogo>
                     {/* This 4 spans are used for border animation inside BorderLogo component */}
                     <span />
