@@ -9,29 +9,185 @@ import Deck from "./style/Deck";
 import Card from "./style/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+let cards = [
+    { id: 1, name: "gem", open: false, match: false },
+    { id: 1, name: "gem", open: false, match: false },
+    { id: 2, name: "paper-plane", open: false, match: false },
+    { id: 2, name: "paper-plane", open: false, match: false },
+    { id: 3, name: "anchor", open: false, match: false },
+    { id: 3, name: "anchor", open: false, match: false },
+    { id: 4, name: "bolt", open: false, match: false },
+    { id: 4, name: "bolt", open: false, match: false },
+    { id: 5, name: "cube", open: false, match: false },
+    { id: 5, name: "cube", open: false, match: false },
+    { id: 6, name: "leaf", open: false, match: false },
+    { id: 6, name: "leaf", open: false, match: false },
+    { id: 7, name: "bicycle", open: false, match: false },
+    { id: 7, name: "bicycle", open: false, match: false },
+    { id: 8, name: "bomb", open: false, match: false },
+    { id: 8, name: "bomb", open: false, match: false }
+];
+
 let openCards = [];
-let cards = [];
+let selected = [];
 class MemoryGameApp extends Component {
     state = {
-        cards: [
-            { name: "gem", open: false, match: false },
-            { name: "gem", open: false, match: false },
-            { name: "paper-plane", open: false, match: false },
-            { name: "paper-plane", open: false, match: false },
-            { name: "anchor", open: false, match: false },
-            { name: "anchor", open: false, match: false },
-            { name: "bolt", open: false, match: false },
-            { name: "bolt", open: false, match: false },
-            { name: "cube", open: false, match: false },
-            { name: "cube", open: false, match: false },
-            { name: "leaf", open: false, match: false },
-            { name: "leaf", open: false, match: false },
-            { name: "bicycle", open: false, match: false },
-            { name: "bicycle", open: false, match: false },
-            { name: "bomb", open: false, match: false },
-            { name: "bomb", open: false, match: false }
-        ],
-        openCards: []
+        cards: []
+    };
+
+    componentWillMount() {
+        const deck = this.shuffle(cards);
+        this.setState({ cards: deck });
+    }
+
+    createCards = () => {
+        const create = this.state.cards.map((card, index) => (
+            <Card
+                key={index}
+                onClick={this.ceckCards}
+                id={card.name + " " + index}
+                open={card.open}
+                match={card.match}
+            >
+                <FontAwesomeIcon icon={card.name} />
+            </Card>
+        ));
+        return create;
+    };
+
+    ceckCards = e => {
+        if (openCards.length < 2) {
+            openCards.push(e.target.id);
+            selected = [];
+            selected.push(e.target.id);
+            console.log(this.state.cards);
+            for (let i = 0; i < this.state.cards.length; i++) {
+                if (selected[0].includes(i) === true) {
+                    let selectedCard = selected[0].match(/\d/g).join("");
+                    this.setState(prevState => ({
+                        cards: prevState.cards.map((obj, index) =>
+                            index === Number(selectedCard)
+                                ? Object.assign(obj, { open: true })
+                                : obj
+                        )
+                    }));
+                }
+                if (openCards.length === 2) {
+                    let first = String(openCards[0].replace(/[0-9]/g, ""));
+                    let second = String(openCards[1].replace(/[0-9]/g, ""));
+                    if (first === second) {
+                        if (openCards[0].includes(first) === true) {
+                            let selectedCard = openCards[0]
+                                .match(/\d/g)
+                                .join("");
+                            this.setState(prevState => ({
+                                cards: prevState.cards.map((obj, index) =>
+                                    index === Number(selectedCard)
+                                        ? Object.assign(obj, { match: true })
+                                        : obj
+                                )
+                            }));
+                        }
+                        if (openCards[1].includes(second) === true) {
+                            let selectedCard = openCards[1]
+                                .match(/\d/g)
+                                .join("");
+                            this.setState(prevState => ({
+                                cards: prevState.cards.map((obj, index) =>
+                                    index === Number(selectedCard)
+                                        ? Object.assign(obj, { match: true })
+                                        : obj
+                                )
+                            }));
+                        }
+
+                        console.log("match");
+
+                        openCards = [];
+                    } else {
+                        console.log("fail");
+                        setTimeout(() => {
+                            if (openCards[0].includes(first) === true) {
+                                let selectedCard = openCards[0]
+                                    .match(/\d/g)
+                                    .join("");
+                                this.setState(prevState => ({
+                                    cards: prevState.cards.map((obj, index) =>
+                                        index === Number(selectedCard)
+                                            ? Object.assign(obj, {
+                                                  open: false
+                                              })
+                                            : obj
+                                    )
+                                }));
+                            }
+                            if (openCards[1].includes(second) === true) {
+                                let selectedCard = openCards[1]
+                                    .match(/\d/g)
+                                    .join("");
+                                this.setState(prevState => ({
+                                    cards: prevState.cards.map((obj, index) =>
+                                        index === Number(selectedCard)
+                                            ? Object.assign(obj, {
+                                                  open: false
+                                              })
+                                            : obj
+                                    )
+                                }));
+                            }
+                        }, 600);
+                        setTimeout(() => {
+                            openCards = [];
+                        }, 650);
+                    }
+                }
+            }
+            // for (let i = 0; i < this.state.cards.length; i++) {
+            //     if (this.state.selected.includes(i) === true) {
+            //         let selectedCard = this.state.selected
+            //             .match(/\d/g)
+            //             .join("");
+            //         this.setState(prevState => ({
+            //             cards: prevState.cards.map((obj, index) =>
+            //                 index === Number(selectedCard)
+            //                     ? Object.assign(obj, { open: true })
+            //                     : obj
+            //             )
+            //         }));
+            //     }
+            // }
+
+            // if (openCards.length === 2) {
+            //     if (openCards[0] === openCards[1]) {
+            //         console.log("match");
+
+            //         openCards = [];
+            //     } else {
+            //         console.log("fail");
+
+            //         setTimeout(() => {
+            //             openCards = [];
+            //         }, 500);
+            //     }
+            // }
+        }
+    };
+
+    // Shuffle function from http://stackoverflow.com/a/2450976
+    shuffle = array => {
+        let currentIndex = array.length,
+            temporaryValue,
+            randomIndex;
+
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
     };
 
     render() {
@@ -59,7 +215,7 @@ class MemoryGameApp extends Component {
                 </NameBar>
                 <BackgroundContainer>
                     <Container>
-                        <Deck> </Deck>
+                        <Deck>{this.createCards()}</Deck>
                     </Container>
                 </BackgroundContainer>
             </Folder>
