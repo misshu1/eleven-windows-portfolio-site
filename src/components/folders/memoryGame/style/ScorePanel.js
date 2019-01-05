@@ -2,10 +2,10 @@ import styled from "styled-components";
 
 const ScorePanel = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     width: 100%;
-    margin: 0.6rem 0;
+    padding: 1rem;
 
     && :nth-child(1) {
         display: flex;
@@ -25,6 +25,9 @@ const ScorePanel = styled.div`
         width: fit-content;
         border-radius: 5px;
         cursor: pointer;
+    }
+    @media (min-width: 660px) {
+        width: 30rem;
     }
 `;
 

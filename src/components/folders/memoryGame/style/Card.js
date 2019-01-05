@@ -1,15 +1,17 @@
 import styled from "styled-components";
 
 const Card = styled.li`
+    box-sizing: border-box;
     height: 6.5rem;
     width: 6.5rem;
     background: #2e3d49;
     font-size: 1.56rem;
     border-radius: 8px;
-    padding: 0.5rem;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
+    list-style: none;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
 
     /* Open card styles */
@@ -30,12 +32,8 @@ const Card = styled.li`
     font-size: ${props => (props.match ? "2rem" : "")};
     pointer-events: ${props => (props.open ? "none" : "")};
     @media (max-width: 660px) {
-        max-height: 13.5vw;
-        max-width: 13.5vw;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 1vw;
+        max-height: 16vw;
+        max-width: 16vw;
     }
 `;
 
