@@ -7,6 +7,7 @@ const BackgroundContainer = styled.div`
     background: url(${bg}) no-repeat;
     background-position: center;
     background-size: cover;
+    color: #fff;
 `;
 
 export default BackgroundContainer;

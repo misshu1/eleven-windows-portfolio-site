@@ -7,9 +7,11 @@ import BackgroundContainer from "./style/BackgroundContainer";
 import Container from "./style/Container";
 import Deck from "./style/Deck";
 import Card from "./style/Card";
+import ResultPopUp from "./style/ResultPopUp";
+import ScorePanel from "./style/ScorePanel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-let cards = [
+const cards = [
     { id: 1, name: "gem", open: false, match: false },
     { id: 1, name: "gem", open: false, match: false },
     { id: 2, name: "paper-plane", open: false, match: false },
@@ -30,14 +32,22 @@ let cards = [
 
 let openCards = [];
 let selected = [];
+let timer = null;
 class MemoryGameApp extends Component {
     state = {
-        cards: []
+        cards: [...cards],
+        moves: 0,
+        minutes: 0,
+        seconds: 0
     };
 
     componentWillMount() {
         const deck = this.shuffle(cards);
-        this.setState({ cards: deck });
+        this.setState({ cards: [...deck] });
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer);
     }
 
     createCards = () => {
@@ -60,10 +70,11 @@ class MemoryGameApp extends Component {
             openCards.push(e.target.id);
             selected = [];
             selected.push(e.target.id);
-            console.log(this.state.cards);
+            this.movesCounter(1);
             for (let i = 0; i < this.state.cards.length; i++) {
                 if (selected[0].includes(i) === true) {
-                    let selectedCard = selected[0].match(/\d/g).join("");
+                    // Get the id of the card without the card name
+                    const selectedCard = selected[0].match(/\d/g).join("");
                     this.setState(prevState => ({
                         cards: prevState.cards.map((obj, index) =>
                             index === Number(selectedCard)
@@ -72,12 +83,15 @@ class MemoryGameApp extends Component {
                         )
                     }));
                 }
+
                 if (openCards.length === 2) {
-                    let first = String(openCards[0].replace(/[0-9]/g, ""));
-                    let second = String(openCards[1].replace(/[0-9]/g, ""));
+                    // Get the card name without the id
+                    const first = String(openCards[0].replace(/[0-9]/g, ""));
+                    const second = String(openCards[1].replace(/[0-9]/g, ""));
+
                     if (first === second) {
                         if (openCards[0].includes(first) === true) {
-                            let selectedCard = openCards[0]
+                            const selectedCard = openCards[0]
                                 .match(/\d/g)
                                 .join("");
                             this.setState(prevState => ({
@@ -88,8 +102,9 @@ class MemoryGameApp extends Component {
                                 )
                             }));
                         }
+
                         if (openCards[1].includes(second) === true) {
-                            let selectedCard = openCards[1]
+                            const selectedCard = openCards[1]
                                 .match(/\d/g)
                                 .join("");
                             this.setState(prevState => ({
@@ -100,15 +115,11 @@ class MemoryGameApp extends Component {
                                 )
                             }));
                         }
-
-                        console.log("match");
-
                         openCards = [];
                     } else {
-                        console.log("fail");
                         setTimeout(() => {
                             if (openCards[0].includes(first) === true) {
-                                let selectedCard = openCards[0]
+                                const selectedCard = openCards[0]
                                     .match(/\d/g)
                                     .join("");
                                 this.setState(prevState => ({
@@ -121,8 +132,9 @@ class MemoryGameApp extends Component {
                                     )
                                 }));
                             }
+
                             if (openCards[1].includes(second) === true) {
-                                let selectedCard = openCards[1]
+                                const selectedCard = openCards[1]
                                     .match(/\d/g)
                                     .join("");
                                 this.setState(prevState => ({
@@ -142,35 +154,31 @@ class MemoryGameApp extends Component {
                     }
                 }
             }
-            // for (let i = 0; i < this.state.cards.length; i++) {
-            //     if (this.state.selected.includes(i) === true) {
-            //         let selectedCard = this.state.selected
-            //             .match(/\d/g)
-            //             .join("");
-            //         this.setState(prevState => ({
-            //             cards: prevState.cards.map((obj, index) =>
-            //                 index === Number(selectedCard)
-            //                     ? Object.assign(obj, { open: true })
-            //                     : obj
-            //             )
-            //         }));
-            //     }
-            // }
-
-            // if (openCards.length === 2) {
-            //     if (openCards[0] === openCards[1]) {
-            //         console.log("match");
-
-            //         openCards = [];
-            //     } else {
-            //         console.log("fail");
-
-            //         setTimeout(() => {
-            //             openCards = [];
-            //         }, 500);
-            //     }
-            // }
         }
+    };
+
+    timeCounter = () => {
+        timer = setInterval(() => {
+            this.setState({ seconds: this.state.seconds + 1 });
+            if (this.state.seconds === 60) {
+                this.setState({ minutes: this.state.minutes + 1, seconds: 0 });
+            }
+        }, 1000);
+    };
+
+    movesCounter = num => {
+        this.setState(prevState => ({
+            moves: prevState.moves + num
+        }));
+        if (this.state.moves === 1) {
+            this.timeCounter();
+        }
+    };
+
+    restartGame = () => {
+        //    Some stuff here
+        this.setState({ moves: 0, minutes: 0, seconds: 0 });
+        clearInterval(timer);
     };
 
     // Shuffle function from http://stackoverflow.com/a/2450976
@@ -191,6 +199,7 @@ class MemoryGameApp extends Component {
     };
 
     render() {
+        const { moves, seconds, minutes } = this.state;
         return (
             <Folder
                 style={{
@@ -215,7 +224,73 @@ class MemoryGameApp extends Component {
                 </NameBar>
                 <BackgroundContainer>
                     <Container>
+                        <ScorePanel>
+                            <ul>
+                                <li style={{ color: "yellow" }}>
+                                    <FontAwesomeIcon icon="star" size="lg" />
+                                </li>
+                                <li
+                                    style={
+                                        moves > 40
+                                            ? { color: "#fff" }
+                                            : { color: "yellow" }
+                                    }
+                                >
+                                    <FontAwesomeIcon icon="star" size="lg" />
+                                </li>
+                                <li
+                                    style={
+                                        moves > 32
+                                            ? { color: "#fff" }
+                                            : { color: "yellow" }
+                                    }
+                                >
+                                    <FontAwesomeIcon icon="star" size="lg" />
+                                </li>
+                            </ul>
+                            <span>{moves} Moves</span>
+                            <span>
+                                {minutes > 0 ? minutes : 0} {" : "}
+                                {seconds > 0 ? seconds : 0}
+                            </span>
+                            <div onClick={this.restartGame}>Restart Game</div>
+                        </ScorePanel>
                         <Deck>{this.createCards()}</Deck>
+                        <ResultPopUp style={{ display: "none" }}>
+                            <h2>Well done!</h2>
+                            <p>Completed in {moves} moves.</p>
+                            Time:{" "}
+                            <span>
+                                {minutes > 0 ? minutes : 0} {" : "}
+                                {seconds > 0 ? seconds : 0}
+                            </span>
+                            <ul>
+                                <li style={{ color: "yellow" }}>
+                                    <FontAwesomeIcon icon="star" size="lg" />
+                                </li>
+                                <li
+                                    style={
+                                        moves > 40
+                                            ? { color: "#fff" }
+                                            : { color: "yellow" }
+                                    }
+                                >
+                                    <FontAwesomeIcon icon="star" size="lg" />
+                                </li>
+                                <li
+                                    style={
+                                        moves > 32
+                                            ? { color: "#fff" }
+                                            : { color: "yellow" }
+                                    }
+                                >
+                                    <FontAwesomeIcon icon="star" size="lg" />
+                                </li>
+                            </ul>
+                            <button onClick={this.restartGame}>
+                                Play again!
+                            </button>
+                        </ResultPopUp>
                     </Container>
                 </BackgroundContainer>
             </Folder>

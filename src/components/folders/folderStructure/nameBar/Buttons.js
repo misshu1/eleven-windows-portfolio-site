@@ -35,6 +35,7 @@ const Buttons = styled.div`
         color: ${props => props.theme.textColor};
         background: ${props => props.theme.default};
         border: none;
+        outline: none;
     }
     && :nth-child(2):hover {
         background: #ff0000;

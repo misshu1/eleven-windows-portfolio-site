@@ -22,7 +22,8 @@ import {
     faCube,
     faLeaf,
     faBicycle,
-    faBomb
+    faBomb,
+    faStar
 } from "@fortawesome/free-solid-svg-icons";
 import MemoryGameApp from "./components/folders/memoryGame/MemoryGameApp";
 library.add(
@@ -37,7 +38,8 @@ library.add(
     faCube,
     faLeaf,
     faBicycle,
-    faBomb
+    faBomb,
+    faStar
 );
 
 class App extends Component {

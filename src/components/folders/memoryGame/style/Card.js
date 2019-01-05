@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 const Card = styled.li`
-    height: 7.8rem;
-    width: 7.8rem;
+    height: 6.5rem;
+    width: 6.5rem;
     background: #2e3d49;
     font-size: 1.56rem;
     border-radius: 8px;
@@ -29,6 +29,14 @@ const Card = styled.li`
     color: ${props => (props.match ? "#000" : "")};
     font-size: ${props => (props.match ? "2rem" : "")};
     pointer-events: ${props => (props.open ? "none" : "")};
+    @media (max-width: 660px) {
+        max-height: 13.5vw;
+        max-width: 13.5vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 1vw;
+    }
 `;
 
 export default Card;
