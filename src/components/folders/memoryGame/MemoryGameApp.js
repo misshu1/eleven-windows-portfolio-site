@@ -36,12 +36,19 @@ let timer = null;
 class MemoryGameApp extends Component {
     state = {
         cards: [...cards],
+        memoryGameOpen: true,
         moves: 0,
         minutes: 0,
         seconds: 0
     };
 
-    componentWillMount() {
+    static getDerivedStateFromProps(props, state) {
+        console.log(props.memoryGameOpen);
+
+        return { memoryGameOpen: props.memoryGameOpen };
+    }
+
+    componentDidMount() {
         const deck = this.shuffle(cards);
         this.setState({ cards: [...deck] });
     }
@@ -203,6 +210,7 @@ class MemoryGameApp extends Component {
         return (
             <Folder
                 style={{
+                    display: this.state.memoryGameOpen ? "block" : "none",
                     top: "50px",
                     left: "50px",
                     width: "90%",
@@ -217,7 +225,7 @@ class MemoryGameApp extends Component {
                         <div>
                             <FontAwesomeIcon icon="window-minimize" size="sm" />
                         </div>
-                        <button>
+                        <button onClick={this.props.closeMemoryGame}>
                             <FontAwesomeIcon icon="times" size="lg" />
                         </button>
                     </Buttons>

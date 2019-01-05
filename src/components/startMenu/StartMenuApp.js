@@ -6,10 +6,15 @@ import Widget from "./startMenuStructure/Widget";
 
 const StartMenuApp = props => {
     return (
-        <StartMenu display={props.startMenuOpen}>
+        <StartMenu display={props.startMenuOpen} onClick={props.closeStartMenu}>
             <SmallWidgetsContainer />
             <LargeWidgetsContainer>
-                <Widget style={{ gridArea: "widget-1" }}>widget 1</Widget>
+                <Widget
+                    onClick={props.startMemoryGame}
+                    style={{ gridArea: "widget-1" }}
+                >
+                    widget 1
+                </Widget>
                 <Widget style={{ gridArea: "widget-2" }}>widget 2</Widget>
                 <Widget style={{ gridArea: "widget-3" }}>widget 3</Widget>
                 <Widget style={{ gridArea: "widget-4" }}>widget 4</Widget>

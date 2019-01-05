@@ -45,10 +45,19 @@ library.add(
 class App extends Component {
     state = {
         startMenuOpen: false,
+        memoryGameOpen: false,
         windowIndex: {
             1: 100,
             2: 104
         }
+    };
+
+    startMemoryGame = () => {
+        this.setState({ memoryGameOpen: true });
+    };
+
+    closeMemoryGame = () => {
+        this.setState({ memoryGameOpen: false });
     };
 
     startMenuClickHandler = () => {
@@ -116,6 +125,8 @@ class App extends Component {
                                 <MemoryGameApp
                                     windowIndex={this.state.windowIndex}
                                     activeWindow={this.activeWindow.bind(this)}
+                                    memoryGameOpen={this.state.memoryGameOpen}
+                                    closeMemoryGame={this.closeMemoryGame}
                                 />
 
                                 <Icon
@@ -204,7 +215,11 @@ class App extends Component {
                             onClick={() => this.activeWindow(2)}
                         /> */}
                             </Desktop>
-                            <StartMenuApp startMenuOpen={startMenuOpen} />
+                            <StartMenuApp
+                                closeStartMenu={this.closeStartMenu}
+                                startMenuOpen={startMenuOpen}
+                                startMemoryGame={this.startMemoryGame}
+                            />
                             <TaskbarApp
                                 startMenuClickHandler={
                                     this.startMenuClickHandler

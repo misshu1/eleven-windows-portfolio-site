@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 const Card = styled.li`
     box-sizing: border-box;
-    height: 6.5rem;
-    width: 6.5rem;
+    height: 7rem;
+    width: 7rem;
     background: #2e3d49;
     font-size: 1.56rem;
     border-radius: 8px;
