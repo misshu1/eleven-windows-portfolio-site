@@ -38,6 +38,7 @@ const LargeWidgetsContainer = styled.div`
     padding: 1rem;
     width: 100%;
     background: ${props => props.theme.primary};
+
     @media (min-width: 450px) {
         width: calc(100% + 5rem);
     }

@@ -25,6 +25,12 @@ import {
     faBomb,
     faStar
 } from "@fortawesome/free-solid-svg-icons";
+import {
+    faLinkedin,
+    faGithubSquare,
+    faInstagram,
+    faCodepen
+} from "@fortawesome/free-brands-svg-icons";
 import MemoryGameApp from "./components/folders/memoryGame/MemoryGameApp";
 library.add(
     faLongArrowAltLeft,
@@ -39,7 +45,11 @@ library.add(
     faLeaf,
     faBicycle,
     faBomb,
-    faStar
+    faStar,
+    faLinkedin,
+    faGithubSquare,
+    faCodepen,
+    faInstagram
 );
 
 class App extends Component {
