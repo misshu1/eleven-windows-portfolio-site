@@ -190,30 +190,6 @@ class App extends Component {
                                     />
                                     <div>About</div>
                                 </Icon>
-                                {/* <div
-                            style={{
-                                position: "absolute",
-                                width: "500px",
-                                height: "500px",
-                                top: "300px",
-                                left: "500px",
-                                background: "black",
-                                zIndex: this.state.windowIndex[1]
-                            }}
-                            onClick={() => this.activeWindow(1)}
-                        />
-                        <div
-                            style={{
-                                position: "absolute",
-                                width: "500px",
-                                height: "500px",
-                                top: "200px",
-                                left: "550px",
-                                background: "green",
-                                zIndex: this.state.windowIndex[2]
-                            }}
-                            onClick={() => this.activeWindow(2)}
-                        /> */}
                             </Desktop>
                             <StartMenuApp
                                 closeStartMenu={this.closeStartMenu}

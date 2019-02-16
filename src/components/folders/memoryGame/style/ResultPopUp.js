@@ -3,6 +3,7 @@ import styled from "styled-components";
 const ResultPopUp = styled.div`
     background: rgba(0, 0, 0, 0.7);
     position: absolute;
+    display: ${props => (props.matchedCards === 16 ? "box" : "none")};
     box-sizing: border-box;
     margin: 0 auto;
     border-radius: 1rem;
@@ -10,7 +11,6 @@ const ResultPopUp = styled.div`
     padding: 2rem;
     width: 90%;
     height: 70%;
-    z-index: 150;
     && ul {
         list-style: none;
         display: flex;
