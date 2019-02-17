@@ -28,7 +28,7 @@ const TaskbarApp = props => {
                 </BorderLogo>{" "}
             </LogoContainer>
             <OpenAppsContainer> </OpenAppsContainer>
-            <ClockContainer>
+            <ClockContainer onClick={props.calendarClickHandler}>
                 <Clock />
             </ClockContainer>
             <BackButtonContainer>back</BackButtonContainer>

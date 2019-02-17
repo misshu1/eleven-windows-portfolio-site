@@ -16,9 +16,15 @@ const StartMenuApp = props => {
                 >
                     <span>Memory Game</span>
                 </Widget>
-                <Widget style={{ gridArea: "widget-2" }}>widget 2</Widget>
-                <Widget style={{ gridArea: "widget-3" }}>widget 3</Widget>
-                <Widget style={{ gridArea: "widget-4" }}>widget 4</Widget>
+                <Widget style={{ gridArea: "widget-2" }}>
+                    widget 2 calendar
+                </Widget>
+                <Widget style={{ gridArea: "widget-3" }}>
+                    widget 3 calculator
+                </Widget>
+                <Widget style={{ gridArea: "widget-4" }}>
+                    widget 4 resume
+                </Widget>
                 <Widget style={{ gridArea: "widget-5" }} title="github">
                     <a
                         href="https://github.com/misshu1"
@@ -75,9 +81,15 @@ const StartMenuApp = props => {
                         </span>
                     </a>
                 </Widget>
-                <Widget style={{ gridArea: "widget-9" }}>widget 9</Widget>
-                <Widget style={{ gridArea: "widget-10" }}>widget 10</Widget>
-                <Widget style={{ gridArea: "widget-11" }}>widget 11</Widget>
+                <Widget style={{ gridArea: "widget-9" }}>
+                    widget 9 neighborhood map
+                </Widget>
+                <Widget style={{ gridArea: "widget-10" }}>
+                    widget 10 notepad
+                </Widget>
+                <Widget style={{ gridArea: "widget-11" }}>
+                    widget 11 weather app
+                </Widget>
             </LargeWidgetsContainer>
         </StartMenu>
     );
