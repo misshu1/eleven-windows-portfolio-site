@@ -20,7 +20,11 @@ const StartMenuApp = props => {
                 <Widget style={{ gridArea: "widget-3" }}>widget 3</Widget>
                 <Widget style={{ gridArea: "widget-4" }}>widget 4</Widget>
                 <Widget style={{ gridArea: "widget-5" }} title="github">
-                    <a href="https://github.com/misshu1" target="_blank">
+                    <a
+                        href="https://github.com/misshu1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <span>
                             <FontAwesomeIcon
                                 icon={["fab", "github-square"]}
@@ -30,7 +34,11 @@ const StartMenuApp = props => {
                     </a>
                 </Widget>
                 <Widget style={{ gridArea: "widget-6" }} title="codesandbox">
-                    <a href="https://codesandbox.io/u/misshu1" target="_blank">
+                    <a
+                        href="https://codesandbox.io/u/misshu1"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         <span>
                             <FontAwesomeIcon
                                 icon={["fab", "codepen"]}
@@ -43,6 +51,7 @@ const StartMenuApp = props => {
                     <a
                         href="https://www.linkedin.com/in/andreinedelus/"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <span>
                             <FontAwesomeIcon
@@ -56,6 +65,7 @@ const StartMenuApp = props => {
                     <a
                         href="https://www.instagram.com/andreinedelus.ro/"
                         target="_blank"
+                        rel="noopener noreferrer"
                     >
                         <span>
                             <FontAwesomeIcon

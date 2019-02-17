@@ -54,8 +54,8 @@ library.add(
 
 class App extends Component {
     state = {
-        startMenuOpen: false,
-        memoryGameOpen: false,
+        startMenuOpen: null,
+        memoryGameOpen: null,
         windowIndex: {
             1: 100,
             2: 104
@@ -155,9 +155,7 @@ class App extends Component {
                                     <img
                                         className="icon-img"
                                         src={require("./components/desktop/img/folder-icon.png")}
-                                        alt="test"
-                                        width="80px"
-                                        height="60px"
+                                        alt="my stuff"
                                     />
                                     <div>My Stuff</div>
                                 </Icon>
@@ -178,8 +176,6 @@ class App extends Component {
                                         className="icon-img"
                                         src={require("./components/desktop/img/folder-icon.png")}
                                         alt="test"
-                                        width="80px"
-                                        height="60px"
                                     />
                                     <div>Documents</div>
                                 </Icon>
@@ -195,8 +191,6 @@ class App extends Component {
                                         className="icon-img"
                                         src={require("./components/desktop/img/folder-icon.png")}
                                         alt="test"
-                                        width="80px"
-                                        height="60px"
                                     />
                                     <div>About</div>
                                 </Icon>
