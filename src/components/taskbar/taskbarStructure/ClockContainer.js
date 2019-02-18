@@ -4,6 +4,12 @@ const ClockContainer = styled.div`
     display: none;
     @media (min-width: 450px) {
         cursor: default;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
         display: flex;
         align-items: center;
         text-align: center;

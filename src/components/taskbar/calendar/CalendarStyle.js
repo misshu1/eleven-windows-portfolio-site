@@ -12,23 +12,10 @@ const CalendarStyle = styled.div`
         box-sizing: border-box;
         color: #d6d8de;
 
-        & *,
-        & *:before,
-        & *:after {
-            -moz-box-sizing: border-box;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-        }
         button {
             margin: 0;
             border: 1px solid transparent;
             outline: none;
-
-            &:enabled {
-                &:hover {
-                    cursor: pointer;
-                }
-            }
         }
         &__navigation {
             height: 2.75rem;
@@ -85,10 +72,6 @@ const CalendarStyle = styled.div`
             &__days {
                 &__day {
                     color: #fff;
-
-                    &--weekend {
-                        color: red;
-                    }
 
                     &--neighboringMonth {
                         color: rgb(150, 150, 150);

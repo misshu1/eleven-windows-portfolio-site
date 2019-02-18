@@ -216,18 +216,20 @@ class App extends Component {
                                     />
                                     <div>About</div>
                                 </Icon>
+                                <TaskbarApp
+                                    startMenuClickHandler={
+                                        this.startMenuClickHandler
+                                    }
+                                    calendarClickHandler={
+                                        this.calendarClickHandler
+                                    }
+                                />
                             </Desktop>
                             <CalendarApp calendarOpen={calendarOpen} />
                             <StartMenuApp
                                 closeStartMenu={this.closeStartMenu}
                                 startMenuOpen={startMenuOpen}
                                 startMemoryGame={this.startMemoryGame}
-                            />
-                            <TaskbarApp
-                                startMenuClickHandler={
-                                    this.startMenuClickHandler
-                                }
-                                calendarClickHandler={this.calendarClickHandler}
                             />
                         </React.Fragment>
                     )}

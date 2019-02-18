@@ -17,7 +17,7 @@ class CalendarApp extends Component {
     };
 
     calendar = value => this.setState({ value });
-
+    goToToday = () => this.setState({ value: new Date() });
     componentDidMount() {
         this.update = setInterval(this.update, 1000);
     }
@@ -88,16 +88,12 @@ class CalendarApp extends Component {
         return (
             <CalendarContainer display={this.props.calendarOpen}>
                 <ClockStyleCalendar>
-                    <span>{hours + ":" + minutes + ":" + seconds} </span>
+                    <span>{`${hours}:${minutes}:${seconds}`}</span>
                     <span>{session}</span>
-                    <span>
-                        {weekDay[wDay] +
-                            ", " +
-                            currentDay +
-                            " " +
-                            currentMonth[month] +
-                            ", " +
-                            year}
+                    <span onClick={this.goToToday}>
+                        {`${weekDay[wDay]}, ${currentDay} ${
+                            currentMonth[month]
+                        }, ${year}`}
                     </span>
                 </ClockStyleCalendar>
                 <CalendarStyle>
