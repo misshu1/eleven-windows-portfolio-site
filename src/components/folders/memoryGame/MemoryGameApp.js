@@ -36,7 +36,7 @@ let timer = null;
 class MemoryGameApp extends Component {
     state = {
         cards: [],
-        memoryGameOpen: null,
+        memoryGameOpen: "close",
         moves: 0,
         minutes: 0,
         seconds: 0,
@@ -56,6 +56,11 @@ class MemoryGameApp extends Component {
         clearInterval(this.timer);
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.memoryGameOpen !== prevProps.memoryGameOpen) {
+            this.props.activeWindow(1);
+        }
+    }
     createCards = () => {
         const create = this.state.cards.map((card, index) => (
             <Card
@@ -230,11 +235,18 @@ class MemoryGameApp extends Component {
     };
 
     render() {
-        const { moves, seconds, minutes } = this.state;
+        const {
+            moves,
+            seconds,
+            minutes,
+            memoryGameOpen,
+            matchedCards
+        } = this.state;
+
         return (
             <Folder
                 style={{
-                    display: this.state.memoryGameOpen ? "block" : "none",
+                    display: memoryGameOpen === "open" ? "block" : "none",
                     top: "50px",
                     left: "50px",
                     width: "90%",
@@ -258,9 +270,7 @@ class MemoryGameApp extends Component {
                     <Container>
                         <ScorePanel>
                             {/* Stop timer when all cards match */}
-                            {this.state.matchedCards === 16
-                                ? clearInterval(timer)
-                                : ""}
+                            {matchedCards === 16 ? clearInterval(timer) : ""}
                             <ul>
                                 <li style={{ color: "yellow" }}>
                                     <FontAwesomeIcon icon="star" size="lg" />
@@ -292,7 +302,7 @@ class MemoryGameApp extends Component {
                             <div onClick={this.restartGame}>Restart Game</div>
                         </ScorePanel>
                         <Deck>{this.createCards()}</Deck>
-                        <ResultPopUp matchedCards={this.state.matchedCards}>
+                        <ResultPopUp matchedCards={matchedCards}>
                             <h2>Well done!</h2>
                             <p>Completed in {moves} moves.</p>
                             <p>

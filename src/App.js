@@ -55,43 +55,43 @@ library.add(
 
 class App extends Component {
     state = {
-        startMenuOpen: null,
-        memoryGameOpen: null,
-        calendarOpen: null,
+        startMenuOpen: "close",
+        memoryGameOpen: "close",
+        calendarOpen: "close",
         windowIndex: {
             1: 100,
             2: 100
         }
     };
     startMemoryGame = () => {
-        this.setState({ memoryGameOpen: true });
+        this.setState({ memoryGameOpen: "open" });
     };
 
     closeMemoryGame = () => {
-        this.setState({ memoryGameOpen: false });
+        this.setState({ memoryGameOpen: "close" });
     };
 
     startMenuClickHandler = () => {
-        this.setState(prevState => {
-            return { startMenuOpen: !prevState.startMenuOpen };
-        });
+        this.state.startMenuOpen === "close"
+            ? this.setState({ startMenuOpen: "open" })
+            : this.setState({ startMenuOpen: "close" });
     };
 
     closeStartMenu = () => {
-        if (this.state.startMenuOpen === true) {
-            return this.setState({ startMenuOpen: false });
+        if (this.state.startMenuOpen === "open") {
+            return this.setState({ startMenuOpen: "close" });
         }
     };
 
     calendarClickHandler = () => {
-        this.setState(prevState => {
-            return { calendarOpen: !prevState.calendarOpen };
-        });
+        this.state.calendarOpen === "close"
+            ? this.setState({ calendarOpen: "open" })
+            : this.setState({ calendarOpen: "close" });
     };
 
     closeCalendar = () => {
-        if (this.state.calendarOpen === true) {
-            return this.setState({ calendarOpen: false });
+        if (this.state.calendarOpen === "open") {
+            return this.setState({ calendarOpen: "close" });
         }
     };
 

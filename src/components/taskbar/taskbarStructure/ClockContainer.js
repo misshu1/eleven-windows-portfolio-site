@@ -17,6 +17,9 @@ const ClockContainer = styled.div`
         height: 100%;
         width: 7rem;
         color: ${props => props.theme.textColor};
+        &&:hover {
+            background: rgba(100, 100, 100, 0.3);
+        }
     }
 `;
 
