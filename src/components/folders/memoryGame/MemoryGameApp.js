@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Folder from "../../folders/folderStructure/Folder";
 import NameBar from "../../folders/folderStructure/nameBar/NameBar";
 import Name from "../../folders/folderStructure/nameBar/Name";
@@ -245,7 +246,11 @@ class MemoryGameApp extends Component {
                         <div>
                             <FontAwesomeIcon icon="window-minimize" size="sm" />
                         </div>
-                        <button onClick={this.props.closeMemoryGame}>
+                        <button
+                            onClick={() =>
+                                this.props.closeApp("memoryGameOpen")
+                            }
+                        >
                             <FontAwesomeIcon icon="times" size="lg" />
                         </button>
                     </Buttons>
@@ -331,3 +336,10 @@ class MemoryGameApp extends Component {
 }
 
 export default MemoryGameApp;
+
+MemoryGameApp.propTypes = {
+    memoryGameOpen: PropTypes.string.isRequired,
+    activeWindow: PropTypes.func.isRequired,
+    windowIndex: PropTypes.object.isRequired,
+    closeApp: PropTypes.func.isRequired
+};

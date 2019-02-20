@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import Taskbar from "./taskbarStructure/Taskbar";
 import OpenAppsContainer from "./taskbarStructure/OpenAppsContainer";
 import LogoContainer from "./taskbarStructure/LogoContainer";
@@ -14,7 +15,10 @@ const TaskbarApp = props => {
         <Taskbar>
             <HomeButtonContainer>home</HomeButtonContainer>
 
-            <LogoContainer onClick={props.startMenuClickHandler} title="Start">
+            <LogoContainer
+                onClick={() => props.toggleAppVisibility("startMenuOpen")}
+                title="Start"
+            >
                 <BorderLogo>
                     {/* This 4 spans are used for border animation inside BorderLogo component */}
                     <span />
@@ -28,28 +32,18 @@ const TaskbarApp = props => {
                 </BorderLogo>{" "}
             </LogoContainer>
             <OpenAppsContainer> </OpenAppsContainer>
-            <ClockContainer onClick={props.calendarClickHandler}>
+            <ClockContainer
+                onClick={() => props.toggleAppVisibility("calendarOpen")}
+            >
                 <Clock />
             </ClockContainer>
             <BackButtonContainer>back</BackButtonContainer>
-
-            {/* <ButtonContainer />
-            <ButtonContainer>
-                <StartButtonImg
-                    src={logo}
-                    alt="logo"
-                    onClick={this.startMenuClickHandler}
-                />
-            </ButtonContainer>
-            <ButtonContainer>
-                <FontAwesomeIcon
-                    icon="long-arrow-alt-left"
-                    color="#000"
-                    size="2x"
-                />
-            </ButtonContainer> */}
         </Taskbar>
     );
 };
 
 export default TaskbarApp;
+
+TaskbarApp.propTypes = {
+    toggleAppVisibility: PropTypes.func.isRequired
+};

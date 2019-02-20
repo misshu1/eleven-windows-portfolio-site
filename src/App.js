@@ -63,35 +63,20 @@ class App extends Component {
             2: 100
         }
     };
-    startMemoryGame = () => {
-        this.setState({ memoryGameOpen: "open" });
+
+    toggleAppVisibility = key => {
+        this.state[key] === "close"
+            ? this.setState({ [key]: "open" })
+            : this.setState({ [key]: "close" });
     };
 
-    closeMemoryGame = () => {
-        this.setState({ memoryGameOpen: "close" });
+    startApp = key => {
+        this.setState({ [key]: "open" });
     };
 
-    startMenuClickHandler = () => {
-        this.state.startMenuOpen === "close"
-            ? this.setState({ startMenuOpen: "open" })
-            : this.setState({ startMenuOpen: "close" });
-    };
-
-    closeStartMenu = () => {
-        if (this.state.startMenuOpen === "open") {
-            return this.setState({ startMenuOpen: "close" });
-        }
-    };
-
-    calendarClickHandler = () => {
-        this.state.calendarOpen === "close"
-            ? this.setState({ calendarOpen: "open" })
-            : this.setState({ calendarOpen: "close" });
-    };
-
-    closeCalendar = () => {
-        if (this.state.calendarOpen === "open") {
-            return this.setState({ calendarOpen: "close" });
+    closeApp = key => {
+        if (this.state[key] === "open") {
+            this.setState({ [key]: "close" });
         }
     };
 
@@ -139,11 +124,11 @@ class App extends Component {
                         <React.Fragment>
                             <Desktop
                                 onClick={() => {
-                                    this.closeStartMenu();
-                                    this.closeCalendar();
+                                    this.closeApp("startMenuOpen");
+                                    this.closeApp("calendarOpen");
                                 }}
                             >
-                                <Route
+                                {/* <Route
                                     path="/mystuff"
                                     render={() => (
                                         <FolderApp
@@ -153,12 +138,12 @@ class App extends Component {
                                             )}
                                         />
                                     )}
-                                />
+                                /> */}
                                 <MemoryGameApp
                                     windowIndex={windowIndex}
                                     activeWindow={this.activeWindow.bind(this)}
                                     memoryGameOpen={memoryGameOpen}
-                                    closeMemoryGame={this.closeMemoryGame}
+                                    closeApp={this.closeApp}
                                 />
 
                                 <Icon
@@ -217,19 +202,16 @@ class App extends Component {
                                     <div>About</div>
                                 </Icon>
                                 <TaskbarApp
-                                    startMenuClickHandler={
-                                        this.startMenuClickHandler
-                                    }
-                                    calendarClickHandler={
-                                        this.calendarClickHandler
+                                    toggleAppVisibility={
+                                        this.toggleAppVisibility
                                     }
                                 />
                             </Desktop>
                             <CalendarApp calendarOpen={calendarOpen} />
                             <StartMenuApp
-                                closeStartMenu={this.closeStartMenu}
+                                closeApp={this.closeApp}
                                 startMenuOpen={startMenuOpen}
-                                startMemoryGame={this.startMemoryGame}
+                                startApp={this.startApp}
                             />
                         </React.Fragment>
                     )}

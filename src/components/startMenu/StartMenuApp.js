@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import LargeWidgetsContainer from "./startMenuStructure/LargeWidgetsContainer";
 import SmallWidgetsContainer from "./startMenuStructure/SmallWidgetsContainer";
 import StartMenu from "./startMenuStructure/StartMenu";
@@ -7,11 +8,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StartMenuApp = props => {
     return (
-        <StartMenu display={props.startMenuOpen} onClick={props.closeStartMenu}>
+        <StartMenu
+            display={props.startMenuOpen}
+            onClick={() => props.closeApp("startMenuOpen")}
+        >
             <SmallWidgetsContainer />
             <LargeWidgetsContainer>
                 <Widget
-                    onClick={props.startMemoryGame}
+                    onClick={() => props.startApp("memoryGameOpen")}
                     style={{ gridArea: "widget-1" }}
                 >
                     <span>Memory Game</span>
@@ -96,3 +100,9 @@ const StartMenuApp = props => {
 };
 
 export default StartMenuApp;
+
+StartMenuApp.propTypes = {
+    startMenuOpen: PropTypes.string.isRequired,
+    closeApp: PropTypes.func.isRequired,
+    startApp: PropTypes.func.isRequired
+};

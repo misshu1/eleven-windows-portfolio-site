@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import Calendar from "react-calendar/dist/entry.nostyle";
 import CalendarContainer from "./CalendarContainer";
 import CalendarStyle from "./CalendarStyle";
@@ -110,3 +111,7 @@ class CalendarApp extends Component {
 }
 
 export default CalendarApp;
+
+CalendarApp.propTypes = {
+    calendarOpen: PropTypes.string.isRequired
+};
