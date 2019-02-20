@@ -11,25 +11,6 @@ import ResultPopUp from "./style/ResultPopUp";
 import ScorePanel from "./style/ScorePanel";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const cards = [
-    { id: 1, name: "gem", open: false, match: false },
-    { id: 1, name: "gem", open: false, match: false },
-    { id: 2, name: "paper-plane", open: false, match: false },
-    { id: 2, name: "paper-plane", open: false, match: false },
-    { id: 3, name: "anchor", open: false, match: false },
-    { id: 3, name: "anchor", open: false, match: false },
-    { id: 4, name: "bolt", open: false, match: false },
-    { id: 4, name: "bolt", open: false, match: false },
-    { id: 5, name: "cube", open: false, match: false },
-    { id: 5, name: "cube", open: false, match: false },
-    { id: 6, name: "leaf", open: false, match: false },
-    { id: 6, name: "leaf", open: false, match: false },
-    { id: 7, name: "bicycle", open: false, match: false },
-    { id: 7, name: "bicycle", open: false, match: false },
-    { id: 8, name: "bomb", open: false, match: false },
-    { id: 8, name: "bomb", open: false, match: false }
-];
-
 let openCards = [];
 let selected = [];
 let timer = null;
@@ -48,8 +29,7 @@ class MemoryGameApp extends Component {
     }
 
     componentDidMount() {
-        const deck = this.shuffle(cards);
-        this.setState({ cards: [...deck] });
+        this.setCards();
     }
 
     componentWillUnmount() {
@@ -61,6 +41,30 @@ class MemoryGameApp extends Component {
             this.props.activeWindow(1);
         }
     }
+
+    setCards = () => {
+        const cards = [
+            { id: 1, name: "gem", open: false, match: false },
+            { id: 1, name: "gem", open: false, match: false },
+            { id: 2, name: "paper-plane", open: false, match: false },
+            { id: 2, name: "paper-plane", open: false, match: false },
+            { id: 3, name: "anchor", open: false, match: false },
+            { id: 3, name: "anchor", open: false, match: false },
+            { id: 4, name: "bolt", open: false, match: false },
+            { id: 4, name: "bolt", open: false, match: false },
+            { id: 5, name: "cube", open: false, match: false },
+            { id: 5, name: "cube", open: false, match: false },
+            { id: 6, name: "leaf", open: false, match: false },
+            { id: 6, name: "leaf", open: false, match: false },
+            { id: 7, name: "bicycle", open: false, match: false },
+            { id: 7, name: "bicycle", open: false, match: false },
+            { id: 8, name: "bomb", open: false, match: false },
+            { id: 8, name: "bomb", open: false, match: false }
+        ];
+        const deck = this.shuffle(cards);
+        this.setState({ cards: [...deck] });
+    };
+
     createCards = () => {
         const create = this.state.cards.map((card, index) => (
             <Card
@@ -190,30 +194,10 @@ class MemoryGameApp extends Component {
     };
 
     restartGame = () => {
-        const cards = [
-            { id: 1, name: "gem", open: false, match: false },
-            { id: 1, name: "gem", open: false, match: false },
-            { id: 2, name: "paper-plane", open: false, match: false },
-            { id: 2, name: "paper-plane", open: false, match: false },
-            { id: 3, name: "anchor", open: false, match: false },
-            { id: 3, name: "anchor", open: false, match: false },
-            { id: 4, name: "bolt", open: false, match: false },
-            { id: 4, name: "bolt", open: false, match: false },
-            { id: 5, name: "cube", open: false, match: false },
-            { id: 5, name: "cube", open: false, match: false },
-            { id: 6, name: "leaf", open: false, match: false },
-            { id: 6, name: "leaf", open: false, match: false },
-            { id: 7, name: "bicycle", open: false, match: false },
-            { id: 7, name: "bicycle", open: false, match: false },
-            { id: 8, name: "bomb", open: false, match: false },
-            { id: 8, name: "bomb", open: false, match: false }
-        ];
         this.setState({ moves: 0, minutes: 0, seconds: 0, matchedCards: 0 });
         openCards = [];
         selected = [];
-        const deck = this.shuffle(cards);
-        this.setState({ cards: [...deck] });
-
+        this.setCards();
         clearInterval(timer);
     };
 
