@@ -31,7 +31,16 @@ const StartMenuApp = props => {
                     widget 2 calendar
                 </Widget>
                 <Widget style={{ gridArea: "widget-3" }}>
-                    widget 3 calculator
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 56.25rem)").matches
+                                ? "/apps/calculator"
+                                : "/apps"
+                        }
+                        onClick={() => props.startApp("calculatorOpen")}
+                    >
+                        <span>Calculator</span>
+                    </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-4" }}>
                     widget 4 resume

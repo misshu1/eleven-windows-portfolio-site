@@ -9,6 +9,7 @@ import Icon from "./components/desktop/Icon";
 import LightTheme from "./components/theme/Light";
 import DarkTheme from "./components/theme/Dark";
 import CalendarApp from "./components/taskbar/calendar/CalendarApp";
+import CalculatorApp from "./components/folders/calculator/CalculatorApp";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
     faLongArrowAltLeft,
@@ -57,9 +58,11 @@ class App extends Component {
         startMenuOpen: "close",
         memoryGameOpen: "close",
         calendarOpen: "close",
+        calculatorOpen: "close",
         windowIndex: {
             1: 100,
-            2: 100
+            2: 100,
+            3: 100
         }
     };
 
@@ -88,32 +91,13 @@ class App extends Component {
         this.setState({ windowIndex: activedWindow });
     }
 
-    // openUrlMobile = url => {
-    //     // Opens on mobile with onClick
-    //     if (window.matchMedia("(max-width: 56.25rem)").matches) {
-    //         history.push(url);
-    //     }
-    // };
-
-    // openUrlDesktop = url => {
-    //     //  Opens on desktop with doubleClick
-    //     if (window.matchMedia("(min-width: 56.31rem)").matches) {
-    //         history.push(url);
-    //     }
-    // };
-
-    // handleKeyPress = (e, url) => {
-    //     if (e.key === "Enter") {
-    //         history.push(url);
-    //     }
-    // };
-
     render() {
         const {
             startMenuOpen,
             windowIndex,
             memoryGameOpen,
-            calendarOpen
+            calendarOpen,
+            calculatorOpen
         } = this.state;
         return (
             <ThemeProvider theme={DarkTheme}>
@@ -133,18 +117,27 @@ class App extends Component {
                                     path="/apps"
                                     render={() => (
                                         <React.Fragment>
-                                            <FolderApp
+                                            {/* <FolderApp
                                                 windowIndex={windowIndex}
                                                 activeWindow={this.activeWindow.bind(
                                                     this
                                                 )}
-                                            />
+                                            /> */}
                                             <MemoryGameApp
                                                 windowIndex={windowIndex}
                                                 activeWindow={this.activeWindow.bind(
                                                     this
                                                 )}
                                                 memoryGameOpen={memoryGameOpen}
+                                                closeApp={this.closeApp}
+                                            />
+
+                                            <CalculatorApp
+                                                windowIndex={windowIndex}
+                                                activeWindow={this.activeWindow.bind(
+                                                    this
+                                                )}
+                                                calculatorOpen={calculatorOpen}
                                                 closeApp={this.closeApp}
                                             />
                                         </React.Fragment>
@@ -162,6 +155,20 @@ class App extends Component {
                                                 this
                                             )}
                                             memoryGameOpen={memoryGameOpen}
+                                            closeApp={this.closeApp}
+                                        />
+                                    )}
+                                />
+                                <Route
+                                    exact
+                                    path="/apps/calculator"
+                                    render={() => (
+                                        <CalculatorApp
+                                            windowIndex={windowIndex}
+                                            activeWindow={this.activeWindow.bind(
+                                                this
+                                            )}
+                                            calculatorOpen={calculatorOpen}
                                             closeApp={this.closeApp}
                                         />
                                     )}

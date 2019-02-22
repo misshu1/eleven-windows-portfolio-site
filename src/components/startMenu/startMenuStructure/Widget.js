@@ -16,7 +16,8 @@ const Widget = styled.div`
         background-size: cover;
     }
 
-    &&:nth-child(1) a {
+    &&:nth-child(1) a,
+    :nth-child(3) a {
         text-decoration: none;
         color: #d6d8de;
         cursor: default;

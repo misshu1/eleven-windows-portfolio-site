@@ -260,13 +260,6 @@ class MemoryGameApp extends Component {
                         >
                             <FontAwesomeIcon icon="times" size="lg" />
                         </Link>
-                        {/* <button
-                            onClick={() =>
-                                this.props.closeApp("memoryGameOpen")
-                            }
-                        >
-                            <FontAwesomeIcon icon="times" size="lg" />
-                        </button> */}
                     </Buttons>
                 </NameBar>
                 <BackgroundContainer>
