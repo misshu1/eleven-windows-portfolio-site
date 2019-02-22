@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
-import history from "./history";
 import { ThemeProvider } from "styled-components";
 import FolderApp from "./components/folders/FolderApp";
 import TaskbarApp from "./components/taskbar/TaskbarApp";
@@ -89,25 +88,25 @@ class App extends Component {
         this.setState({ windowIndex: activedWindow });
     }
 
-    openUrlMobile = url => {
-        // Opens on mobile with onClick
-        if (window.matchMedia("(max-width: 900px)").matches) {
-            history.push(url);
-        }
-    };
+    // openUrlMobile = url => {
+    //     // Opens on mobile with onClick
+    //     if (window.matchMedia("(max-width: 56.25rem)").matches) {
+    //         history.push(url);
+    //     }
+    // };
 
-    openUrlDesktop = url => {
-        //  Opens on desktop with doubleClick
-        if (window.matchMedia("(min-width: 901px)").matches) {
-            history.push(url);
-        }
-    };
+    // openUrlDesktop = url => {
+    //     //  Opens on desktop with doubleClick
+    //     if (window.matchMedia("(min-width: 56.31rem)").matches) {
+    //         history.push(url);
+    //     }
+    // };
 
-    handleKeyPress = (e, url) => {
-        if (e.key === "Enter") {
-            history.push(url);
-        }
-    };
+    // handleKeyPress = (e, url) => {
+    //     if (e.key === "Enter") {
+    //         history.push(url);
+    //     }
+    // };
 
     render() {
         const {
@@ -128,39 +127,57 @@ class App extends Component {
                                     this.closeApp("calendarOpen");
                                 }}
                             >
-                                {/* <Route
-                                    path="/mystuff"
+                                {/* Desktop Routes */}
+                                <Route
+                                    exact
+                                    path="/apps"
                                     render={() => (
-                                        <FolderApp
+                                        <React.Fragment>
+                                            <FolderApp
+                                                windowIndex={windowIndex}
+                                                activeWindow={this.activeWindow.bind(
+                                                    this
+                                                )}
+                                            />
+                                            <MemoryGameApp
+                                                windowIndex={windowIndex}
+                                                activeWindow={this.activeWindow.bind(
+                                                    this
+                                                )}
+                                                memoryGameOpen={memoryGameOpen}
+                                                closeApp={this.closeApp}
+                                            />
+                                        </React.Fragment>
+                                    )}
+                                />
+
+                                {/* Mobile Routes */}
+                                <Route
+                                    exact
+                                    path="/apps/memorygame"
+                                    render={() => (
+                                        <MemoryGameApp
                                             windowIndex={windowIndex}
                                             activeWindow={this.activeWindow.bind(
                                                 this
                                             )}
+                                            memoryGameOpen={memoryGameOpen}
+                                            closeApp={this.closeApp}
                                         />
                                     )}
-                                /> */}
-                                <MemoryGameApp
-                                    windowIndex={windowIndex}
-                                    activeWindow={this.activeWindow.bind(this)}
-                                    memoryGameOpen={memoryGameOpen}
-                                    closeApp={this.closeApp}
                                 />
 
                                 <Icon
                                     tabIndex="1"
-                                    onClick={() =>
-                                        this.openUrlMobile("/mystuff")
-                                    }
-                                    onDoubleClick={() =>
-                                        this.openUrlDesktop("/mystuff")
-                                    }
-                                    onKeyPress={(e, url) =>
-                                        this.handleKeyPress(e, "/mystuff")
-                                    }
-                                    className="icon-container"
+                                    // onClick={() => this.openUrlMobile("/apps")}
+                                    // onDoubleClick={() =>
+                                    //     this.openUrlDesktop("/apps")
+                                    // }
+                                    // onKeyPress={(e, url) =>
+                                    //     this.handleKeyPress(e, "/apps")
+                                    // }
                                 >
                                     <img
-                                        className="icon-img"
                                         src={require("./components/desktop/img/folder-icon.png")}
                                         alt="my stuff"
                                     />
@@ -168,19 +185,17 @@ class App extends Component {
                                 </Icon>
                                 <Icon
                                     tabIndex="2"
-                                    className="icon-container"
-                                    onClick={() =>
-                                        this.openUrlMobile("/documents")
-                                    }
-                                    onDoubleClick={() =>
-                                        this.openUrlDesktop("/documents")
-                                    }
-                                    onKeyPress={(e, url) =>
-                                        this.handleKeyPress(e, "/documents")
-                                    }
+                                    // onClick={() =>
+                                    //     this.openUrlMobile("/documents")
+                                    // }
+                                    // onDoubleClick={() =>
+                                    //     this.openUrlDesktop("/documents")
+                                    // }
+                                    // onKeyPress={(e, url) =>
+                                    //     this.handleKeyPress(e, "/documents")
+                                    // }
                                 >
                                     <img
-                                        className="icon-img"
                                         src={require("./components/desktop/img/folder-icon.png")}
                                         alt="test"
                                     />
@@ -188,14 +203,12 @@ class App extends Component {
                                 </Icon>
                                 <Icon
                                     tabIndex="3"
-                                    className="icon-container"
-                                    onClick={() => this.openUrlMobile("/about")}
-                                    onDoubleClick={() =>
-                                        this.openUrlDesktop("/about")
-                                    }
+                                    // onClick={() => this.openUrlMobile("/about")}
+                                    // onDoubleClick={() =>
+                                    //     this.openUrlDesktop("/about")
+                                    // }
                                 >
                                     <img
-                                        className="icon-img"
                                         src={require("./components/desktop/img/folder-icon.png")}
                                         alt="test"
                                     />

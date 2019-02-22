@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import LargeWidgetsContainer from "./startMenuStructure/LargeWidgetsContainer";
 import SmallWidgetsContainer from "./startMenuStructure/SmallWidgetsContainer";
 import StartMenu from "./startMenuStructure/StartMenu";
@@ -14,11 +15,17 @@ const StartMenuApp = props => {
         >
             <SmallWidgetsContainer />
             <LargeWidgetsContainer>
-                <Widget
-                    onClick={() => props.startApp("memoryGameOpen")}
-                    style={{ gridArea: "widget-1" }}
-                >
-                    <span>Memory Game</span>
+                <Widget style={{ gridArea: "widget-1" }}>
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 56.25rem)").matches
+                                ? "/apps/memorygame"
+                                : "/apps"
+                        }
+                        onClick={() => props.startApp("memoryGameOpen")}
+                    >
+                        <span>Memory Game</span>
+                    </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-2" }}>
                     widget 2 calendar

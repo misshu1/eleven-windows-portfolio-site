@@ -4,7 +4,6 @@ import memoryGame from "../img/memory-game.png";
 const Widget = styled.div`
     background: #007bff;
     color: #d6d8de;
-    cursor: pointer;
     position: relative;
 
     &&:hover {
@@ -17,7 +16,16 @@ const Widget = styled.div`
         background-size: cover;
     }
 
-    &&:nth-child(1) span {
+    &&:nth-child(1) a {
+        text-decoration: none;
+        color: #d6d8de;
+        cursor: default;
+        display: block;
+        height: 100%;
+        width: 100%;
+    }
+
+    &&:nth-child(1) a span {
         font-size: 1.5rem;
         font-weight: 500;
         text-align: center;

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Folder from "../../folders/folderStructure/Folder";
 import NameBar from "../../folders/folderStructure/nameBar/NameBar";
@@ -246,13 +247,26 @@ class MemoryGameApp extends Component {
                         <div>
                             <FontAwesomeIcon icon="window-minimize" size="sm" />
                         </div>
-                        <button
+                        <Link
+                            to={
+                                window.matchMedia("(max-width: 56.25rem)")
+                                    .matches
+                                    ? "/"
+                                    : "#"
+                            }
                             onClick={() =>
                                 this.props.closeApp("memoryGameOpen")
                             }
                         >
                             <FontAwesomeIcon icon="times" size="lg" />
-                        </button>
+                        </Link>
+                        {/* <button
+                            onClick={() =>
+                                this.props.closeApp("memoryGameOpen")
+                            }
+                        >
+                            <FontAwesomeIcon icon="times" size="lg" />
+                        </button> */}
                     </Buttons>
                 </NameBar>
                 <BackgroundContainer>
