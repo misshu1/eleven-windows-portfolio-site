@@ -29,14 +29,16 @@ const AppContainer = styled.div`
     left: 0;
     width: 100%;
     height: calc(100vh - 3.5rem);
-    background: #202020;
+    background: ${props => props.theme.secundary};
 
-    @media (min-width: 28em) {
-        height: 42rem;
-        width: 21.5rem;
+    @media (min-width: 28rem) {
+        height: fit-content;
+        top: 0;
+        left: 20%;
+        width: 700px;
 
         ${props =>
-            props.calculatorOpen === "open" &&
+            props.memoryGameOpen === "open" &&
             css`
                 animation: ${fadeIn} 0.2s ease-out 1 forwards;
             `}

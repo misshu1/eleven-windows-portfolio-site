@@ -117,29 +117,36 @@ class App extends Component {
                                     path="/apps"
                                     render={() => (
                                         <React.Fragment>
-                                            {/* <FolderApp
-                                                windowIndex={windowIndex}
-                                                activeWindow={this.activeWindow.bind(
-                                                    this
-                                                )}
-                                            /> */}
-                                            <MemoryGameApp
-                                                windowIndex={windowIndex}
-                                                activeWindow={this.activeWindow.bind(
-                                                    this
-                                                )}
-                                                memoryGameOpen={memoryGameOpen}
-                                                closeApp={this.closeApp}
-                                            />
-
-                                            <CalculatorApp
-                                                windowIndex={windowIndex}
-                                                activeWindow={this.activeWindow.bind(
-                                                    this
-                                                )}
-                                                calculatorOpen={calculatorOpen}
-                                                closeApp={this.closeApp}
-                                            />
+                                            {this.state.memoryGameOpen ===
+                                            "open" ? (
+                                                <MemoryGameApp
+                                                    windowIndex={windowIndex}
+                                                    activeWindow={this.activeWindow.bind(
+                                                        this
+                                                    )}
+                                                    memoryGameOpen={
+                                                        memoryGameOpen
+                                                    }
+                                                    closeApp={this.closeApp}
+                                                />
+                                            ) : (
+                                                ""
+                                            )}
+                                            {this.state.calculatorOpen ===
+                                            "open" ? (
+                                                <CalculatorApp
+                                                    windowIndex={windowIndex}
+                                                    activeWindow={this.activeWindow.bind(
+                                                        this
+                                                    )}
+                                                    calculatorOpen={
+                                                        calculatorOpen
+                                                    }
+                                                    closeApp={this.closeApp}
+                                                />
+                                            ) : (
+                                                ""
+                                            )}
                                         </React.Fragment>
                                     )}
                                 />

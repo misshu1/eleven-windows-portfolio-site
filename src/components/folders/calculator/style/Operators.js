@@ -14,6 +14,10 @@ const Operators = styled.div`
         background: #0f0f0f;
         color: #d8d6de;
     }
+    && button:hover {
+        border: 1px solid #333;
+        background: #212121;
+    }
     && button:nth-child(5) {
         background: red;
         color: #fff;

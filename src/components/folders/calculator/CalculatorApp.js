@@ -16,26 +16,36 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class CalculatorApp extends Component {
     state = {
         value: "",
-        calculatorOpen: "close"
+        calculatorOpen: "close",
+        close: ""
     };
     static getDerivedStateFromProps(props, state) {
         return { calculatorOpen: props.calculatorOpen };
     }
 
-    componentDidUpdate(prevProps) {
-        if (this.props.calculatorOpen !== prevProps.calculatorOpen) {
-            this.props.activeWindow(3);
-        }
+    componentDidMount() {
+        this.props.activeWindow(3);
+        this.calculateInput.focus();
+    }
+    quitApp() {
+        this.setState({
+            close: "close"
+        });
+        setTimeout(() => {
+            this.props.closeApp("calculatorOpen");
+        }, 200);
     }
 
     render() {
-        const { calculatorOpen } = this.state;
+        const { calculatorOpen, close } = this.state;
         return (
             <AppContainer
                 calculatorOpen={calculatorOpen}
+                close={close}
                 style={{
                     zIndex: this.props.windowIndex[3]
                 }}
+                appIndex={this.props.windowIndex[3]}
                 onClick={() => this.props.activeWindow(3)}
             >
                 <NameBar>
@@ -51,16 +61,19 @@ class CalculatorApp extends Component {
                                     ? "/"
                                     : "#"
                             }
-                            onClick={() =>
-                                this.props.closeApp("calculatorOpen")
-                            }
+                            onClick={() => this.quitApp()}
                         >
                             <FontAwesomeIcon icon="times" size="lg" />
                         </Link>
                     </Buttons>
                 </NameBar>
                 <Section>
-                    <CalculatorInput />
+                    <CalculatorInput
+                        placeholder="0"
+                        ref={input => {
+                            this.calculateInput = input;
+                        }}
+                    />
                     <Result>rez</Result>
                     <ButtonsContainer>
                         <NumberPad>
@@ -78,8 +91,8 @@ class CalculatorApp extends Component {
                             <button>DEL</button>
                         </NumberPad>
                         <Operators>
-                            <button>/</button>
-                            <button>*</button>
+                            <button>&divide;</button>
+                            <button>&times;</button>
                             <button>-</button>
                             <button>+</button>
                             <button>=</button>
@@ -92,3 +105,10 @@ class CalculatorApp extends Component {
 }
 
 export default CalculatorApp;
+
+CalculatorApp.propTypes = {
+    windowIndex: PropTypes.object.isRequired,
+    calculatorOpen: PropTypes.string.isRequired,
+    activeWindow: PropTypes.func.isRequired,
+    closeApp: PropTypes.func.isRequired
+};

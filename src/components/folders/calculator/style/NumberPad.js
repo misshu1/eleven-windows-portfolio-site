@@ -13,12 +13,16 @@ const NumberPad = styled.div`
         padding: 0;
         border: none;
         outline: none;
-        height: 5rem;
+        height: 6rem;
         width: 5rem;
+    }
+    && button:hover {
+        border: 1px solid #333;
+        background: #101010;
     }
     @media (max-width: 28rem) {
         && button {
-            max-height: 23vw;
+            max-height: 28vw;
             max-width: 23vw;
         }
     }

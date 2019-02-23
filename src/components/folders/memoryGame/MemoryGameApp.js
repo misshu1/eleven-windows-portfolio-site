@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import Folder from "../../folders/folderStructure/Folder";
+import AppContainer from "./style/AppContainer";
 import NameBar from "../../folders/folderStructure/nameBar/NameBar";
 import Name from "../../folders/folderStructure/nameBar/Name";
 import Buttons from "../../folders/folderStructure/nameBar/Buttons";
@@ -23,7 +23,8 @@ class MemoryGameApp extends Component {
         moves: 0,
         minutes: 0,
         seconds: 0,
-        matchedCards: 0
+        matchedCards: 0,
+        close: ""
     };
 
     static getDerivedStateFromProps(props, state) {
@@ -32,6 +33,7 @@ class MemoryGameApp extends Component {
 
     componentDidMount() {
         this.setCards();
+        this.props.activeWindow(1);
     }
 
     componentWillUnmount() {
@@ -40,8 +42,17 @@ class MemoryGameApp extends Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.memoryGameOpen !== prevProps.memoryGameOpen) {
-            this.props.activeWindow(1);
+            // this.props.activeWindow(1);
         }
+    }
+
+    quitApp() {
+        this.setState({
+            close: "close"
+        });
+        setTimeout(() => {
+            this.props.closeApp("memoryGameOpen");
+        }, 200);
     }
 
     setCards = () => {
@@ -226,20 +237,19 @@ class MemoryGameApp extends Component {
             seconds,
             minutes,
             memoryGameOpen,
-            matchedCards
+            matchedCards,
+            close
         } = this.state;
 
         return (
-            <Folder
+            <AppContainer
                 style={{
-                    display: memoryGameOpen === "open" ? "block" : "none",
-                    top: "50px",
-                    left: "50px",
-                    width: "90%",
-                    height: "80%",
                     zIndex: this.props.windowIndex[1]
                 }}
                 onClick={() => this.props.activeWindow(1)}
+                memoryGameOpen={memoryGameOpen}
+                close={close}
+                appIndex={this.props.windowIndex[1]}
             >
                 <NameBar>
                     <Name>Memory Game</Name>
@@ -254,9 +264,7 @@ class MemoryGameApp extends Component {
                                     ? "/"
                                     : "#"
                             }
-                            onClick={() =>
-                                this.props.closeApp("memoryGameOpen")
-                            }
+                            onClick={() => this.quitApp()}
                         >
                             <FontAwesomeIcon icon="times" size="lg" />
                         </Link>
@@ -337,7 +345,7 @@ class MemoryGameApp extends Component {
                         </ResultPopUp>
                     </Container>
                 </BackgroundContainer>
-            </Folder>
+            </AppContainer>
         );
     }
 }
