@@ -11,6 +11,7 @@ const CalculatorInput = styled.input`
     text-align: right;
     background: #202020;
     color: #d8d6de;
+    /* TODO Change input font-size based on input length */
 `;
 
 export default CalculatorInput;

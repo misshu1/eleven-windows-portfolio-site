@@ -3,11 +3,11 @@ import styled, { keyframes } from "styled-components";
 const slideUp = keyframes`
 0% {
     opacity: 0;
-    transform: translateY(10%);
+    transform: translate3d(0, 10%, 0);
 }
 100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
 }
 `;
 

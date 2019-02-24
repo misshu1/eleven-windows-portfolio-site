@@ -3,26 +3,26 @@ import styled, { keyframes, css } from "styled-components";
 const fadeIn = keyframes`
 0% {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale3d(0.9,0.9,0.9);
 }
 100% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale3d(1,1,1);
 }
 `;
 
 const fadeOut = keyframes`
 0% {
     opacity: 1;
-    transform: scale(1);
+    transform: scale3d(1,1,1);
 }
 100% {
     opacity: 0;
-    transform: scale(0.7);
+    transform: scale3d(0.8,0.8,0.8);
 }
 `;
 
-const AppContainer = styled.div`
+const AppContainer = styled.section`
     position: absolute;
     box-sizing: border-box;
     top: 0;
