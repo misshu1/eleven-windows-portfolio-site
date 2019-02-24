@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 import { Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
-import FolderApp from "./components/folders/FolderApp";
 import TaskbarApp from "./components/taskbar/TaskbarApp";
 import StartMenuApp from "./components/startMenu/StartMenuApp";
 import Desktop from "./components/desktop/Desktop";
 import Icon from "./components/desktop/Icon";
-import LightTheme from "./components/theme/Light";
 import DarkTheme from "./components/theme/Dark";
 import CalendarApp from "./components/taskbar/calendar/CalendarApp";
 import CalculatorApp from "./components/folders/calculator/CalculatorApp";

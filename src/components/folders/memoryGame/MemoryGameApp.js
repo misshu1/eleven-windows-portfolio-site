@@ -36,7 +36,7 @@ class MemoryGameApp extends Component {
     componentDidMount() {
         this.setCards();
         this.props.activeWindow(1);
-        if (window.matchMedia("(min-width: 56.25rem)").matches) {
+        if (window.matchMedia("(min-width: 35rem)").matches) {
             this.handleDrag();
         }
     }
@@ -260,139 +260,135 @@ class MemoryGameApp extends Component {
                 position={null}
                 disabled={disabled}
             >
-                <div
+                <AppContainer
+                    memoryGameOpen={memoryGameOpen}
+                    close={close}
+                    appIndex={this.props.windowIndex[1]}
                     style={{
                         zIndex: this.props.windowIndex[1]
                     }}
                     onClick={() => this.props.activeWindow(1)}
                 >
-                    <AppContainer
-                        memoryGameOpen={memoryGameOpen}
-                        close={close}
-                        appIndex={this.props.windowIndex[1]}
-                    >
-                        <NameBar>
-                            <Name className="handle">Memory Game</Name>
-                            <Buttons>
-                                <div>
-                                    <FontAwesomeIcon
-                                        icon="window-minimize"
-                                        size="sm"
-                                    />
+                    <NameBar>
+                        <Name className="handle">Memory Game</Name>
+                        <Buttons>
+                            <div>
+                                <FontAwesomeIcon
+                                    icon="window-minimize"
+                                    size="sm"
+                                />
+                            </div>
+                            <Link
+                                to={
+                                    window.matchMedia("(max-width: 56.25rem)")
+                                        .matches
+                                        ? "/"
+                                        : "#"
+                                }
+                                onClick={() => this.quitApp()}
+                            >
+                                <FontAwesomeIcon icon="times" size="lg" />
+                            </Link>
+                        </Buttons>
+                    </NameBar>
+                    <BackgroundContainer>
+                        <Container>
+                            <ScorePanel>
+                                {/* Stop timer when all cards match */}
+                                {matchedCards === 16
+                                    ? clearInterval(timer)
+                                    : ""}
+                                <ul>
+                                    <li style={{ color: "yellow" }}>
+                                        <FontAwesomeIcon
+                                            icon="star"
+                                            size="lg"
+                                        />
+                                    </li>
+                                    <li
+                                        style={
+                                            moves > 40
+                                                ? { color: "#fff" }
+                                                : { color: "yellow" }
+                                        }
+                                    >
+                                        <FontAwesomeIcon
+                                            icon="star"
+                                            size="lg"
+                                        />
+                                    </li>
+                                    <li
+                                        style={
+                                            moves > 32
+                                                ? { color: "#fff" }
+                                                : { color: "yellow" }
+                                        }
+                                    >
+                                        <FontAwesomeIcon
+                                            icon="star"
+                                            size="lg"
+                                        />
+                                    </li>
+                                </ul>
+                                <span>{moves} Moves</span>
+                                <span>
+                                    {minutes > 0 ? minutes : 0} {" : "}
+                                    {seconds > 0 ? seconds : 0}
+                                </span>
+                                <div onClick={this.restartGame}>
+                                    Restart Game
                                 </div>
-                                <Link
-                                    to={
-                                        window.matchMedia(
-                                            "(max-width: 56.25rem)"
-                                        ).matches
-                                            ? "/"
-                                            : "#"
-                                    }
-                                    onClick={() => this.quitApp()}
-                                >
-                                    <FontAwesomeIcon icon="times" size="lg" />
-                                </Link>
-                            </Buttons>
-                        </NameBar>
-                        <BackgroundContainer>
-                            <Container>
-                                <ScorePanel>
-                                    {/* Stop timer when all cards match */}
-                                    {matchedCards === 16
-                                        ? clearInterval(timer)
-                                        : ""}
-                                    <ul>
-                                        <li style={{ color: "yellow" }}>
-                                            <FontAwesomeIcon
-                                                icon="star"
-                                                size="lg"
-                                            />
-                                        </li>
-                                        <li
-                                            style={
-                                                moves > 40
-                                                    ? { color: "#fff" }
-                                                    : { color: "yellow" }
-                                            }
-                                        >
-                                            <FontAwesomeIcon
-                                                icon="star"
-                                                size="lg"
-                                            />
-                                        </li>
-                                        <li
-                                            style={
-                                                moves > 32
-                                                    ? { color: "#fff" }
-                                                    : { color: "yellow" }
-                                            }
-                                        >
-                                            <FontAwesomeIcon
-                                                icon="star"
-                                                size="lg"
-                                            />
-                                        </li>
-                                    </ul>
-                                    <span>{moves} Moves</span>
+                            </ScorePanel>
+                            <Deck>{this.createCards()}</Deck>
+                            <ResultPopUp matchedCards={matchedCards}>
+                                <h2>Well done!</h2>
+                                <p>Completed in {moves} moves.</p>
+                                <p>
+                                    Time:{" "}
                                     <span>
                                         {minutes > 0 ? minutes : 0} {" : "}
                                         {seconds > 0 ? seconds : 0}
                                     </span>
-                                    <div onClick={this.restartGame}>
-                                        Restart Game
-                                    </div>
-                                </ScorePanel>
-                                <Deck>{this.createCards()}</Deck>
-                                <ResultPopUp matchedCards={matchedCards}>
-                                    <h2>Well done!</h2>
-                                    <p>Completed in {moves} moves.</p>
-                                    <p>
-                                        Time:{" "}
-                                        <span>
-                                            {minutes > 0 ? minutes : 0} {" : "}
-                                            {seconds > 0 ? seconds : 0}
-                                        </span>
-                                    </p>
-                                    <ul>
-                                        <li style={{ color: "yellow" }}>
-                                            <FontAwesomeIcon
-                                                icon="star"
-                                                size="lg"
-                                            />
-                                        </li>
-                                        <li
-                                            style={
-                                                moves > 40
-                                                    ? { color: "#fff" }
-                                                    : { color: "yellow" }
-                                            }
-                                        >
-                                            <FontAwesomeIcon
-                                                icon="star"
-                                                size="lg"
-                                            />
-                                        </li>
-                                        <li
-                                            style={
-                                                moves > 32
-                                                    ? { color: "#fff" }
-                                                    : { color: "yellow" }
-                                            }
-                                        >
-                                            <FontAwesomeIcon
-                                                icon="star"
-                                                size="lg"
-                                            />
-                                        </li>
-                                    </ul>
-                                    <button onClick={this.restartGame}>
-                                        Play again!
-                                    </button>
-                                </ResultPopUp>
-                            </Container>
-                        </BackgroundContainer>
-                    </AppContainer>
-                </div>
+                                </p>
+                                <ul>
+                                    <li style={{ color: "yellow" }}>
+                                        <FontAwesomeIcon
+                                            icon="star"
+                                            size="lg"
+                                        />
+                                    </li>
+                                    <li
+                                        style={
+                                            moves > 40
+                                                ? { color: "#fff" }
+                                                : { color: "yellow" }
+                                        }
+                                    >
+                                        <FontAwesomeIcon
+                                            icon="star"
+                                            size="lg"
+                                        />
+                                    </li>
+                                    <li
+                                        style={
+                                            moves > 32
+                                                ? { color: "#fff" }
+                                                : { color: "yellow" }
+                                        }
+                                    >
+                                        <FontAwesomeIcon
+                                            icon="star"
+                                            size="lg"
+                                        />
+                                    </li>
+                                </ul>
+                                <button onClick={this.restartGame}>
+                                    Play again!
+                                </button>
+                            </ResultPopUp>
+                        </Container>
+                    </BackgroundContainer>
+                </AppContainer>
             </Draggable>
         );
     }

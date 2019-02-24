@@ -28,7 +28,7 @@ class CalculatorApp extends Component {
     componentDidMount() {
         this.props.activeWindow(3);
         this.calculateInput.focus();
-        if (window.matchMedia("(min-width: 56.25rem)").matches) {
+        if (window.matchMedia("(min-width: 35rem)").matches) {
             this.handleDrag();
         }
     }
@@ -57,74 +57,70 @@ class CalculatorApp extends Component {
                 position={null}
                 disabled={disabled}
             >
-                <div
+                <AppContainer
+                    calculatorOpen={calculatorOpen}
+                    close={close}
+                    appIndex={this.props.windowIndex[3]}
                     style={{
                         zIndex: this.props.windowIndex[3]
                     }}
                     onClick={() => this.props.activeWindow(3)}
                 >
-                    <AppContainer
-                        calculatorOpen={calculatorOpen}
-                        close={close}
-                        appIndex={this.props.windowIndex[3]}
-                    >
-                        <NameBar>
-                            <Name className="handle">Calculator</Name>
-                            <Buttons>
-                                <div>
-                                    <FontAwesomeIcon
-                                        icon="window-minimize"
-                                        size="sm"
-                                    />
-                                </div>
-                                <Link
-                                    to={
-                                        window.matchMedia(
-                                            "(max-width: 56.25rem)"
-                                        ).matches
-                                            ? "/"
-                                            : "#"
-                                    }
-                                    onClick={() => this.quitApp()}
-                                >
-                                    <FontAwesomeIcon icon="times" size="lg" />
-                                </Link>
-                            </Buttons>
-                        </NameBar>
-                        <Section>
-                            <CalculatorInput
-                                placeholder="0"
-                                ref={input => {
-                                    this.calculateInput = input;
-                                }}
-                            />
-                            <Result>rez</Result>
-                            <ButtonsContainer>
-                                <NumberPad>
-                                    <button>7</button>
-                                    <button>8</button>
-                                    <button>9</button>
-                                    <button>4</button>
-                                    <button>5</button>
-                                    <button>6</button>
-                                    <button>1</button>
-                                    <button>2</button>
-                                    <button>3</button>
-                                    <button>.</button>
-                                    <button>0</button>
-                                    <button>DEL</button>
-                                </NumberPad>
-                                <Operators>
-                                    <button>&divide;</button>
-                                    <button>&times;</button>
-                                    <button>-</button>
-                                    <button>+</button>
-                                    <button>=</button>
-                                </Operators>
-                            </ButtonsContainer>
-                        </Section>
-                    </AppContainer>
-                </div>
+                    <NameBar>
+                        <Name className="handle">Calculator</Name>
+                        <Buttons>
+                            <div>
+                                <FontAwesomeIcon
+                                    icon="window-minimize"
+                                    size="sm"
+                                />
+                            </div>
+                            <Link
+                                to={
+                                    window.matchMedia("(max-width: 56.25rem)")
+                                        .matches
+                                        ? "/"
+                                        : "#"
+                                }
+                                onClick={() => this.quitApp()}
+                            >
+                                <FontAwesomeIcon icon="times" size="lg" />
+                            </Link>
+                        </Buttons>
+                    </NameBar>
+                    <Section>
+                        <CalculatorInput
+                            placeholder="0"
+                            ref={input => {
+                                this.calculateInput = input;
+                            }}
+                        />
+                        <Result>rez</Result>
+                        <ButtonsContainer>
+                            <NumberPad>
+                                <button>7</button>
+                                <button>8</button>
+                                <button>9</button>
+                                <button>4</button>
+                                <button>5</button>
+                                <button>6</button>
+                                <button>1</button>
+                                <button>2</button>
+                                <button>3</button>
+                                <button>.</button>
+                                <button>0</button>
+                                <button>DEL</button>
+                            </NumberPad>
+                            <Operators>
+                                <button>&divide;</button>
+                                <button>&times;</button>
+                                <button>-</button>
+                                <button>+</button>
+                                <button>=</button>
+                            </Operators>
+                        </ButtonsContainer>
+                    </Section>
+                </AppContainer>
             </Draggable>
         );
     }
