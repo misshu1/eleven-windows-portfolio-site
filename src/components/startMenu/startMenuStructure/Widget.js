@@ -1,23 +1,29 @@
 import styled from "styled-components";
-import memoryGame from "../img/memory-game.png";
+import memoryGame from "../img/memory-game.jpg";
+import calculator from "../img/calculator.png";
 
 const Widget = styled.div`
     background: #007bff;
     color: #d6d8de;
     position: relative;
 
-    &&:hover {
-        opacity: 0.9;
-    }
+    /* &&:hover {
+        transition: opacity 0.2s ease;
+    } */
 
     &&:nth-child(1) {
         background: url(${memoryGame});
-        background-position: top center;
+        background-position: center;
         background-size: cover;
     }
 
-    &&:nth-child(1) a,
-    :nth-child(3) a {
+    &&:nth-child(3) {
+        background: url(${calculator});
+        background-position: center;
+        background-size: cover;
+    }
+
+    && a {
         text-decoration: none;
         color: #d6d8de;
         cursor: default;
@@ -26,15 +32,22 @@ const Widget = styled.div`
         width: 100%;
     }
 
-    &&:nth-child(1) a span {
+    && .name {
+        opacity: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         font-size: 1.5rem;
         font-weight: 500;
-        text-align: center;
         position: absolute;
         width: 100%;
-        height: 2rem;
-        background: rgba(0, 0, 0, 0.4);
-        bottom: 0;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+    }
+
+    && .name:hover {
+        opacity: 1;
+        transition: opacity 0.2s ease-out;
     }
 
     &&:nth-child(5) {

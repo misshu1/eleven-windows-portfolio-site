@@ -24,7 +24,7 @@ const StartMenuApp = props => {
                         }
                         onClick={() => props.startApp("memoryGameOpen")}
                     >
-                        <span>Memory Game</span>
+                        <span className="name">Memory Game</span>
                     </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-2" }}>
@@ -39,7 +39,7 @@ const StartMenuApp = props => {
                         }
                         onClick={() => props.startApp("calculatorOpen")}
                     >
-                        <span>Calculator</span>
+                        <span className="name">Calculator</span>
                     </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-4" }}>
@@ -53,7 +53,7 @@ const StartMenuApp = props => {
                     >
                         <span>
                             <FontAwesomeIcon
-                                icon={["fab", "github-square"]}
+                                icon={["fab", "github"]}
                                 size="3x"
                             />
                         </span>
@@ -81,7 +81,7 @@ const StartMenuApp = props => {
                     >
                         <span>
                             <FontAwesomeIcon
-                                icon={["fab", "linkedin"]}
+                                icon={["fab", "linkedin-in"]}
                                 size="3x"
                             />
                         </span>

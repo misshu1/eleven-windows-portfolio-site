@@ -117,33 +117,34 @@ class CalculatorApp extends Component {
     };
 
     calculate = () => {
-        let currentNum = this.state.value;
-        if (this.state.value !== "") {
-            switch (this.state.operator) {
+        const { value, prevNum, operator } = this.state;
+        let currentNum = value;
+        if (value !== "") {
+            switch (operator) {
                 case "plus":
                     this.setState({
-                        result: +this.state.prevNum + +currentNum,
+                        result: +prevNum + +currentNum,
                         prevNum: "",
                         value: ""
                     });
                     break;
                 case "minus":
                     this.setState({
-                        result: +this.state.prevNum - +currentNum,
+                        result: +prevNum - +currentNum,
                         prevNum: "",
                         value: ""
                     });
                     break;
                 case "multiply":
                     this.setState({
-                        result: +this.state.prevNum * +currentNum,
+                        result: +prevNum * +currentNum,
                         prevNum: "",
                         value: ""
                     });
                     break;
                 case "divide":
                     this.setState({
-                        result: +this.state.prevNum / +currentNum,
+                        result: +prevNum / +currentNum,
                         prevNum: "",
                         value: ""
                     });
@@ -155,7 +156,7 @@ class CalculatorApp extends Component {
     };
 
     render() {
-        const { calculatorOpen, close, disabled } = this.state;
+        const { calculatorOpen, close, disabled, result } = this.state;
         return (
             <Draggable axis="both" handle=".handle" disabled={disabled}>
                 <AnimateFadeInOut
@@ -201,9 +202,7 @@ class CalculatorApp extends Component {
                                 }
                                 value={this.state.value}
                             />
-                            <Result>
-                                {this.roundResult(this.state.result)}
-                            </Result>
+                            <Result>{this.roundResult(result)}</Result>
                             <ButtonsContainer>
                                 <NumberPad>
                                     <button

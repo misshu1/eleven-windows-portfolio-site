@@ -25,8 +25,8 @@ import {
     faStar
 } from "@fortawesome/free-solid-svg-icons";
 import {
-    faLinkedin,
-    faGithubSquare,
+    faLinkedinIn,
+    faGithub,
     faInstagram,
     faCodepen
 } from "@fortawesome/free-brands-svg-icons";
@@ -45,8 +45,8 @@ library.add(
     faBicycle,
     faBomb,
     faStar,
-    faLinkedin,
-    faGithubSquare,
+    faLinkedinIn,
+    faGithub,
     faCodepen,
     faInstagram
 );
