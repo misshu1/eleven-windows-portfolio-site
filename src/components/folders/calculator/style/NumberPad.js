@@ -17,7 +17,7 @@ const NumberPad = styled.div`
         width: 5rem;
     }
     && button:hover {
-        border: 1px solid #333;
+        border: 1px solid #444;
         background: #101010;
     }
     @media (max-width: 28rem) {

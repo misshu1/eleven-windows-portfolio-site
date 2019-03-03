@@ -15,7 +15,7 @@ const Operators = styled.div`
         color: #d8d6de;
     }
     && button:hover {
-        border: 1px solid #333;
+        border: 1px solid #444;
         background: #212121;
     }
     && button:nth-child(5) {

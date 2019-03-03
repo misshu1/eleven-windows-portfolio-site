@@ -43,7 +43,7 @@ class MemoryGameApp extends Component {
     }
 
     componentWillUnmount() {
-        clearInterval(this.timer);
+        this.restartGame();
     }
 
     handleDrag() {
@@ -97,6 +97,49 @@ class MemoryGameApp extends Component {
             </Card>
         ));
         return create;
+    };
+
+    timeCounter = () => {
+        timer = setInterval(() => {
+            this.setState({ seconds: this.state.seconds + 1 });
+            if (this.state.seconds === 60) {
+                this.setState({ minutes: this.state.minutes + 1, seconds: 0 });
+            }
+        }, 1000);
+    };
+
+    movesCounter = num => {
+        this.setState(prevState => ({
+            moves: prevState.moves + num
+        }));
+        if (this.state.moves === 1) {
+            this.timeCounter();
+        }
+    };
+
+    restartGame = () => {
+        this.setState({ moves: 0, minutes: 0, seconds: 0, matchedCards: 0 });
+        openCards = [];
+        selected = [];
+        this.setCards();
+        clearInterval(timer);
+    };
+
+    // Shuffle function from http://stackoverflow.com/a/2450976
+    shuffle = array => {
+        let currentIndex = array.length,
+            temporaryValue,
+            randomIndex;
+
+        while (currentIndex !== 0) {
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex -= 1;
+            temporaryValue = array[currentIndex];
+            array[currentIndex] = array[randomIndex];
+            array[randomIndex] = temporaryValue;
+        }
+
+        return array;
     };
 
     ceckCards = e => {
@@ -192,49 +235,6 @@ class MemoryGameApp extends Component {
                 return {};
             });
         }
-    };
-
-    timeCounter = () => {
-        timer = setInterval(() => {
-            this.setState({ seconds: this.state.seconds + 1 });
-            if (this.state.seconds === 60) {
-                this.setState({ minutes: this.state.minutes + 1, seconds: 0 });
-            }
-        }, 1000);
-    };
-
-    movesCounter = num => {
-        this.setState(prevState => ({
-            moves: prevState.moves + num
-        }));
-        if (this.state.moves === 1) {
-            this.timeCounter();
-        }
-    };
-
-    restartGame = () => {
-        this.setState({ moves: 0, minutes: 0, seconds: 0, matchedCards: 0 });
-        openCards = [];
-        selected = [];
-        this.setCards();
-        clearInterval(timer);
-    };
-
-    // Shuffle function from http://stackoverflow.com/a/2450976
-    shuffle = array => {
-        let currentIndex = array.length,
-            temporaryValue,
-            randomIndex;
-
-        while (currentIndex !== 0) {
-            randomIndex = Math.floor(Math.random() * currentIndex);
-            currentIndex -= 1;
-            temporaryValue = array[currentIndex];
-            array[currentIndex] = array[randomIndex];
-            array[randomIndex] = temporaryValue;
-        }
-
-        return array;
     };
 
     render() {

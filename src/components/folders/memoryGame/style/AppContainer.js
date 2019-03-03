@@ -9,10 +9,16 @@ const AppContainer = styled.section`
     height: calc(100vh - 3.5rem);
     background: ${props => props.theme.secundary};
 
+    @media (min-width: 42em) {
+        width: 40rem;
+        height: 40rem;
+    }
+
     @media (min-width: 60em) {
         top: 5rem;
         left: 3rem;
         width: 44rem;
+        height: 44rem;
     }
 `;
 

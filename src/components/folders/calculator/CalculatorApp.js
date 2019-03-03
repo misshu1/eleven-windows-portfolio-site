@@ -18,6 +18,9 @@ import Draggable from "react-draggable";
 class CalculatorApp extends Component {
     state = {
         value: "",
+        prevNum: "",
+        result: null,
+        operator: "",
         calculatorOpen: "close",
         close: "",
         disabled: true
@@ -34,20 +37,122 @@ class CalculatorApp extends Component {
         }
     }
 
-    quitApp() {
+    quitApp = () => {
         this.setState({
             close: "close"
         });
         setTimeout(() => {
             this.props.closeApp("calculatorOpen");
         }, 200);
-    }
+    };
 
-    handleDrag() {
+    handleDrag = () => {
         this.setState({
             disabled: false
         });
+    };
+
+    addNumberToInput = val => {
+        this.setState({ value: this.state.value + val });
+    };
+
+    addZeroToInput = val => {
+        if (this.state.value !== "") {
+            this.setState({ value: this.state.value + val });
+        }
+        if (this.state.value === "") {
+            this.setState({ value: this.state.value + val + "." });
+        }
+    };
+
+    addPeriod = val => {
+        if (!this.state.value.includes(".")) {
+            this.setState({ value: this.state.value + val });
+        }
+        if (this.state.value === "") {
+            this.setState({ value: this.state.value + 0 + val });
+        }
+    };
+
+    deleteBtn() {
+        this.setState({ value: "", result: null });
     }
+
+    add = () => {
+        this.setState({
+            prevNum: this.state.value,
+            value: "",
+            operator: "plus"
+        });
+    };
+
+    minus = () => {
+        this.setState({
+            prevNum: this.state.value,
+            value: "",
+            operator: "minus"
+        });
+    };
+
+    multiply = () => {
+        this.setState({
+            prevNum: this.state.value,
+            value: "",
+            operator: "multiply"
+        });
+    };
+
+    divide = () => {
+        this.setState({
+            prevNum: this.state.value,
+            value: "",
+            operator: "divide"
+        });
+    };
+
+    roundResult = val => {
+        if (this.state.result !== null) {
+            return Math.round(val * Math.pow(10, 10)) / Math.pow(10, 10);
+        }
+    };
+
+    calculate = () => {
+        let currentNum = this.state.value;
+        if (this.state.value !== "") {
+            switch (this.state.operator) {
+                case "plus":
+                    this.setState({
+                        result: +this.state.prevNum + +currentNum,
+                        prevNum: "",
+                        value: ""
+                    });
+                    break;
+                case "minus":
+                    this.setState({
+                        result: +this.state.prevNum - +currentNum,
+                        prevNum: "",
+                        value: ""
+                    });
+                    break;
+                case "multiply":
+                    this.setState({
+                        result: +this.state.prevNum * +currentNum,
+                        prevNum: "",
+                        value: ""
+                    });
+                    break;
+                case "divide":
+                    this.setState({
+                        result: +this.state.prevNum / +currentNum,
+                        prevNum: "",
+                        value: ""
+                    });
+                    break;
+                default:
+                    return console.log("Error: Operator not selected!");
+            }
+        }
+    };
 
     render() {
         const { calculatorOpen, close, disabled } = this.state;
@@ -88,33 +193,92 @@ class CalculatorApp extends Component {
                         </NameBar>
                         <Section>
                             <CalculatorInput
-                                placeholder="0"
                                 ref={input => {
                                     this.calculateInput = input;
                                 }}
+                                onChange={e =>
+                                    this.setState({ value: e.target.value })
+                                }
+                                value={this.state.value}
                             />
-                            <Result>rez</Result>
+                            <Result>
+                                {this.roundResult(this.state.result)}
+                            </Result>
                             <ButtonsContainer>
                                 <NumberPad>
-                                    <button>7</button>
-                                    <button>8</button>
-                                    <button>9</button>
-                                    <button>4</button>
-                                    <button>5</button>
-                                    <button>6</button>
-                                    <button>1</button>
-                                    <button>2</button>
-                                    <button>3</button>
-                                    <button>.</button>
-                                    <button>0</button>
-                                    <button>DEL</button>
+                                    <button
+                                        onClick={() => this.addNumberToInput(7)}
+                                    >
+                                        7
+                                    </button>
+                                    <button
+                                        onClick={() => this.addNumberToInput(8)}
+                                    >
+                                        8
+                                    </button>
+                                    <button
+                                        onClick={() => this.addNumberToInput(9)}
+                                    >
+                                        9
+                                    </button>
+                                    <button
+                                        onClick={() => this.addNumberToInput(4)}
+                                    >
+                                        4
+                                    </button>
+                                    <button
+                                        onClick={() => this.addNumberToInput(5)}
+                                    >
+                                        5
+                                    </button>
+                                    <button
+                                        onClick={() => this.addNumberToInput(6)}
+                                    >
+                                        6
+                                    </button>
+                                    <button
+                                        onClick={() => this.addNumberToInput(1)}
+                                    >
+                                        1
+                                    </button>
+                                    <button
+                                        onClick={() => this.addNumberToInput(2)}
+                                    >
+                                        2
+                                    </button>
+                                    <button
+                                        onClick={() => this.addNumberToInput(3)}
+                                    >
+                                        3
+                                    </button>
+                                    <button onClick={() => this.addPeriod(".")}>
+                                        .
+                                    </button>
+                                    <button
+                                        onClick={() => this.addZeroToInput(0)}
+                                    >
+                                        0
+                                    </button>
+                                    <button onClick={() => this.deleteBtn()}>
+                                        DEL
+                                    </button>
                                 </NumberPad>
                                 <Operators>
-                                    <button>&divide;</button>
-                                    <button>&times;</button>
-                                    <button>-</button>
-                                    <button>+</button>
-                                    <button>=</button>
+                                    <button onClick={() => this.divide()}>
+                                        &divide;
+                                    </button>
+                                    <button onClick={() => this.multiply()}>
+                                        &times;
+                                    </button>
+                                    <button onClick={() => this.minus()}>
+                                        -
+                                    </button>
+                                    <button onClick={() => this.add()}>
+                                        +
+                                    </button>
+                                    <button onClick={() => this.calculate()}>
+                                        =
+                                    </button>
                                 </Operators>
                             </ButtonsContainer>
                         </Section>
