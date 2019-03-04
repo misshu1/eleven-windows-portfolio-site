@@ -7,10 +7,6 @@ const Widget = styled.div`
     color: #d6d8de;
     position: relative;
 
-    /* &&:hover {
-        transition: opacity 0.2s ease;
-    } */
-
     &&:nth-child(1) {
         background: url(${memoryGame});
         background-position: center;
@@ -43,11 +39,6 @@ const Widget = styled.div`
         width: 100%;
         height: 100%;
         background: rgba(0, 0, 0, 0.7);
-    }
-
-    && .name:hover {
-        opacity: 1;
-        transition: opacity 0.2s ease-out;
     }
 
     &&:nth-child(5) {
@@ -96,6 +87,12 @@ const Widget = styled.div`
         transform: translate(-50%, -50%);
         -ms-transform: translateY(-50%, 50%);
         -webkit-transform: translateY(-50%, 50%);
+    }
+    @media (min-width: 28rem) {
+        && .name:hover {
+            opacity: 1;
+            transition: opacity 0.2s ease-out;
+        }
     }
 `;
 

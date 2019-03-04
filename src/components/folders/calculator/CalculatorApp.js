@@ -31,7 +31,6 @@ class CalculatorApp extends Component {
 
     componentDidMount() {
         this.props.activeWindow(3);
-        this.calculateInput.focus();
         if (window.matchMedia("(min-width: 35rem)").matches) {
             this.handleDrag();
         }
@@ -194,9 +193,6 @@ class CalculatorApp extends Component {
                         </NameBar>
                         <Section>
                             <CalculatorInput
-                                ref={input => {
-                                    this.calculateInput = input;
-                                }}
                                 onChange={e =>
                                     this.setState({ value: e.target.value })
                                 }

@@ -8,6 +8,12 @@ const AppContainer = styled.section`
     width: 100%;
     height: calc(100vh - 3.5rem);
     background: ${props => props.theme.secundary};
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     @media (min-width: 42em) {
         width: 40rem;
