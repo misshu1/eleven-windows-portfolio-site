@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Calendar from "react-calendar/dist/entry.nostyle";
-import CalendarContainer from "./CalendarContainer";
-import CalendarStyle from "./CalendarStyle";
-import ClockStyleCalendar from "./ClockStyleCalendar";
+import CalendarContainer from "./style/CalendarContainer";
+import CalendarStyle from "./style/CalendarStyle";
+import ClockStyleCalendar from "./style/ClockStyleCalendar";
 
 class CalendarApp extends Component {
     state = {
@@ -89,7 +89,7 @@ class CalendarApp extends Component {
         }
 
         return (
-            <CalendarContainer display={this.props.calendarOpen}>
+            <CalendarContainer>
                 <ClockStyleCalendar>
                     <span>{`${hours}:${minutes}:${seconds}`}</span>
                     <span>{session}</span>

@@ -13,7 +13,7 @@ const slideUp = keyframes`
 
 const StartMenu = styled.section`
     position: absolute;
-    display: ${props => (props.display === "open" ? "flex" : "none")};
+    display: flex;
     left: 0;
     top: 0;
     width: 100%;

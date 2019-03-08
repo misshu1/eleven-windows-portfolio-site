@@ -115,8 +115,7 @@ class App extends Component {
                                     path="/apps"
                                     render={() => (
                                         <React.Fragment>
-                                            {this.state.memoryGameOpen ===
-                                            "open" ? (
+                                            {memoryGameOpen === "open" ? (
                                                 <MemoryGameApp
                                                     windowIndex={windowIndex}
                                                     activeWindow={this.activeWindow.bind(
@@ -130,8 +129,7 @@ class App extends Component {
                                             ) : (
                                                 ""
                                             )}
-                                            {this.state.calculatorOpen ===
-                                            "open" ? (
+                                            {calculatorOpen === "open" ? (
                                                 <CalculatorApp
                                                     windowIndex={windowIndex}
                                                     activeWindow={this.activeWindow.bind(
@@ -232,12 +230,15 @@ class App extends Component {
                                     }
                                 />
                             </Desktop>
-                            <CalendarApp calendarOpen={calendarOpen} />
-                            <StartMenuApp
-                                closeApp={this.closeApp}
-                                startMenuOpen={startMenuOpen}
-                                startApp={this.startApp}
-                            />
+                            {calendarOpen === "open" ? <CalendarApp /> : ""}
+                            {startMenuOpen === "open" ? (
+                                <StartMenuApp
+                                    closeApp={this.closeApp}
+                                    startApp={this.startApp}
+                                />
+                            ) : (
+                                ""
+                            )}
                         </React.Fragment>
                     )}
                 />

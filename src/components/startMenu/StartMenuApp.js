@@ -9,10 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StartMenuApp = props => {
     return (
-        <StartMenu
-            display={props.startMenuOpen}
-            onClick={() => props.closeApp("startMenuOpen")}
-        >
+        <StartMenu onClick={() => props.closeApp("startMenuOpen")}>
             <SmallWidgetsContainer />
             <LargeWidgetsContainer>
                 <Widget style={{ gridArea: "widget-1" }}>

@@ -13,7 +13,6 @@ const slideUp = keyframes`
 
 const CalendarContainer = styled.section`
     position: absolute;
-    display: ${props => (props.display === "open" ? "box" : "none")};
     border-top: 1px solid #444;
     border-left: 1px solid #444;
     bottom: 3.5rem;
