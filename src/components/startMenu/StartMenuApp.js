@@ -115,7 +115,6 @@ const StartMenuApp = props => {
 export default StartMenuApp;
 
 StartMenuApp.propTypes = {
-    startMenuOpen: PropTypes.string.isRequired,
     closeApp: PropTypes.func.isRequired,
     startApp: PropTypes.func.isRequired
 };

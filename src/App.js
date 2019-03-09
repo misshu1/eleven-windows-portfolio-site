@@ -1,13 +1,11 @@
-import React, { Component } from "react";
+import React, { Component, lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import TaskbarApp from "./components/taskbar/TaskbarApp";
-import StartMenuApp from "./components/startMenu/StartMenuApp";
 import Desktop from "./components/desktop/Desktop";
 import Icon from "./components/desktop/Icon";
 import DarkTheme from "./components/theme/Dark";
-import CalendarApp from "./components/taskbar/calendar/CalendarApp";
-import CalculatorApp from "./components/folders/calculator/CalculatorApp";
+import SpinnerApp from "./components/animations/SpinnerApp";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
     faLongArrowAltLeft,
@@ -22,7 +20,8 @@ import {
     faLeaf,
     faBicycle,
     faBomb,
-    faStar
+    faStar,
+    faSpinner
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faLinkedinIn,
@@ -30,7 +29,6 @@ import {
     faInstagram,
     faCodepen
 } from "@fortawesome/free-brands-svg-icons";
-import MemoryGameApp from "./components/folders/memoryGame/MemoryGameApp";
 library.add(
     faLongArrowAltLeft,
     faWindowMinimize,
@@ -48,9 +46,19 @@ library.add(
     faLinkedinIn,
     faGithub,
     faCodepen,
-    faInstagram
+    faInstagram,
+    faSpinner
 );
-
+const CalendarApp = lazy(() =>
+    import("./components/taskbar/calendar/CalendarApp")
+);
+const StartMenuApp = lazy(() => import("./components/startMenu/StartMenuApp"));
+const MemoryGameApp = lazy(() =>
+    import("./components/folders/memoryGame/MemoryGameApp")
+);
+const CalculatorApp = lazy(() =>
+    import("./components/folders/calculator/CalculatorApp")
+);
 class App extends Component {
     state = {
         startMenuOpen: "close",
@@ -116,30 +124,42 @@ class App extends Component {
                                     render={() => (
                                         <React.Fragment>
                                             {memoryGameOpen === "open" ? (
-                                                <MemoryGameApp
-                                                    windowIndex={windowIndex}
-                                                    activeWindow={this.activeWindow.bind(
-                                                        this
-                                                    )}
-                                                    memoryGameOpen={
-                                                        memoryGameOpen
-                                                    }
-                                                    closeApp={this.closeApp}
-                                                />
+                                                <Suspense
+                                                    fallback={<SpinnerApp />}
+                                                >
+                                                    <MemoryGameApp
+                                                        windowIndex={
+                                                            windowIndex
+                                                        }
+                                                        activeWindow={this.activeWindow.bind(
+                                                            this
+                                                        )}
+                                                        memoryGameOpen={
+                                                            memoryGameOpen
+                                                        }
+                                                        closeApp={this.closeApp}
+                                                    />
+                                                </Suspense>
                                             ) : (
                                                 ""
                                             )}
                                             {calculatorOpen === "open" ? (
-                                                <CalculatorApp
-                                                    windowIndex={windowIndex}
-                                                    activeWindow={this.activeWindow.bind(
-                                                        this
-                                                    )}
-                                                    calculatorOpen={
-                                                        calculatorOpen
-                                                    }
-                                                    closeApp={this.closeApp}
-                                                />
+                                                <Suspense
+                                                    fallback={<SpinnerApp />}
+                                                >
+                                                    <CalculatorApp
+                                                        windowIndex={
+                                                            windowIndex
+                                                        }
+                                                        activeWindow={this.activeWindow.bind(
+                                                            this
+                                                        )}
+                                                        calculatorOpen={
+                                                            calculatorOpen
+                                                        }
+                                                        closeApp={this.closeApp}
+                                                    />
+                                                </Suspense>
                                             ) : (
                                                 ""
                                             )}
@@ -152,31 +172,34 @@ class App extends Component {
                                     exact
                                     path="/apps/memorygame"
                                     render={() => (
-                                        <MemoryGameApp
-                                            windowIndex={windowIndex}
-                                            activeWindow={this.activeWindow.bind(
-                                                this
-                                            )}
-                                            memoryGameOpen={memoryGameOpen}
-                                            closeApp={this.closeApp}
-                                        />
+                                        <Suspense fallback={<SpinnerApp />}>
+                                            <MemoryGameApp
+                                                windowIndex={windowIndex}
+                                                activeWindow={this.activeWindow.bind(
+                                                    this
+                                                )}
+                                                memoryGameOpen={memoryGameOpen}
+                                                closeApp={this.closeApp}
+                                            />
+                                        </Suspense>
                                     )}
                                 />
                                 <Route
                                     exact
                                     path="/apps/calculator"
                                     render={() => (
-                                        <CalculatorApp
-                                            windowIndex={windowIndex}
-                                            activeWindow={this.activeWindow.bind(
-                                                this
-                                            )}
-                                            calculatorOpen={calculatorOpen}
-                                            closeApp={this.closeApp}
-                                        />
+                                        <Suspense fallback={<SpinnerApp />}>
+                                            <CalculatorApp
+                                                windowIndex={windowIndex}
+                                                activeWindow={this.activeWindow.bind(
+                                                    this
+                                                )}
+                                                calculatorOpen={calculatorOpen}
+                                                closeApp={this.closeApp}
+                                            />
+                                        </Suspense>
                                     )}
                                 />
-
                                 <Icon
                                     tabIndex="1"
                                     // onClick={() => this.openUrlMobile("/apps")}
@@ -230,12 +253,20 @@ class App extends Component {
                                     }
                                 />
                             </Desktop>
-                            {calendarOpen === "open" ? <CalendarApp /> : ""}
+                            {calendarOpen === "open" ? (
+                                <Suspense fallback={<SpinnerApp />}>
+                                    <CalendarApp />
+                                </Suspense>
+                            ) : (
+                                ""
+                            )}
                             {startMenuOpen === "open" ? (
-                                <StartMenuApp
-                                    closeApp={this.closeApp}
-                                    startApp={this.startApp}
-                                />
+                                <Suspense fallback={<SpinnerApp />}>
+                                    <StartMenuApp
+                                        closeApp={this.closeApp}
+                                        startApp={this.startApp}
+                                    />
+                                </Suspense>
                             ) : (
                                 ""
                             )}
