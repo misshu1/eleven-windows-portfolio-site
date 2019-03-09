@@ -1,18 +1,23 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Taskbar from "./taskbarStructure/Taskbar";
-import OpenAppsContainer from "./taskbarStructure/OpenAppsContainer";
-import LogoContainer from "./taskbarStructure/LogoContainer";
-import Logo from "./taskbarStructure/Logo";
-import BorderLogo from "./taskbarStructure/BorderLogo";
-import HomeButtonContainer from "./taskbarStructure/HomeButtonContainer";
-import ClockContainer from "./taskbarStructure/ClockContainer";
-import BackButtonContainer from "./taskbarStructure/BackButtonContainer";
+import Taskbar from "./style/Taskbar";
+import OpenAppsContainer from "./style/OpenAppsContainer";
+import LogoContainer from "./style/LogoContainer";
+import Logo from "./style/Logo";
+import BorderLogo from "./style/BorderLogo";
+import HomeButtonContainer from "./style/HomeButtonContainer";
+import ClockContainer from "./style/ClockContainer";
+import BackButtonContainer from "./style/BackButtonContainer";
 import Clock from "./Clock";
 
 const TaskbarApp = props => {
     return (
-        <Taskbar>
+        <Taskbar
+            onClick={() => {
+                props.closeApp("startMenuOpen");
+                props.closeApp("calendarOpen");
+            }}
+        >
             <HomeButtonContainer>home</HomeButtonContainer>
 
             <LogoContainer
@@ -25,11 +30,8 @@ const TaskbarApp = props => {
                     <span />
                     <span />
                     <span />
-                    <Logo
-                        src={require("./taskbarStructure/img/small-logo.svg")}
-                        alt="logo"
-                    />
-                </BorderLogo>{" "}
+                    <Logo src={require("./img/logo.svg")} alt="logo" />
+                </BorderLogo>
             </LogoContainer>
             <OpenAppsContainer> </OpenAppsContainer>
             <ClockContainer

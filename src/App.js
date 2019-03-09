@@ -247,12 +247,11 @@ class App extends Component {
                                     />
                                     <div>About</div>
                                 </Icon>
-                                <TaskbarApp
-                                    toggleAppVisibility={
-                                        this.toggleAppVisibility
-                                    }
-                                />
                             </Desktop>
+                            <TaskbarApp
+                                toggleAppVisibility={this.toggleAppVisibility}
+                                closeApp={this.closeApp}
+                            />
                             {calendarOpen === "open" ? (
                                 <Suspense fallback={<SpinnerApp />}>
                                     <CalendarApp />

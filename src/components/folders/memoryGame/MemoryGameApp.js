@@ -2,9 +2,9 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import AppContainer from "./style/AppContainer";
-import NameBar from "../../folders/folderStructure/nameBar/NameBar";
-import Name from "../../folders/folderStructure/nameBar/Name";
-import Buttons from "../../folders/folderStructure/nameBar/Buttons";
+import NameBar from "../../folders/style/nameBar/NameBar";
+import Name from "../../folders/style/nameBar/Name";
+import Buttons from "../../folders/style/nameBar/Buttons";
 import BackgroundContainer from "./style/BackgroundContainer";
 import Container from "./style/Container";
 import Deck from "./style/Deck";
@@ -21,7 +21,6 @@ let timer = null;
 class MemoryGameApp extends Component {
     state = {
         cards: [],
-        memoryGameOpen: "close",
         moves: 0,
         minutes: 0,
         seconds: 0,
@@ -29,10 +28,6 @@ class MemoryGameApp extends Component {
         close: "",
         disabled: true
     };
-
-    static getDerivedStateFromProps(props, state) {
-        return { memoryGameOpen: props.memoryGameOpen };
-    }
 
     componentDidMount() {
         this.setCards();
@@ -118,7 +113,12 @@ class MemoryGameApp extends Component {
     };
 
     restartGame = () => {
-        this.setState({ moves: 0, minutes: 0, seconds: 0, matchedCards: 0 });
+        this.setState({
+            moves: 0,
+            minutes: 0,
+            seconds: 0,
+            matchedCards: 0
+        });
         openCards = [];
         selected = [];
         this.setCards();
@@ -238,11 +238,11 @@ class MemoryGameApp extends Component {
     };
 
     render() {
+        const { memoryGameOpen, windowIndex, activeWindow } = this.props;
         const {
             moves,
             seconds,
             minutes,
-            memoryGameOpen,
             matchedCards,
             close,
             disabled
@@ -258,11 +258,11 @@ class MemoryGameApp extends Component {
                 <AnimateFadeInOut
                     open={memoryGameOpen}
                     close={close}
-                    appIndex={this.props.windowIndex[1]}
+                    appIndex={windowIndex[1]}
                     style={{
-                        zIndex: this.props.windowIndex[1]
+                        zIndex: windowIndex[1]
                     }}
-                    onClick={() => this.props.activeWindow(1)}
+                    onClick={() => activeWindow(1)}
                 >
                     <AppContainer>
                         <NameBar>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const CalculatorInput = styled.input.attrs({
-    type: "number"
+    type: "text"
 })`
     &&::-webkit-inner-spin-button,
     &&::-webkit-outer-spin-button {

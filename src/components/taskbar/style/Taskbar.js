@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 const Taskbar = styled.div`
     display: flex;
+    color: #d6d8de;
     z-index: 200;
     position: fixed;
     bottom: 0;
