@@ -249,6 +249,8 @@ class App extends Component {
                                 </Icon>
                             </Desktop>
                             <TaskbarApp
+                                memoryGameOpen={memoryGameOpen}
+                                calculatorOpen={calculatorOpen}
                                 toggleAppVisibility={this.toggleAppVisibility}
                                 closeApp={this.closeApp}
                             />
