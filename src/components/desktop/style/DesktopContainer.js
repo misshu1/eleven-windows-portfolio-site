@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import bgDesktop from "../desktop/img/bg-desktop.jpg";
-import bgMobile from "../desktop/img/bg-mobile.jpg";
-import bgTablet from "../desktop/img/bg-tablet.jpg";
+import bgDesktop from "../../desktop/img/bg-desktop.jpg";
+import bgMobile from "../../desktop/img/bg-mobile.jpg";
+import bgTablet from "../../desktop/img/bg-tablet.jpg";
 
-const Desktop = styled.section`
+const DesktopContainer = styled.section`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -25,4 +25,4 @@ const Desktop = styled.section`
     }
 `;
 
-export default Desktop;
+export default DesktopContainer;
