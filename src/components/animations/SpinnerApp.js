@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Spinner() {
     return (
         <SpinnerAnimation>
-            <FontAwesomeIcon icon="spinner" size="2x" />
+            <FontAwesomeIcon icon="spinner" size="2x" pulse />
         </SpinnerAnimation>
     );
 }

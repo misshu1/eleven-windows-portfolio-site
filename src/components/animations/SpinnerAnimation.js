@@ -1,12 +1,4 @@
-import styled, { keyframes } from "styled-components";
-
-const rotate = keyframes`
-0% {
-    transform: rotate(0deg);
-}
-100% {
-    transform: rotate(360deg);
-}`;
+import styled from "styled-components";
 
 const SpinnerAnimation = styled.div`
     color: #d6d8de;
@@ -15,7 +7,6 @@ const SpinnerAnimation = styled.div`
     top: calc(50% - 3.5rem);
     left: 50%;
     transform: translate(50%, calc(50% - 3.5rem));
-    animation: ${rotate} 1.2s linear infinite;
 `;
 
 export default SpinnerAnimation;

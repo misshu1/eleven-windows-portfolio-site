@@ -12,6 +12,7 @@ const SmallWidgetBox = styled.div`
         color: #d6d8de;
         width: 100%;
         height: 100%;
+        cursor: default;
     }
     &&:hover {
         background: rgba(100, 100, 100, 0.3);
