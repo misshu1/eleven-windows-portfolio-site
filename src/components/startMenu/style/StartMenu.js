@@ -15,7 +15,7 @@ const StartMenu = styled.section`
     position: absolute;
     display: flex;
     left: 0;
-    top: 0;
+    bottom: 3.5rem;
     width: 100%;
     height: calc(100vh - 3.5rem);
     background: ${props => props.theme.primary};
@@ -24,7 +24,6 @@ const StartMenu = styled.section`
 
     @media (min-width: 28rem) {
         height: 80%;
-        top: calc(20% - 3.5rem);
         max-width: 28rem;
     }
 `;

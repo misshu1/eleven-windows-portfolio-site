@@ -17,14 +17,13 @@ const AppIcon = styled.div`
         position: absolute;
         bottom: 0;
         left: 10%;
-        height: 1px;
+        height: 2px;
         width: 80%;
     }
 
     &&:hover::after {
         left: 0;
         width: 100%;
-        height: 2px;
         transition: all 0.4s;
     }
 

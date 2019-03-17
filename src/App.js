@@ -88,14 +88,14 @@ class App extends Component {
         }
     };
 
-    activeWindow(newActive) {
+    activeWindow = newActive => {
         const newObj = {};
         Object.keys(this.state.windowIndex).forEach(() => {
             newObj.key = 100;
         });
         const activedWindow = Object.assign({}, newObj, { [newActive]: 104 });
         this.setState({ windowIndex: activedWindow });
-    }
+    };
 
     render() {
         const {
@@ -131,9 +131,9 @@ class App extends Component {
                                                         windowIndex={
                                                             windowIndex
                                                         }
-                                                        activeWindow={this.activeWindow.bind(
-                                                            this
-                                                        )}
+                                                        activeWindow={
+                                                            this.activeWindow
+                                                        }
                                                         memoryGameOpen={
                                                             memoryGameOpen
                                                         }
@@ -151,9 +151,9 @@ class App extends Component {
                                                         windowIndex={
                                                             windowIndex
                                                         }
-                                                        activeWindow={this.activeWindow.bind(
-                                                            this
-                                                        )}
+                                                        activeWindow={
+                                                            this.activeWindow
+                                                        }
                                                         calculatorOpen={
                                                             calculatorOpen
                                                         }
@@ -175,9 +175,7 @@ class App extends Component {
                                         <Suspense fallback={<SpinnerApp />}>
                                             <MemoryGameApp
                                                 windowIndex={windowIndex}
-                                                activeWindow={this.activeWindow.bind(
-                                                    this
-                                                )}
+                                                activeWindow={this.activeWindow}
                                                 memoryGameOpen={memoryGameOpen}
                                                 closeApp={this.closeApp}
                                             />
@@ -191,56 +189,28 @@ class App extends Component {
                                         <Suspense fallback={<SpinnerApp />}>
                                             <CalculatorApp
                                                 windowIndex={windowIndex}
-                                                activeWindow={this.activeWindow.bind(
-                                                    this
-                                                )}
+                                                activeWindow={this.activeWindow}
                                                 calculatorOpen={calculatorOpen}
                                                 closeApp={this.closeApp}
                                             />
                                         </Suspense>
                                     )}
                                 />
-                                <Icon
-                                    tabIndex="1"
-                                    // onClick={() => this.openUrlMobile("/apps")}
-                                    // onDoubleClick={() =>
-                                    //     this.openUrlDesktop("/apps")
-                                    // }
-                                    // onKeyPress={(e, url) =>
-                                    //     this.handleKeyPress(e, "/apps")
-                                    // }
-                                >
+                                <Icon tabIndex="1">
                                     <img
                                         src={require("./components/desktop/img/folder-icon.png")}
                                         alt="my stuff"
                                     />
                                     <div>My Stuff</div>
                                 </Icon>
-                                <Icon
-                                    tabIndex="2"
-                                    // onClick={() =>
-                                    //     this.openUrlMobile("/documents")
-                                    // }
-                                    // onDoubleClick={() =>
-                                    //     this.openUrlDesktop("/documents")
-                                    // }
-                                    // onKeyPress={(e, url) =>
-                                    //     this.handleKeyPress(e, "/documents")
-                                    // }
-                                >
+                                <Icon tabIndex="2">
                                     <img
                                         src={require("./components/desktop/img/folder-icon.png")}
                                         alt="test"
                                     />
                                     <div>Documents</div>
                                 </Icon>
-                                <Icon
-                                    tabIndex="3"
-                                    // onClick={() => this.openUrlMobile("/about")}
-                                    // onDoubleClick={() =>
-                                    //     this.openUrlDesktop("/about")
-                                    // }
-                                >
+                                <Icon tabIndex="3">
                                     <img
                                         src={require("./components/desktop/img/folder-icon.png")}
                                         alt="test"

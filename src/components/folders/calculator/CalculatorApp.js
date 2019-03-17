@@ -155,17 +155,18 @@ class CalculatorApp extends Component {
     };
 
     render() {
-        const { calculatorOpen, close, disabled, result } = this.state;
+        const { windowIndex, activeWindow } = this.props;
+        const { calculatorOpen, close, disabled, result, value } = this.state;
         return (
             <Draggable axis="both" handle=".handle" disabled={disabled}>
                 <AnimateFadeInOut
                     open={calculatorOpen}
                     close={close}
-                    appIndex={this.props.windowIndex[3]}
+                    appIndex={windowIndex[3]}
                     style={{
-                        zIndex: this.props.windowIndex[3]
+                        zIndex: windowIndex[3]
                     }}
-                    onClick={() => this.props.activeWindow(3)}
+                    onClick={() => activeWindow(3)}
                 >
                     <AppContainer>
                         <NameBar>
@@ -196,7 +197,7 @@ class CalculatorApp extends Component {
                                 onChange={e =>
                                     this.setState({ value: e.target.value })
                                 }
-                                value={this.state.value}
+                                value={value}
                             />
                             <Result>{this.roundResult(result)}</Result>
                             <ButtonsContainer>
