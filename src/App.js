@@ -17,7 +17,9 @@ import {
     faBicycle,
     faBomb,
     faStar,
-    faSpinner
+    faSpinner,
+    faFile,
+    faAddressCard
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faLinkedinIn,
@@ -43,7 +45,9 @@ library.add(
     faGithub,
     faCodepen,
     faInstagram,
-    faSpinner
+    faSpinner,
+    faFile,
+    faAddressCard
 );
 
 class App extends Component {

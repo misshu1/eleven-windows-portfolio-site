@@ -17,12 +17,16 @@ const MemoryGameApp = lazy(() =>
 const CalculatorApp = lazy(() =>
     import("../../components/folders/calculator/CalculatorApp")
 );
+const SettingsApp = lazy(() =>
+    import("../../components/folders/settings/SettingsApp")
+);
 class App extends Component {
     state = {
         startMenuOpen: "close",
         memoryGameOpen: "close",
         calendarOpen: "close",
         calculatorOpen: "close",
+        settingsOpen: "close",
         windowIndex: {
             1: 100,
             2: 100,
@@ -48,8 +52,8 @@ class App extends Component {
 
     activeWindow = newActive => {
         const newObj = {};
-        Object.keys(this.state.windowIndex).forEach(() => {
-            newObj.key = 100;
+        Object.keys(this.state.windowIndex).forEach((item, index) => {
+            newObj[index + 1] = 100;
         });
         const activedWindow = Object.assign({}, newObj, { [newActive]: 104 });
         this.setState({ windowIndex: activedWindow });
@@ -61,7 +65,8 @@ class App extends Component {
             windowIndex,
             memoryGameOpen,
             calendarOpen,
-            calculatorOpen
+            calculatorOpen,
+            settingsOpen
         } = this.state;
         return (
             <Route
@@ -112,6 +117,20 @@ class App extends Component {
                                         ) : (
                                             ""
                                         )}
+                                        {settingsOpen === "open" ? (
+                                            <Suspense fallback={<SpinnerApp />}>
+                                                <SettingsApp
+                                                    windowIndex={windowIndex}
+                                                    activeWindow={
+                                                        this.activeWindow
+                                                    }
+                                                    settingsOpen={settingsOpen}
+                                                    closeApp={this.closeApp}
+                                                />
+                                            </Suspense>
+                                        ) : (
+                                            ""
+                                        )}
                                     </React.Fragment>
                                 )}
                             />
@@ -145,6 +164,20 @@ class App extends Component {
                                     </Suspense>
                                 )}
                             />
+                            <Route
+                                exact
+                                path="/apps/settings"
+                                render={() => (
+                                    <Suspense fallback={<SpinnerApp />}>
+                                        <SettingsApp
+                                            windowIndex={windowIndex}
+                                            activeWindow={this.activeWindow}
+                                            settingsOpen={settingsOpen}
+                                            closeApp={this.closeApp}
+                                        />
+                                    </Suspense>
+                                )}
+                            />
                             <Icon tabIndex="1">
                                 <img
                                     src={require("../../components/desktop/img/folder-icon.png")}
@@ -170,6 +203,7 @@ class App extends Component {
                         <TaskbarApp
                             memoryGameOpen={memoryGameOpen}
                             calculatorOpen={calculatorOpen}
+                            settingsOpen={settingsOpen}
                             toggleAppVisibility={this.toggleAppVisibility}
                             closeApp={this.closeApp}
                         />

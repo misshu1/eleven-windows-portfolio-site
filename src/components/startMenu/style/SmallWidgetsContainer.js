@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 const SmallWidgetsContainer = styled.div`
-    box-sizing: border-box;
-    width: 5rem;
     display: none;
     @media (min-width: 28rem) {
-        display: block;
+        width: 5rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
     }
 `;
 

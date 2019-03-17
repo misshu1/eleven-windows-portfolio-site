@@ -13,7 +13,7 @@ import Clock from "./Clock";
 
 class TaskbarApp extends Component {
     showIcon = () => {
-        const { calculatorOpen, memoryGameOpen } = this.props;
+        const { calculatorOpen, memoryGameOpen, settingsOpen } = this.props;
         let openApps = [];
         const apps = [
             {
@@ -24,6 +24,11 @@ class TaskbarApp extends Component {
             {
                 name: "calc",
                 open: calculatorOpen,
+                onChange: updateApp
+            },
+            {
+                name: "sett",
+                open: settingsOpen,
                 onChange: updateApp
             }
         ];

@@ -26,6 +26,7 @@ const fadeOut = keyframes`
 const AnimateFadeInOut = styled.div`
     min-width: fit-content;
     min-height: fit-content;
+    z-index: ${props => props.appIndex};
 
     && section:first-child {
         position:absolute;

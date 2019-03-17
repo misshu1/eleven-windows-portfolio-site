@@ -21,16 +21,12 @@ class CalculatorApp extends Component {
         prevNum: "",
         result: null,
         operator: "",
-        calculatorOpen: "close",
         close: "",
         disabled: true
     };
-    static getDerivedStateFromProps(props, state) {
-        return { calculatorOpen: props.calculatorOpen };
-    }
 
     componentDidMount() {
-        this.props.activeWindow(3);
+        this.props.activeWindow(2);
         if (window.matchMedia("(min-width: 35rem)").matches) {
             this.handleDrag();
         }
@@ -155,18 +151,15 @@ class CalculatorApp extends Component {
     };
 
     render() {
-        const { windowIndex, activeWindow } = this.props;
-        const { calculatorOpen, close, disabled, result, value } = this.state;
+        const { windowIndex, activeWindow, calculatorOpen } = this.props;
+        const { close, disabled, result, value } = this.state;
         return (
             <Draggable axis="both" handle=".handle" disabled={disabled}>
                 <AnimateFadeInOut
                     open={calculatorOpen}
                     close={close}
-                    appIndex={windowIndex[3]}
-                    style={{
-                        zIndex: windowIndex[3]
-                    }}
-                    onClick={() => activeWindow(3)}
+                    appIndex={windowIndex[2]}
+                    onClick={() => activeWindow(2)}
                 >
                     <AppContainer>
                         <NameBar>

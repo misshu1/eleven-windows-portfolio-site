@@ -259,9 +259,6 @@ class MemoryGameApp extends Component {
                     open={memoryGameOpen}
                     close={close}
                     appIndex={windowIndex[1]}
-                    style={{
-                        zIndex: windowIndex[1]
-                    }}
                     onClick={() => activeWindow(1)}
                 >
                     <AppContainer>

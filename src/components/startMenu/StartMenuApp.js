@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import LargeWidgetsContainer from "./style/LargeWidgetsContainer";
 import SmallWidgetsContainer from "./style/SmallWidgetsContainer";
+import SmallWidgetBox from "./style/SmallWidgetBox";
 import StartMenu from "./style/StartMenu";
 import Widget from "./style/Widget";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,7 +11,30 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const StartMenuApp = props => {
     return (
         <StartMenu onClick={() => props.closeApp("startMenuOpen")}>
-            <SmallWidgetsContainer />
+            <SmallWidgetsContainer>
+                <SmallWidgetBox>
+                    <Link to="#">
+                        <FontAwesomeIcon icon={["fa", "file"]} />
+                    </Link>
+                </SmallWidgetBox>
+                <SmallWidgetBox>
+                    <Link to="#">
+                        <FontAwesomeIcon icon={["fa", "address-card"]} />
+                    </Link>
+                </SmallWidgetBox>
+                <SmallWidgetBox>
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 56.25rem)").matches
+                                ? "/apps/settings"
+                                : "/apps"
+                        }
+                        onClick={() => props.startApp("settingsOpen")}
+                    >
+                        <FontAwesomeIcon icon={["fa", "cog"]} />
+                    </Link>
+                </SmallWidgetBox>
+            </SmallWidgetsContainer>
             <LargeWidgetsContainer>
                 <Widget style={{ gridArea: "widget-1" }}>
                     <Link
