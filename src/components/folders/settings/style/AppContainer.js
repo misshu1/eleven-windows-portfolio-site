@@ -10,13 +10,13 @@ const AppContainer = styled.section`
     background: #202020;
 
     @media (min-width: 28em) {
-        height: 42rem;
-        width: 42rem;
+        height: 44rem;
+        width: 44rem;
     }
 
-    @media (min-width: 35em) {
+    @media (min-width: 50em) {
         top: 10rem;
-        left: 12rem;
+        left: 5rem;
     }
 `;
 

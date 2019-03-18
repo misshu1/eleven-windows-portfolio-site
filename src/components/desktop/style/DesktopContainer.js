@@ -18,10 +18,12 @@ const DesktopContainer = styled.section`
 
     @media (min-width: 28rem) and (max-width: 56.24rem) {
         background: url(${bgTablet});
+        background-size: cover;
     }
 
     @media (min-width: 56.25rem) {
         background: url(${bgDesktop});
+        background-size: cover;
     }
 `;
 

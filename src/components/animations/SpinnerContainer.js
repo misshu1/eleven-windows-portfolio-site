@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SpinnerAnimation = styled.div`
+const SpinnerContainer = styled.div`
     color: #d6d8de;
     z-index: 200;
     position: absolute;
@@ -9,4 +9,4 @@ const SpinnerAnimation = styled.div`
     transform: translate(50%, calc(50% - 3.5rem));
 `;
 
-export default SpinnerAnimation;
+export default SpinnerContainer;

@@ -6,7 +6,13 @@ import Name from "../style/nameBar/Name";
 import Buttons from "../style/nameBar/Buttons";
 import AnimateFadeInOut from "../../animations/AnimateFadeInOut";
 import AppContainer from "./style/AppContainer";
+import Title from "./style/Title";
+import ThemesImg from "./style/ThemesImg";
+import Wrapper from "./style/Wrapper";
+import BoxImg from "./style/BoxImg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Icon from "./style/Icon";
+import BoxIcon from "./style/BoxIcon";
 import Draggable from "react-draggable";
 
 class SettingsApp extends Component {
@@ -72,6 +78,51 @@ class SettingsApp extends Component {
                                 </Link>
                             </Buttons>
                         </NameBar>
+                        <Wrapper>
+                            <Title>Themes</Title>
+                            <BoxImg>
+                                <ThemesImg />
+                                <ThemesImg />
+                            </BoxImg>
+                            <Title>Resize App</Title>
+                            <BoxIcon>
+                                <Icon>
+                                    <img
+                                        src={require("../../../components/desktop/img/folder-icon.png")}
+                                        alt="100%"
+                                        style={{
+                                            width: "80px",
+                                            height: "60px"
+                                        }}
+                                    />
+                                    <span>100%</span>
+                                </Icon>
+                                <Icon>
+                                    <img
+                                        src={require("../../../components/desktop/img/folder-icon.png")}
+                                        alt="100%"
+                                        style={{
+                                            width: "60px",
+                                            height: "45px"
+                                        }}
+                                    />
+                                    <span style={{ fontSize: "12px" }}>
+                                        75%
+                                    </span>
+                                </Icon>
+                                <Icon>
+                                    <img
+                                        src={require("../../../components/desktop/img/folder-icon.png")}
+                                        alt="100%"
+                                        style={{
+                                            width: "40px",
+                                            height: "30px"
+                                        }}
+                                    />
+                                    <span style={{ fontSize: "8px" }}>50%</span>
+                                </Icon>
+                            </BoxIcon>
+                        </Wrapper>
                     </AppContainer>
                 </AnimateFadeInOut>
             </Draggable>

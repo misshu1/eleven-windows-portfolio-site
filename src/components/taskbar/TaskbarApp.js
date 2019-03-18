@@ -54,7 +54,6 @@ class TaskbarApp extends Component {
 
                 <LogoContainer
                     onClick={() => toggleAppVisibility("startMenuOpen")}
-                    title="Start"
                 >
                     <BorderLogo>
                         {/* This 4 spans are used for border animation inside BorderLogo component */}
