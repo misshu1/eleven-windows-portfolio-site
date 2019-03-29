@@ -1,9 +1,8 @@
 import React, { Component, lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import TaskbarApp from "../../components/taskbar/TaskbarApp";
-import Icon from "../../components/desktop/style/Icon";
+import { Icon, DesktopContainer } from "../../components/desktop/style";
 import SpinnerApp from "../../components/animations/SpinnerApp";
-import DesktopContainer from "./style/DesktopContainer";
 
 const CalendarApp = lazy(() =>
     import("../../components/taskbar/calendar/CalendarApp")
@@ -120,6 +119,9 @@ class App extends Component {
                                         {settingsOpen === "open" ? (
                                             <Suspense fallback={<SpinnerApp />}>
                                                 <SettingsApp
+                                                    changeTheme={
+                                                        this.props.changeTheme
+                                                    }
                                                     windowIndex={windowIndex}
                                                     activeWindow={
                                                         this.activeWindow
@@ -170,6 +172,7 @@ class App extends Component {
                                 render={() => (
                                     <Suspense fallback={<SpinnerApp />}>
                                         <SettingsApp
+                                            changeTheme={this.props.changeTheme}
                                             windowIndex={windowIndex}
                                             activeWindow={this.activeWindow}
                                             settingsOpen={settingsOpen}

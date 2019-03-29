@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const OpenAppsContainer = styled.div`
+export const OpenAppsContainer = styled.div`
     display: none;
     @media (min-width: 28rem) {
         display: flex;
@@ -10,5 +10,3 @@ const OpenAppsContainer = styled.div`
         height: 100%;
     }
 `;
-
-export default OpenAppsContainer;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Name = styled.div`
+export const Name = styled.div`
     display: flex;
     flex: 1;
     cursor: default;
@@ -16,5 +16,3 @@ const Name = styled.div`
     height: 100%;
     padding-left: 1.5rem;
 `;
-
-export default Name;

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ClockContainer = styled.div`
+export const ClockContainer = styled.div`
     display: none;
     @media (min-width: 450px) {
         cursor: default;
@@ -22,5 +22,3 @@ const ClockContainer = styled.div`
         }
     }
 `;
-
-export default ClockContainer;

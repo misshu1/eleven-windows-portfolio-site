@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ResultPopUp = styled.div`
+export const ResultPopUp = styled.div`
     background: rgba(0, 0, 0, 0.7);
     position: absolute;
     display: ${props => (props.matchedCards === 16 ? "box" : "none")};
@@ -34,5 +34,3 @@ const ResultPopUp = styled.div`
         height: 20rem;
     }
 `;
-
-export default ResultPopUp;

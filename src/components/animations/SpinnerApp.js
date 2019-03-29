@@ -1,5 +1,5 @@
 import React from "react";
-import SpinnerContainer from "./SpinnerContainer";
+import { SpinnerContainer } from "./style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Spinner() {

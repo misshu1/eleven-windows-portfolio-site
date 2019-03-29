@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SpinnerContainer = styled.div`
+export const SpinnerContainer = styled.div`
     color: #d6d8de;
     z-index: 200;
     position: absolute;
@@ -8,5 +8,3 @@ const SpinnerContainer = styled.div`
     left: 50%;
     transform: translate(50%, calc(50% - 3.5rem));
 `;
-
-export default SpinnerContainer;

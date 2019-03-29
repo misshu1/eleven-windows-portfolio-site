@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CalculatorInput = styled.input.attrs({
+export const CalculatorInput = styled.input.attrs({
     type: "text"
 })`
     &&::-webkit-inner-spin-button,
@@ -21,5 +21,3 @@ const CalculatorInput = styled.input.attrs({
     background: #202020;
     color: #d8d6de;
 `;
-
-export default CalculatorInput;

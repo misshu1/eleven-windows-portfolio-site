@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const NumberPad = styled.div`
+export const NumberPad = styled.div`
     display: grid;
     grid-template-rows: repeat(4, 1fr);
     grid-template-columns: repeat(3, 1fr);
@@ -27,5 +27,3 @@ const NumberPad = styled.div`
         }
     }
 `;
-
-export default NumberPad;

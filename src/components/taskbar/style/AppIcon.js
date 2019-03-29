@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AppIcon = styled.div`
+export const AppIcon = styled.div`
     background: rgba(255, 255, 255, 0.1);
     position: relative;
     box-sizing: border-box;
@@ -31,5 +31,3 @@ const AppIcon = styled.div`
         background: rgba(200, 200, 200, 0.2);
     }
 `;
-
-export default AppIcon;

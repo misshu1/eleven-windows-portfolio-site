@@ -1,18 +1,18 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import NameBar from "../style/nameBar/NameBar";
-import Name from "../style/nameBar/Name";
-import Buttons from "../style/nameBar/Buttons";
-import AnimateFadeInOut from "../../animations/AnimateFadeInOut";
-import AppContainer from "./style/AppContainer";
-import Title from "./style/Title";
-import ThemesImg from "./style/ThemesImg";
-import Wrapper from "./style/Wrapper";
-import BoxImg from "./style/BoxImg";
+import {
+    AppContainer,
+    BoxIcon,
+    BoxImg,
+    Icon,
+    ThemesImg,
+    Title,
+    Wrapper
+} from "./style";
+import { Name, NameBar, Buttons } from "../style";
+import { AnimateFadeInOut } from "../../animations/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Icon from "./style/Icon";
-import BoxIcon from "./style/BoxIcon";
 import Draggable from "react-draggable";
 
 class SettingsApp extends Component {
@@ -81,8 +81,16 @@ class SettingsApp extends Component {
                         <Wrapper>
                             <Title>Themes</Title>
                             <BoxImg>
-                                <ThemesImg />
-                                <ThemesImg />
+                                <ThemesImg
+                                    onClick={() =>
+                                        this.props.changeTheme("dark")
+                                    }
+                                />
+                                <ThemesImg
+                                    onClick={() =>
+                                        this.props.changeTheme("light")
+                                    }
+                                />
                             </BoxImg>
                             <Title>Resize App</Title>
                             <BoxIcon>

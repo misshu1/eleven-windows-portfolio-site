@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const BoxIcon = styled.div`
+export const BoxIcon = styled.div`
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -11,5 +11,3 @@ const BoxIcon = styled.div`
         justify-content: left;
     }
 `;
-
-export default BoxIcon;

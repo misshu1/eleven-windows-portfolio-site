@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Taskbar from "./style/Taskbar";
-import OpenAppsContainer from "./style/OpenAppsContainer";
-import LogoContainer from "./style/LogoContainer";
-import Logo from "./style/Logo";
-import BorderLogo from "./style/BorderLogo";
-import HomeButtonContainer from "./style/HomeButtonContainer";
-import ClockContainer from "./style/ClockContainer";
-import BackButtonContainer from "./style/BackButtonContainer";
-import AppIcon from "./style/AppIcon";
-import Clock from "./Clock";
+import {
+    Taskbar,
+    AppIcon,
+    BackButtonContainer,
+    BorderLogo,
+    ClockContainer,
+    HomeButtonContainer,
+    Logo,
+    LogoContainer,
+    OpenAppsContainer
+} from "./style";
+import ClockApp from "./ClockApp";
 
 class TaskbarApp extends Component {
     showIcon = () => {
@@ -68,7 +70,7 @@ class TaskbarApp extends Component {
                 <ClockContainer
                     onClick={() => toggleAppVisibility("calendarOpen")}
                 >
-                    <Clock />
+                    <ClockApp />
                 </ClockContainer>
                 <BackButtonContainer>back</BackButtonContainer>
             </Taskbar>

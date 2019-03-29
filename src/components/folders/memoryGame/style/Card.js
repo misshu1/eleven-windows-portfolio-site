@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Card = styled.li`
+export const Card = styled.li`
     box-sizing: border-box;
     height: 7rem;
     width: 7rem;
@@ -36,5 +36,3 @@ const Card = styled.li`
         max-width: 16vw;
     }
 `;
-
-export default Card;

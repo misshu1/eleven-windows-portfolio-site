@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Deck = styled.ul`
+export const Deck = styled.ul`
     box-sizing: border-box;
     display: grid;
     grid-template-rows: repeat(4, 1fr);
@@ -14,5 +14,3 @@ const Deck = styled.ul`
     border-radius: 1.25rem;
     box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
 `;
-
-export default Deck;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import memoryGame from "../img/memory-game.jpg";
 import calculator from "../img/calculator.png";
 
-const Widget = styled.div`
+export const Widget = styled.div`
     background: #007bff;
     color: #d6d8de;
     position: relative;
@@ -95,5 +95,3 @@ const Widget = styled.div`
         }
     }
 `;
-
-export default Widget;

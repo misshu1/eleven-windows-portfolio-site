@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const BackButtonContainer = styled.div`
+export const BackButtonContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -12,5 +12,3 @@ const BackButtonContainer = styled.div`
         display: none;
     }
 `;
-
-export default BackButtonContainer;

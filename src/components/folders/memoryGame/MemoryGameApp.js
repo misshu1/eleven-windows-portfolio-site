@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import AppContainer from "./style/AppContainer";
-import NameBar from "../../folders/style/nameBar/NameBar";
-import Name from "../../folders/style/nameBar/Name";
-import Buttons from "../../folders/style/nameBar/Buttons";
-import BackgroundContainer from "./style/BackgroundContainer";
-import Container from "./style/Container";
-import Deck from "./style/Deck";
-import Card from "./style/Card";
-import ResultPopUp from "./style/ResultPopUp";
-import ScorePanel from "./style/ScorePanel";
-import AnimateFadeInOut from "../../animations/AnimateFadeInOut";
+import {
+    AppContainer,
+    BackgroundContainer,
+    Card,
+    Container,
+    Deck,
+    ResultPopUp,
+    ScorePanel
+} from "./style";
+import { Name, NameBar, Buttons } from "../style";
+import { AnimateFadeInOut } from "../../animations/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Draggable from "react-draggable";
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SmallWidgetsContainer = styled.div`
+export const SmallWidgetsContainer = styled.div`
     display: none;
     @media (min-width: 28rem) {
         width: 5rem;
@@ -10,5 +10,3 @@ const SmallWidgetsContainer = styled.div`
         align-items: center;
     }
 `;
-
-export default SmallWidgetsContainer;

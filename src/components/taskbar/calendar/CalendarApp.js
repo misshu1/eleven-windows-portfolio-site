@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import Calendar from "react-calendar/dist/entry.nostyle";
-import CalendarContainer from "./style/CalendarContainer";
-import CalendarStyle from "./style/CalendarStyle";
-import ClockStyleCalendar from "./style/ClockStyleCalendar";
+import { CalendarContainer, CalendarStyle, ClockStyleCalendar } from "./style";
 
 class CalendarApp extends Component {
     state = {

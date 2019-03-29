@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const CalendarStyle = styled.div`
+export const CalendarStyle = styled.div`
     .react-calendar {
         padding: 1.5rem;
         width: 21.87rem;
@@ -144,5 +144,3 @@ const CalendarStyle = styled.div`
         }
     }
 `;
-
-export default CalendarStyle;

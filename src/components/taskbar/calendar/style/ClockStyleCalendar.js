@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ClockStyleCalendar = styled.div`
+export const ClockStyleCalendar = styled.div`
     padding: 1.5rem;
     cursor: default;
     -webkit-touch-callout: none;
@@ -30,5 +30,3 @@ const ClockStyleCalendar = styled.div`
         color: #bababa;
     }
 `;
-
-export default ClockStyleCalendar;

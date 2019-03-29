@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Operators = styled.div`
+export const Operators = styled.div`
     display: grid;
     grid-template-rows: repeat(5, 1fr);
     && button {
@@ -29,5 +29,3 @@ const Operators = styled.div`
         }
     }
 `;
-
-export default Operators;

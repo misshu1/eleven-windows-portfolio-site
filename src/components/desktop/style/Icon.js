@@ -1,7 +1,7 @@
 import styled from "styled-components";
 // import img for Folder PDF
 
-const Icon = styled.div`
+export const Icon = styled.div`
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -27,5 +27,3 @@ const Icon = styled.div`
         border: 1px solid rgb(220, 227, 242, 0.7);
     }
 `;
-
-export default Icon;

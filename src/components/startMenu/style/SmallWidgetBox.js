@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const SmallWidgetBox = styled.div`
+export const SmallWidgetBox = styled.div`
     width: 3.5rem;
     height: 3.5rem;
     && a {
@@ -18,5 +18,3 @@ const SmallWidgetBox = styled.div`
         background: rgba(100, 100, 100, 0.3);
     }
 `;
-
-export default SmallWidgetBox;

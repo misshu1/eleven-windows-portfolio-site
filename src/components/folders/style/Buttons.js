@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Buttons = styled.div`
+export const Buttons = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -46,5 +46,3 @@ const Buttons = styled.div`
         }
     }
 `;
-
-export default Buttons;

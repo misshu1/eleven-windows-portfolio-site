@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const AppContainer = styled.section`
+export const AppContainer = styled.section`
     position: absolute;
     box-sizing: border-box;
     top: 0;
@@ -19,5 +19,3 @@ const AppContainer = styled.section`
         left: 9rem;
     }
 `;
-
-export default AppContainer;

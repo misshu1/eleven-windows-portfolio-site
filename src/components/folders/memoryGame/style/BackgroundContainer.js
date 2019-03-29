@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import bg from "../img/bg.jpg";
 
-const BackgroundContainer = styled.div`
+export const BackgroundContainer = styled.div`
     box-sizing: border-box;
     width: 100%;
     height: calc(100% - 2.5rem);
@@ -10,5 +10,3 @@ const BackgroundContainer = styled.div`
     background-size: cover;
     color: #fff;
 `;
-
-export default BackgroundContainer;

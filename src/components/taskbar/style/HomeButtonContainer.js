@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const HomeButtonContainer = styled.div`
+export const HomeButtonContainer = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
@@ -10,5 +10,3 @@ const HomeButtonContainer = styled.div`
         display: none;
     }
 `;
-
-export default HomeButtonContainer;

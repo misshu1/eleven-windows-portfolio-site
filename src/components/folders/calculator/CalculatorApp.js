@@ -1,17 +1,17 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import AppContainer from "../calculator/style/AppContainer";
-import NameBar from "../style/nameBar/NameBar";
-import Name from "../style/nameBar/Name";
-import Buttons from "../style/nameBar/Buttons";
-import Section from "./style/Section";
-import CalculatorInput from "./style/CalculatorInput";
-import Operators from "./style/Operators";
-import ButtonsContainer from "./style/ButtonsContainer";
-import NumberPad from "./style/NumberPad";
-import Result from "./style/Result";
-import AnimateFadeInOut from "../../animations/AnimateFadeInOut";
+import {
+    AppContainer,
+    ButtonsContainer,
+    CalculatorInput,
+    NumberPad,
+    Operators,
+    Result,
+    Section
+} from "./style";
+import { Name, NameBar, Buttons } from "../style";
+import { AnimateFadeInOut } from "../../animations/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Draggable from "react-draggable";
 

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const BoxImg = styled.div`
+export const BoxImg = styled.div`
     display: flex;
     width: 100%;
     flex-direction: column;
@@ -8,5 +8,3 @@ const BoxImg = styled.div`
         flex-direction: row;
     }
 `;
-
-export default BoxImg;

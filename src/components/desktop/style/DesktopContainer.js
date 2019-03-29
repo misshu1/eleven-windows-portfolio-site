@@ -3,7 +3,7 @@ import bgDesktop from "../../desktop/img/bg-desktop.jpg";
 import bgMobile from "../../desktop/img/bg-mobile.jpg";
 import bgTablet from "../../desktop/img/bg-tablet.jpg";
 
-const DesktopContainer = styled.section`
+export const DesktopContainer = styled.section`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -26,5 +26,3 @@ const DesktopContainer = styled.section`
         background-size: cover;
     }
 `;
-
-export default DesktopContainer;

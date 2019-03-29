@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ThemeProvider } from "styled-components";
-import DarkTheme from "./components/theme/Dark";
+import DarkTheme from "./components/theme/DarkTheme";
+import LightTheme from "./components/theme/LightTheme";
 import DesktopApp from "./components/desktop/DesktopApp";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -51,10 +52,26 @@ library.add(
 );
 
 class App extends Component {
+    state = {
+        theme: DarkTheme
+    };
+
+    changeTheme = theme => {
+        if (theme === "dark") {
+            this.setState({
+                theme: DarkTheme
+            });
+        } else if (theme === "light") {
+            this.setState({
+                theme: LightTheme
+            });
+        }
+    };
+
     render() {
         return (
-            <ThemeProvider theme={DarkTheme}>
-                <DesktopApp />
+            <ThemeProvider theme={this.state.theme}>
+                <DesktopApp changeTheme={this.changeTheme} />
             </ThemeProvider>
         );
     }

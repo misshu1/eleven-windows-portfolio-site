@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import LargeWidgetsContainer from "./style/LargeWidgetsContainer";
-import SmallWidgetsContainer from "./style/SmallWidgetsContainer";
-import SmallWidgetBox from "./style/SmallWidgetBox";
-import StartMenu from "./style/StartMenu";
-import Widget from "./style/Widget";
+import {
+    LargeWidgetsContainer,
+    SmallWidgetBox,
+    SmallWidgetsContainer,
+    StartMenu,
+    Widget
+} from "./style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StartMenuApp = props => {

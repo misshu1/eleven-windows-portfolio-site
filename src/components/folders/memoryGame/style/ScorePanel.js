@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const ScorePanel = styled.div`
+export const ScorePanel = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -30,5 +30,3 @@ const ScorePanel = styled.div`
         width: 30rem;
     }
 `;
-
-export default ScorePanel;

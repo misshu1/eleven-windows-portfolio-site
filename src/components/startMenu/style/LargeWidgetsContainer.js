@@ -9,7 +9,7 @@ const slideUp = keyframes`
 }
 `;
 
-const LargeWidgetsContainer = styled.div`
+export const LargeWidgetsContainer = styled.div`
     box-sizing: border-box;
     overflow: auto;
     animation: ${slideUp} 0.4s ease-out 1 forwards;
@@ -43,5 +43,3 @@ const LargeWidgetsContainer = styled.div`
         width: calc(100% + 5rem);
     }
 `;
-
-export default LargeWidgetsContainer;

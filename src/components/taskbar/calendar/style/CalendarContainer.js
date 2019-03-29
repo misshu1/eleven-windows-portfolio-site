@@ -11,7 +11,7 @@ const slideUp = keyframes`
 }
 `;
 
-const CalendarContainer = styled.section`
+export const CalendarContainer = styled.section`
     position: absolute;
     border-top: 1px solid #444;
     border-left: 1px solid #444;
@@ -22,5 +22,3 @@ const CalendarContainer = styled.section`
     z-index: 150;
     animation: ${slideUp} 0.3s ease-out 1 forwards;
 `;
-
-export default CalendarContainer;

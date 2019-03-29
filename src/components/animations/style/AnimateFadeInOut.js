@@ -23,7 +23,7 @@ const fadeOut = keyframes`
 `;
 
 // Child element must be a 'section' element
-const AnimateFadeInOut = styled.div`
+export const AnimateFadeInOut = styled.div`
     min-width: fit-content;
     min-height: fit-content;
     z-index: ${props => props.appIndex};
@@ -53,5 +53,3 @@ const AnimateFadeInOut = styled.div`
         }
     }
 `;
-
-export default AnimateFadeInOut;

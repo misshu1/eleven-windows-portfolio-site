@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const Taskbar = styled.div`
+export const Taskbar = styled.div`
     display: flex;
     color: #d6d8de;
     z-index: 200;
@@ -12,5 +12,3 @@ const Taskbar = styled.div`
     background: ${props => props.theme.primary};
     box-shadow: 0px -4px 14px 0px rgba(0, 0, 0, 0.21);
 `;
-
-export default Taskbar;

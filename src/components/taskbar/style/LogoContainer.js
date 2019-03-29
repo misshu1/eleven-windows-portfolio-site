@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-const LogoContainer = styled.div`
+export const LogoContainer = styled.div`
     position: relative;
     display: flex;
     align-items: center;
@@ -15,5 +15,3 @@ const LogoContainer = styled.div`
         }
     }
 `;
-
-export default LogoContainer;

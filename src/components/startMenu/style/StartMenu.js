@@ -11,7 +11,7 @@ const slideUp = keyframes`
 }
 `;
 
-const StartMenu = styled.section`
+export const StartMenu = styled.section`
     position: absolute;
     display: flex;
     left: 0;
@@ -27,5 +27,3 @@ const StartMenu = styled.section`
         max-width: 28rem;
     }
 `;
-
-export default StartMenu;
