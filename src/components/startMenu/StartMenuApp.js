@@ -8,6 +8,9 @@ import {
     StartMenu,
     Widget
 } from "./style";
+import mempryGameIcon from "../taskbar/img/memory-game-icon-taskbar.jpg";
+import calculatorIcon from "../taskbar/img/calculator-icon-taskbar.jpg";
+import settingsIcon from "../taskbar/img/settings-icon-taskbar.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StartMenuApp = props => {
@@ -31,7 +34,9 @@ const StartMenuApp = props => {
                                 ? "/apps/settings"
                                 : "/apps"
                         }
-                        onClick={() => props.startApp("settingsOpen")}
+                        onClick={() =>
+                            props.startApp("settingsOpen", settingsIcon, 3)
+                        }
                     >
                         <FontAwesomeIcon icon={["fa", "cog"]} />
                     </Link>
@@ -45,7 +50,9 @@ const StartMenuApp = props => {
                                 ? "/apps/memorygame"
                                 : "/apps"
                         }
-                        onClick={() => props.startApp("memoryGameOpen")}
+                        onClick={() => {
+                            props.startApp("memoryGameOpen", mempryGameIcon, 1);
+                        }}
                     >
                         <span className="name">Memory Game</span>
                     </Link>
@@ -60,7 +67,9 @@ const StartMenuApp = props => {
                                 ? "/apps/calculator"
                                 : "/apps"
                         }
-                        onClick={() => props.startApp("calculatorOpen")}
+                        onClick={() =>
+                            props.startApp("calculatorOpen", calculatorIcon, 2)
+                        }
                     >
                         <span className="name">Calculator</span>
                     </Link>

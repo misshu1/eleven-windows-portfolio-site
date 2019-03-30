@@ -1,15 +1,28 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const AppIcon = styled.div`
-    background: rgba(255, 255, 255, 0.1);
+    /* ${props =>
+        props.windowIndex === 104 &&
+        css`
+            background: rgba(255, 255, 255, 0.1);
+        `}; */
     position: relative;
     box-sizing: border-box;
-    text-align: center;
     height: 100%;
     line-height: 3.5rem;
     width: 3.5rem;
     padding: 0 0.5rem;
     margin: 0 1px;
+
+    && img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 2rem;
+        height: 2rem;
+        border-radius: 100%;
+    }
 
     &&::after {
         content: "";

@@ -3,6 +3,7 @@ import { Route } from "react-router-dom";
 import TaskbarApp from "../../components/taskbar/TaskbarApp";
 import { Icon, DesktopContainer } from "../../components/desktop/style";
 import SpinnerApp from "../../components/animations/SpinnerApp";
+import { AppIcon } from "./style";
 
 const CalendarApp = lazy(() =>
     import("../../components/taskbar/calendar/CalendarApp")
@@ -19,6 +20,7 @@ const CalculatorApp = lazy(() =>
 const SettingsApp = lazy(() =>
     import("../../components/folders/settings/SettingsApp")
 );
+
 class App extends Component {
     state = {
         startMenuOpen: "close",
@@ -26,6 +28,7 @@ class App extends Component {
         calendarOpen: "close",
         calculatorOpen: "close",
         settingsOpen: "close",
+        openApps: [],
         windowIndex: {
             1: 100,
             2: 100,
@@ -33,19 +36,41 @@ class App extends Component {
         }
     };
 
-    toggleAppVisibility = key => {
-        this.state[key] === "close"
-            ? this.setState({ [key]: "open" })
-            : this.setState({ [key]: "close" });
+    toggleAppVisibility = app => {
+        this.state[app] === "close"
+            ? this.setState({ [app]: "open" })
+            : this.setState({ [app]: "close" });
     };
 
-    startApp = key => {
-        this.setState({ [key]: "open" });
+    startApp = (app, icon, zIndex) => {
+        if (this.state[app] === "close") {
+            this.setState(prevState => ({
+                [app]: "open",
+                openApps: [
+                    ...prevState.openApps,
+                    <AppIcon
+                        key={app}
+                        onClick={() => this.activeWindow(zIndex)}
+                        windowIndex={this.state.windowIndex[zIndex]}
+                    >
+                        <img src={icon} alt={app} />
+                    </AppIcon>
+                ]
+            }));
+        }
     };
 
-    closeApp = key => {
-        if (this.state[key] === "open") {
-            this.setState({ [key]: "close" });
+    closeApp = app => {
+        const { openApps } = this.state;
+        if (this.state[app] === "open") {
+            if (openApps !== []) {
+                this.setState(prevState => ({
+                    openApps: [
+                        ...prevState.openApps.filter(item => item.key !== app)
+                    ]
+                }));
+            }
+            this.setState({ [app]: "close" });
         }
     };
 
@@ -65,7 +90,8 @@ class App extends Component {
             memoryGameOpen,
             calendarOpen,
             calculatorOpen,
-            settingsOpen
+            settingsOpen,
+            openApps
         } = this.state;
         return (
             <Route
@@ -209,6 +235,7 @@ class App extends Component {
                             settingsOpen={settingsOpen}
                             toggleAppVisibility={this.toggleAppVisibility}
                             closeApp={this.closeApp}
+                            openApps={openApps}
                         />
                         {calendarOpen === "open" ? (
                             <Suspense fallback={<SpinnerApp />}>
@@ -222,6 +249,10 @@ class App extends Component {
                                 <StartMenuApp
                                     closeApp={this.closeApp}
                                     startApp={this.startApp}
+                                    showFolderIconInTaskbar={
+                                        this.showFolderIconInTaskbar
+                                    }
+                                    removeIcon={this.removeIcon}
                                 />
                             </Suspense>
                         ) : (

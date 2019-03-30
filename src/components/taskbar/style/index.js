@@ -1,4 +1,3 @@
-export { AppIcon } from "./AppIcon";
 export { BackButtonContainer } from "./BackButtonContainer";
 export { BorderLogo } from "./BorderLogo";
 export { ClockContainer } from "./ClockContainer";

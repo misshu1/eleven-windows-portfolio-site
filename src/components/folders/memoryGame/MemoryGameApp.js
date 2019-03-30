@@ -232,7 +232,7 @@ class MemoryGameApp extends Component {
                         }, 650);
                     }
                 }
-                return {};
+                return null;
             });
         }
     };
