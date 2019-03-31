@@ -239,6 +239,7 @@ class App extends Component {
                             settingsOpen={settingsOpen}
                             toggleAppVisibility={this.toggleAppVisibility}
                             closeApp={this.closeApp}
+                            startApp={this.startApp}
                             openApps={openApps}
                         />
                         {calendarOpen === "open" ? (

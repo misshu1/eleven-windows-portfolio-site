@@ -21,7 +21,7 @@ export const Buttons = styled.div`
         height: 100%;
         text-decoration: none;
         cursor: default;
-        color: ${props => props.theme.textColor};
+        color: #d6d8de;
     }
 
     && div:hover {
@@ -43,6 +43,7 @@ export const Buttons = styled.div`
         }
         && a {
             width: 50%;
+            color: ${props => props.theme.textColor};
             background: transparent;
         }
     }

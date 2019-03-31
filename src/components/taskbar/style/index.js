@@ -1,4 +1,4 @@
-export { BackButtonContainer } from "./BackButtonContainer";
+export { SettingsContainer } from "./SettingsContainer";
 export { BorderLogo } from "./BorderLogo";
 export { ClockContainer } from "./ClockContainer";
 export { HomeButtonContainer } from "./HomeButtonContainer";

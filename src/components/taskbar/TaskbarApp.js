@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import {
     Taskbar,
-    BackButtonContainer,
+    SettingsContainer,
     BorderLogo,
     ClockContainer,
     HomeButtonContainer,
@@ -12,7 +13,9 @@ import {
 } from "./style";
 import logoBlue from "./img/logo-blue.svg";
 import logoRed from "./img/logo-red.svg";
+import settingsIcon from "./img/settings-icon-taskbar.png";
 import ClockApp from "./ClockApp";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class TaskbarApp extends Component {
     render() {
@@ -47,7 +50,16 @@ class TaskbarApp extends Component {
                 >
                     <ClockApp />
                 </ClockContainer>
-                <BackButtonContainer>back</BackButtonContainer>
+                <SettingsContainer>
+                    <Link
+                        to={"/apps/settings"}
+                        onClick={() =>
+                            this.props.startApp("settingsOpen", settingsIcon, 3)
+                        }
+                    >
+                        <FontAwesomeIcon icon={["fa", "cog"]} />
+                    </Link>
+                </SettingsContainer>
             </Taskbar>
         );
     }
