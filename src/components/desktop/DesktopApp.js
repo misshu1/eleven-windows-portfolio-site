@@ -227,6 +227,7 @@ class App extends Component {
                             </Icon>
                         </DesktopContainer>
                         <TaskbarApp
+                            logo={this.props.logo}
                             memoryGameOpen={memoryGameOpen}
                             calculatorOpen={calculatorOpen}
                             settingsOpen={settingsOpen}

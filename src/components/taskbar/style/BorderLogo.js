@@ -65,7 +65,7 @@ export const BorderLogo = styled.div`
         position: absolute;
         width: 100%;
         height: 2px;
-        background: #f80012;
+        background: ${props => props.theme.logoBorder};
         animation: ${animate} 3s linear infinite;
     }
 `;

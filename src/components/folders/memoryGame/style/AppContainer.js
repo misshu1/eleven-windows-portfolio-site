@@ -7,7 +7,7 @@ export const AppContainer = styled.section`
     left: 0;
     width: 100%;
     height: calc(100vh - 3.5rem);
-    background: ${props => props.theme.secundary};
+    background: ${props => props.theme.background};
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;

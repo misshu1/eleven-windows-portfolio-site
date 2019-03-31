@@ -18,7 +18,7 @@ export const StartMenu = styled.section`
     bottom: 3.5rem;
     width: 100%;
     height: calc(100vh - 3.5rem);
-    background: ${props => props.theme.primary};
+    background: ${props => props.theme.startMenuBg};
     z-index: 150;
     animation: ${slideUp} 0.4s ease-out 1 forwards;
 

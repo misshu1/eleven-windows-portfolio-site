@@ -5,12 +5,11 @@ export const CalendarStyle = styled.div`
         padding: 1.5rem;
         width: 21.87rem;
         max-width: 100%;
-        background: #202020;
-        border-top: 1px solid #444;
+        border-top: 1px solid ${props => props.theme.calendarBorder};
         font-family: Arial, Helvetica, sans-serif;
         line-height: 1.12rem;
         box-sizing: border-box;
-        color: #d6d8de;
+        color: ${props => props.theme.calendarColorDefault};
 
         button {
             margin: 0;
@@ -31,12 +30,12 @@ export const CalendarStyle = styled.div`
             button {
                 min-width: 2.75rem;
                 background: none;
-                color: #d6d8de;
+                color: ${props => props.theme.calendarColorDefault};
 
                 &:enabled {
                     &:hover,
                     &:focus {
-                        color: #fff;
+                        color: ${props => props.theme.calendarColorPrimary};
                     }
                 }
             }
@@ -71,10 +70,11 @@ export const CalendarStyle = styled.div`
 
             &__days {
                 &__day {
-                    color: #fff;
+                    color: ${props => props.theme.calendarColorPrimary};
 
                     &--neighboringMonth {
-                        color: rgb(150, 150, 150);
+                        color: ${props =>
+                            props.theme.calendarColorNeighboringMonth};
                     }
                 }
             }
@@ -85,7 +85,7 @@ export const CalendarStyle = styled.div`
         &__century-view {
             .react-calendar__tile {
                 padding: 2rem 0.5rem;
-                color: #d6d8de;
+                color: ${props => props.theme.calendarColorDefault};
             }
         }
 
@@ -96,26 +96,34 @@ export const CalendarStyle = styled.div`
             background: none;
 
             &:disabled {
-                background-color: rgb(240, 240, 240);
+                background-color: ${props => props.theme.calendarColorPrimary};
             }
 
             &:enabled {
                 &:hover {
-                    border: 1px solid rgb(230, 230, 230);
+                    border: 1px solid
+                        ${props => props.theme.calendarColorPrimary};
                 }
                 &:focus {
-                    border: 1px solid rgb(0, 110, 220);
+                    border: 1px solid
+                        ${props => props.theme.calendarBgCurrentDate};
                 }
             }
 
             &--hasActive {
-                background: lighten(rgb(0, 110, 220), 30%);
+                background: lighten(
+                    ${props => props.theme.calendarBgCurrentDate},
+                    30%
+                );
 
                 &:enabled {
                     &:hover,
                     &:focus {
                         background: lighten(
-                            lighten(rgb(0, 110, 220), 30%),
+                            lighten(
+                                ${props => props.theme.calendarBgCurrentDate},
+                                30%
+                            ),
                             10%
                         );
                     }
@@ -123,13 +131,16 @@ export const CalendarStyle = styled.div`
             }
 
             &--active {
-                background: rgb(0, 110, 220);
-                color: black;
+                background: ${props => props.theme.calendarBgCurrentDate};
+                color: ${props => props.theme.calendarColorCurrentDate};
 
                 &:enabled {
                     &:hover,
                     &:focus {
-                        background: lighten(rgb(0, 110, 220), 10%);
+                        background: lighten(
+                            ${props => props.theme.calendarBgCurrentDate},
+                            10%
+                        );
                     }
                 }
             }
@@ -138,7 +149,8 @@ export const CalendarStyle = styled.div`
         &--selectRange {
             .react-calendar__tile {
                 &--hover {
-                    background-color: rgb(230, 230, 230);
+                    background-color: ${props =>
+                        props.theme.calendarColorDefault};
                 }
             }
         }

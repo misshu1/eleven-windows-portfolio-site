@@ -13,12 +13,12 @@ const slideUp = keyframes`
 
 export const CalendarContainer = styled.section`
     position: absolute;
-    border-top: 1px solid #444;
-    border-left: 1px solid #444;
+    border-top: 1px solid ${props => props.theme.calendarBorder};
+    border-left: 1px solid ${props => props.theme.calendarBorder};
     bottom: 3.5rem;
     right: 0;
     width: 21.87rem;
-    background: #202020;
+    background: ${props => props.theme.calendarBg};
     z-index: 150;
     animation: ${slideUp} 0.3s ease-out 1 forwards;
 `;

@@ -9,7 +9,7 @@ export const Icon = styled.div`
     height: 88px;
     cursor: default;
     &&:hover {
-        background: rgba(174, 192, 229, 0.2);
-        outline: 1px solid rgb(220, 227, 242, 0.5);
+        background: ${props => props.theme.settingsBg};
+        outline: 1px solid ${props => props.theme.settingsOutline};
     }
 `;

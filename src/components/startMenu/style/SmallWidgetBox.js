@@ -9,12 +9,12 @@ export const SmallWidgetBox = styled.div`
         justify-content: center;
         align-items: center;
         text-decoration: none;
-        color: #d6d8de;
+        color: ${props => props.theme.startSmallWidgetColor};
         width: 100%;
         height: 100%;
         cursor: default;
     }
     &&:hover {
-        background: rgba(100, 100, 100, 0.3);
+        background: ${props => props.theme.startSmallWidgetHover};
     }
 `;

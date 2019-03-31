@@ -4,7 +4,7 @@ import calculator from "../img/calculator.png";
 
 export const Widget = styled.div`
     background: #007bff;
-    color: #d6d8de;
+    color: ${props => props.theme.textColor};
     position: relative;
 
     &&:nth-child(1) {

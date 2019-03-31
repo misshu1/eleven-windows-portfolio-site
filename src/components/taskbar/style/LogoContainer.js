@@ -11,7 +11,7 @@ export const LogoContainer = styled.div`
     @media (min-width: 450px) {
         width: 4rem;
         &&:hover {
-            background: rgba(100, 100, 100, 0.3);
+            background: ${props => props.theme.logoHover};
         }
     }
 `;

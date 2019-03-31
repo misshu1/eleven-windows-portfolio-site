@@ -7,7 +7,8 @@ export const AppContainer = styled.section`
     left: 0;
     width: 100%;
     height: calc(100vh - 3.5rem);
-    background: #202020;
+    background: ${props => props.theme.background};
+    color: ${props => props.theme.textColor};
 
     @media (min-width: 28em) {
         height: 44rem;

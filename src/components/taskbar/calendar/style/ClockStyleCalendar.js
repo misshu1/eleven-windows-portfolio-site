@@ -13,10 +13,10 @@ export const ClockStyleCalendar = styled.div`
     && span:nth-child(1) {
         font-size: 3rem;
         font-weight: 300;
-        color: #fff;
+        color: ${props => props.theme.calendarColorPrimary};
     }
     && span:nth-child(2) {
-        color: #bababa;
+        color: ${props => props.theme.calendarColorSecondary};
         text-transform: uppercase;
         font-size: 1.2rem;
     }
@@ -24,9 +24,9 @@ export const ClockStyleCalendar = styled.div`
         width: fit-content;
         font-size: 0.9rem;
         display: block;
-        color: rgb(0, 110, 220);
+        color: ${props => props.theme.calendarBgCurrentDate};
     }
     && span:nth-child(3):hover {
-        color: #bababa;
+        color: ${props => props.theme.calendarColorSecondary};
     }
 `;

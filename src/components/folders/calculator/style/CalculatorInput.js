@@ -18,6 +18,6 @@ export const CalculatorInput = styled.input.attrs({
     font-size: ${props => (props.value.length > 18 ? "1.2rem" : "2rem")};
     padding: 5rem 0.5rem 0.5rem 0.5rem;
     text-align: right;
-    background: #202020;
-    color: #d8d6de;
+    background: ${props => props.theme.background};
+    color: ${props => props.theme.textColor};
 `;

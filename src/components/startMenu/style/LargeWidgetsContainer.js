@@ -37,7 +37,6 @@ export const LargeWidgetsContainer = styled.div`
     grid-gap: 1rem;
     padding: 1rem;
     width: 100%;
-    background: ${props => props.theme.primary};
 
     @media (min-width: 28rem) {
         width: calc(100% + 5rem);

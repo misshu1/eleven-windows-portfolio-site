@@ -10,6 +10,8 @@ import {
     Title,
     Wrapper
 } from "./style";
+import darkImg from "./img/dark-preview.jpg";
+import lightImg from "./img/light-preview.jpg";
 import { Name, NameBar, Buttons } from "../style";
 import { AnimateFadeInOut } from "../../animations/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -81,14 +83,18 @@ class SettingsApp extends Component {
                             <Title>Themes</Title>
                             <BoxImg>
                                 <ThemesImg
+                                    src={darkImg}
                                     onClick={() =>
                                         this.props.changeTheme("dark")
                                     }
+                                    alt="dark theme"
                                 />
                                 <ThemesImg
+                                    src={lightImg}
                                     onClick={() =>
                                         this.props.changeTheme("light")
                                     }
+                                    alt="light theme"
                                 />
                             </BoxImg>
                             <Title>Resize App</Title>

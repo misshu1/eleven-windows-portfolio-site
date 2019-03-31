@@ -53,17 +53,20 @@ library.add(
 
 class App extends Component {
     state = {
-        theme: DarkTheme
+        theme: DarkTheme,
+        logo: "red"
     };
 
     changeTheme = theme => {
         if (theme === "dark") {
             this.setState({
-                theme: DarkTheme
+                theme: DarkTheme,
+                logo: "red"
             });
         } else if (theme === "light") {
             this.setState({
-                theme: LightTheme
+                theme: LightTheme,
+                logo: "blue"
             });
         }
     };
@@ -71,7 +74,10 @@ class App extends Component {
     render() {
         return (
             <ThemeProvider theme={this.state.theme}>
-                <DesktopApp changeTheme={this.changeTheme} />
+                <DesktopApp
+                    changeTheme={this.changeTheme}
+                    logo={this.state.logo}
+                />
             </ThemeProvider>
         );
     }

@@ -10,11 +10,13 @@ import {
     LogoContainer,
     OpenAppsContainer
 } from "./style";
+import logoBlue from "./img/logo-blue.svg";
+import logoRed from "./img/logo-red.svg";
 import ClockApp from "./ClockApp";
 
 class TaskbarApp extends Component {
     render() {
-        const { closeApp, toggleAppVisibility, openApps } = this.props;
+        const { closeApp, toggleAppVisibility, openApps, logo } = this.props;
         return (
             <Taskbar
                 onClick={() => {
@@ -33,7 +35,10 @@ class TaskbarApp extends Component {
                         <span />
                         <span />
                         <span />
-                        <Logo src={require("./img/logo.svg")} alt="logo" />
+                        <Logo
+                            src={logo === "red" ? logoRed : logoBlue}
+                            alt="logo"
+                        />
                     </BorderLogo>
                 </LogoContainer>
                 <OpenAppsContainer>{openApps}</OpenAppsContainer>

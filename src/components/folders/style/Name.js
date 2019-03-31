@@ -12,7 +12,7 @@ export const Name = styled.div`
     user-select: none;
     align-items: center;
     color: ${props => props.theme.textColor};
-    background: ${props => props.theme.default};
+    background: ${props => props.theme.background};
     height: 100%;
     padding-left: 1.5rem;
 `;

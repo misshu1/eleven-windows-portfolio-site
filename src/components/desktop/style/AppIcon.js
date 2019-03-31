@@ -4,7 +4,7 @@ export const AppIcon = styled.div`
     ${props =>
         props.appIndex === 104 &&
         css`
-            background: rgba(255, 255, 255, 0.1);
+            background: ${props => props.theme.iconBg};
         `};
     position: relative;
     box-sizing: border-box;
@@ -41,6 +41,6 @@ export const AppIcon = styled.div`
     }
 
     &&:hover {
-        background: rgba(200, 200, 200, 0.2);
+        background: ${props => props.theme.iconBgHover};
     }
 `;

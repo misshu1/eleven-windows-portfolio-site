@@ -4,7 +4,7 @@ export const Buttons = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background: ${props => props.theme.default};
+    background: ${props => props.theme.background};
     height: 100%;
     width: 3rem;
     color: ${props => props.theme.textColor};
@@ -25,11 +25,12 @@ export const Buttons = styled.div`
     }
 
     && div:hover {
-        background: ${props => props.theme.secundary};
+        background: ${props => props.theme.hover};
     }
 
     && :nth-child(2):hover {
         background: #ff0000;
+        color: #d6d8de;
     }
     @media (min-width: 450px) {
         width: 6rem;
