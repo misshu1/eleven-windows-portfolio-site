@@ -39,6 +39,7 @@ const DarkTheme = {
     calendarColorSecondary: "#bababa",
     calendarColorCurrentDate: "#000",
     calendarBgCurrentDate: "#006edc",
+    calendarTodayClock: "#4b8af2",
     calendarColorNeighboringMonth: "#969696"
 };
 

@@ -39,6 +39,7 @@ const LightTheme = {
     calendarColorSecondary: "#595959",
     calendarColorCurrentDate: "#fff",
     calendarBgCurrentDate: "#006edc",
+    calendarTodayClock: "#006edc",
     calendarColorNeighboringMonth: "#828282"
 };
 

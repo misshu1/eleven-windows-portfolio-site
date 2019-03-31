@@ -6,7 +6,7 @@ import {
     SettingsContainer,
     BorderLogo,
     ClockContainer,
-    HomeButtonContainer,
+    ContactContainer,
     Logo,
     LogoContainer,
     OpenAppsContainer
@@ -27,7 +27,11 @@ class TaskbarApp extends Component {
                     closeApp("calendarOpen");
                 }}
             >
-                <HomeButtonContainer>home</HomeButtonContainer>
+                <ContactContainer>
+                    <Link to="#">
+                        <FontAwesomeIcon icon={["fa", "address-card"]} />
+                    </Link>
+                </ContactContainer>
 
                 <LogoContainer
                     onClick={() => toggleAppVisibility("startMenuOpen")}

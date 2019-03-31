@@ -6,7 +6,7 @@ export const ClockStyleCalendar = styled.div`
 
     && span:nth-child(1) {
         font-size: 3rem;
-        font-weight: 300;
+        font-weight: 100;
         color: ${props => props.theme.calendarColorPrimary};
     }
     && span:nth-child(2) {
@@ -18,7 +18,7 @@ export const ClockStyleCalendar = styled.div`
         width: fit-content;
         font-size: 0.9rem;
         display: block;
-        color: ${props => props.theme.calendarBgCurrentDate};
+        color: ${props => props.theme.calendarTodayClock};
     }
     && span:nth-child(3):hover {
         color: ${props => props.theme.calendarColorSecondary};

@@ -12,7 +12,7 @@ const slideUp = keyframes`
 `;
 
 export const CalendarContainer = styled.section`
-    @import url("https://fonts.googleapis.com/css?family=Roboto");
+    @import url("https://fonts.googleapis.com/css?family=Roboto:100,400");
     font-family: "Roboto", sans-serif;
     position: absolute;
     border-top: 1px solid ${props => props.theme.calendarBorder};
