@@ -1,9 +1,8 @@
 import React, { Component, lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import TaskbarApp from "../../components/taskbar/TaskbarApp";
-import { Icon, DesktopContainer } from "../../components/desktop/style";
+import { Icon, DesktopContainer, AppIcon } from "./style";
 import SpinnerApp from "../../components/animations/SpinnerApp";
-import { AppIcon } from "./style";
 
 const CalendarApp = lazy(() =>
     import("../../components/taskbar/calendar/CalendarApp")
@@ -42,16 +41,17 @@ class App extends Component {
             : this.setState({ [app]: "close" });
     };
 
-    startApp = (app, icon, zIndex) => {
+    startApp = async (app, icon, zIndex) => {
         if (this.state[app] === "close") {
-            this.setState(prevState => ({
+            await this.activeWindow(zIndex);
+            await this.setState(prevState => ({
                 [app]: "open",
                 openApps: [
                     ...prevState.openApps,
                     <AppIcon
                         key={app}
                         onClick={() => this.activeWindow(zIndex)}
-                        windowIndex={this.state.windowIndex[zIndex]}
+                        appIndex={this.state.windowIndex[zIndex]}
                     >
                         <img src={icon} alt={app} />
                     </AppIcon>
@@ -61,16 +61,13 @@ class App extends Component {
     };
 
     closeApp = app => {
-        const { openApps } = this.state;
         if (this.state[app] === "open") {
-            if (openApps !== []) {
-                this.setState(prevState => ({
-                    openApps: [
-                        ...prevState.openApps.filter(item => item.key !== app)
-                    ]
-                }));
-            }
-            this.setState({ [app]: "close" });
+            this.setState(prevState => ({
+                [app]: "close",
+                openApps: [
+                    ...prevState.openApps.filter(item => item.key !== app)
+                ]
+            }));
         }
     };
 
@@ -249,9 +246,6 @@ class App extends Component {
                                 <StartMenuApp
                                     closeApp={this.closeApp}
                                     startApp={this.startApp}
-                                    showFolderIconInTaskbar={
-                                        this.showFolderIconInTaskbar
-                                    }
                                     removeIcon={this.removeIcon}
                                 />
                             </Suspense>

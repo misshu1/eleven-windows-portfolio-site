@@ -26,7 +26,6 @@ class CalculatorApp extends Component {
     };
 
     componentDidMount() {
-        this.props.activeWindow(2);
         if (window.matchMedia("(min-width: 35rem)").matches) {
             this.handleDrag();
         }

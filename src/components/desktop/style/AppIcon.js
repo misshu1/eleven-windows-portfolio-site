@@ -1,11 +1,11 @@
 import styled, { css } from "styled-components";
 
 export const AppIcon = styled.div`
-    /* ${props =>
-        props.windowIndex === 104 &&
+    ${props =>
+        props.appIndex === 104 &&
         css`
             background: rgba(255, 255, 255, 0.1);
-        `}; */
+        `};
     position: relative;
     box-sizing: border-box;
     height: 100%;

@@ -31,7 +31,6 @@ class MemoryGameApp extends Component {
 
     componentDidMount() {
         this.setCards();
-        this.props.activeWindow(1);
         if (window.matchMedia("(min-width: 35rem)").matches) {
             this.handleDrag();
         }
