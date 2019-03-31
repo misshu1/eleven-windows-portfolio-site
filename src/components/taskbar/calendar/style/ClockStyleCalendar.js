@@ -3,12 +3,6 @@ import styled from "styled-components";
 export const ClockStyleCalendar = styled.div`
     padding: 1.5rem;
     cursor: default;
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -khtml-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
 
     && span:nth-child(1) {
         font-size: 3rem;

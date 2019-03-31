@@ -12,6 +12,8 @@ const slideUp = keyframes`
 `;
 
 export const CalendarContainer = styled.section`
+    @import url("https://fonts.googleapis.com/css?family=Roboto");
+    font-family: "Roboto", sans-serif;
     position: absolute;
     border-top: 1px solid ${props => props.theme.calendarBorder};
     border-left: 1px solid ${props => props.theme.calendarBorder};

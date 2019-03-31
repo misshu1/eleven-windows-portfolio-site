@@ -99,7 +99,9 @@ class SettingsApp extends Component {
                             </BoxImg>
                             <Title>Resize App</Title>
                             <BoxIcon>
-                                <Icon>
+                                <Icon
+                                    onClick={() => this.props.changeAppSize(16)}
+                                >
                                     <img
                                         src={require("../../../components/desktop/img/folder-icon.png")}
                                         alt="100%"
@@ -110,7 +112,9 @@ class SettingsApp extends Component {
                                     />
                                     <span>100%</span>
                                 </Icon>
-                                <Icon>
+                                <Icon
+                                    onClick={() => this.props.changeAppSize(12)}
+                                >
                                     <img
                                         src={require("../../../components/desktop/img/folder-icon.png")}
                                         alt="100%"
@@ -123,7 +127,9 @@ class SettingsApp extends Component {
                                         75%
                                     </span>
                                 </Icon>
-                                <Icon>
+                                <Icon
+                                    onClick={() => this.props.changeAppSize(8)}
+                                >
                                     <img
                                         src={require("../../../components/desktop/img/folder-icon.png")}
                                         alt="100%"

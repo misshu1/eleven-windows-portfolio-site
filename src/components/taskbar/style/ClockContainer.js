@@ -2,14 +2,8 @@ import styled from "styled-components";
 
 export const ClockContainer = styled.div`
     display: none;
-    @media (min-width: 450px) {
+    @media (min-width: 28rem) {
         cursor: default;
-        -webkit-touch-callout: none;
-        -webkit-user-select: none;
-        -khtml-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
         display: flex;
         align-items: center;
         text-align: center;

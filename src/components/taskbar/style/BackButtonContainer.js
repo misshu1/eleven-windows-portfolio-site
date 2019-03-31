@@ -8,7 +8,7 @@ export const BackButtonContainer = styled.div`
     height: 100%;
     align-self: center;
     justify-content: center;
-    @media (min-width: 450px) {
+    @media (min-width: 28rem) {
         display: none;
     }
 `;

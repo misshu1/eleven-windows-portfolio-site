@@ -32,7 +32,7 @@ export const Buttons = styled.div`
         background: #ff0000;
         color: #d6d8de;
     }
-    @media (min-width: 450px) {
+    @media (min-width: 28rem) {
         width: 6rem;
         && div {
             display: flex;

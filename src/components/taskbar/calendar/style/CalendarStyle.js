@@ -31,6 +31,7 @@ export const CalendarStyle = styled.div`
                 min-width: 2.75rem;
                 background: none;
                 color: ${props => props.theme.calendarColorDefault};
+                font-size: 1rem;
 
                 &:enabled {
                     &:hover,
@@ -71,7 +72,7 @@ export const CalendarStyle = styled.div`
             &__days {
                 &__day {
                     color: ${props => props.theme.calendarColorPrimary};
-
+                    font-size: 1rem;
                     &--neighboringMonth {
                         color: ${props =>
                             props.theme.calendarColorNeighboringMonth};
@@ -86,6 +87,7 @@ export const CalendarStyle = styled.div`
             .react-calendar__tile {
                 padding: 2rem 0.5rem;
                 color: ${props => props.theme.calendarColorDefault};
+                font-size: 1rem;
             }
         }
 

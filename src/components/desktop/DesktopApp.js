@@ -145,6 +145,9 @@ class App extends Component {
                                                     changeTheme={
                                                         this.props.changeTheme
                                                     }
+                                                    changeAppSize={
+                                                        this.props.changeAppSize
+                                                    }
                                                     windowIndex={windowIndex}
                                                     activeWindow={
                                                         this.activeWindow
@@ -196,6 +199,9 @@ class App extends Component {
                                     <Suspense fallback={<SpinnerApp />}>
                                         <SettingsApp
                                             changeTheme={this.props.changeTheme}
+                                            changeAppSize={
+                                                this.props.changeAppSize
+                                            }
                                             windowIndex={windowIndex}
                                             activeWindow={this.activeWindow}
                                             settingsOpen={settingsOpen}

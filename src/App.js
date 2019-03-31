@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import DarkTheme from "./components/theme/DarkTheme";
 import LightTheme from "./components/theme/LightTheme";
 import DesktopApp from "./components/desktop/DesktopApp";
+import { GlobalStyle } from "./components/style";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
     faLongArrowAltLeft,
@@ -54,7 +55,12 @@ library.add(
 class App extends Component {
     state = {
         theme: DarkTheme,
-        logo: "red"
+        logo: "red",
+        size: 16
+    };
+
+    changeAppSize = size => {
+        this.setState({ size: size });
     };
 
     changeTheme = theme => {
@@ -74,10 +80,14 @@ class App extends Component {
     render() {
         return (
             <ThemeProvider theme={this.state.theme}>
-                <DesktopApp
-                    changeTheme={this.changeTheme}
-                    logo={this.state.logo}
-                />
+                <React.Fragment>
+                    <GlobalStyle size={this.state.size} />
+                    <DesktopApp
+                        changeTheme={this.changeTheme}
+                        logo={this.state.logo}
+                        changeAppSize={this.changeAppSize}
+                    />
+                </React.Fragment>
             </ThemeProvider>
         );
     }
