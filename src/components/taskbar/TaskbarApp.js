@@ -58,7 +58,12 @@ class TaskbarApp extends Component {
                     <Link
                         to={"/apps/settings"}
                         onClick={() =>
-                            this.props.startApp("settingsOpen", settingsIcon, 3)
+                            this.props.startApp(
+                                "settingsOpen",
+                                settingsIcon,
+                                3,
+                                "settingsMinimize"
+                            )
                         }
                     >
                         <FontAwesomeIcon icon={["fa", "cog"]} />

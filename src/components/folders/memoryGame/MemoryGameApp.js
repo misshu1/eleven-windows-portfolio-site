@@ -51,7 +51,7 @@ class MemoryGameApp extends Component {
             close: "close"
         });
         setTimeout(() => {
-            this.props.closeApp("memoryGameOpen");
+            this.props.closeApp("memoryGameOpen", "memoryGameMinimize");
         }, 200);
     }
 
@@ -237,7 +237,13 @@ class MemoryGameApp extends Component {
     };
 
     render() {
-        const { memoryGameOpen, windowIndex, activeWindow } = this.props;
+        const {
+            memoryGameOpen,
+            windowIndex,
+            activeWindow,
+            memoryGameMinimize,
+            minimizeApp
+        } = this.props;
         const {
             moves,
             seconds,
@@ -256,6 +262,7 @@ class MemoryGameApp extends Component {
             >
                 <AnimateFadeInOut
                     open={memoryGameOpen}
+                    minimize={memoryGameMinimize}
                     close={close}
                     appIndex={windowIndex[1]}
                     onClick={() => activeWindow(1)}
@@ -264,7 +271,11 @@ class MemoryGameApp extends Component {
                         <NameBar>
                             <Name className="handle">Memory Game</Name>
                             <Buttons>
-                                <div>
+                                <div
+                                    onClick={() =>
+                                        minimizeApp("memoryGameMinimize", true)
+                                    }
+                                >
                                     <FontAwesomeIcon
                                         icon="window-minimize"
                                         size="sm"

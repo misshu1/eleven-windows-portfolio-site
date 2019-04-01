@@ -36,7 +36,7 @@ class CalculatorApp extends Component {
             close: "close"
         });
         setTimeout(() => {
-            this.props.closeApp("calculatorOpen");
+            this.props.closeApp("calculatorOpen", "calculatorMinimize");
         }, 200);
     };
 
@@ -150,12 +150,19 @@ class CalculatorApp extends Component {
     };
 
     render() {
-        const { windowIndex, activeWindow, calculatorOpen } = this.props;
+        const {
+            windowIndex,
+            activeWindow,
+            calculatorOpen,
+            calculatorMinimize,
+            minimizeApp
+        } = this.props;
         const { close, disabled, result, value } = this.state;
         return (
             <Draggable axis="both" handle=".handle" disabled={disabled}>
                 <AnimateFadeInOut
                     open={calculatorOpen}
+                    minimize={calculatorMinimize}
                     close={close}
                     appIndex={windowIndex[2]}
                     onClick={() => activeWindow(2)}
@@ -164,7 +171,11 @@ class CalculatorApp extends Component {
                         <NameBar>
                             <Name className="handle">Calculator</Name>
                             <Buttons>
-                                <div>
+                                <div
+                                    onClick={() =>
+                                        minimizeApp("calculatorMinimize", true)
+                                    }
+                                >
                                     <FontAwesomeIcon
                                         icon="window-minimize"
                                         size="sm"

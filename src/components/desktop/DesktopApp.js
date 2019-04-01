@@ -27,6 +27,9 @@ class App extends Component {
         calendarOpen: "close",
         calculatorOpen: "close",
         settingsOpen: "close",
+        memoryGameMinimize: null,
+        calculatorMinimize: null,
+        settingsMinimize: null,
         openApps: [],
         windowIndex: {
             1: 100,
@@ -35,34 +38,42 @@ class App extends Component {
         }
     };
 
+    minimizeApp = (app, boolean) => {
+        this.setState({ [app]: boolean });
+    };
+
     toggleAppVisibility = app => {
         this.state[app] === "close"
             ? this.setState({ [app]: "open" })
             : this.setState({ [app]: "close" });
     };
 
-    startApp = async (app, icon, zIndex) => {
-        if (this.state[app] === "close") {
+    startApp = async (openApp, icon, zIndex, minimize) => {
+        if (this.state[openApp] === "close") {
             await this.activeWindow(zIndex);
             await this.setState(prevState => ({
-                [app]: "open",
+                [openApp]: "open",
                 openApps: [
                     ...prevState.openApps,
                     <AppIcon
-                        key={app}
-                        onClick={() => this.activeWindow(zIndex)}
+                        key={openApp}
+                        onClick={() => {
+                            this.minimizeApp([minimize], false);
+                            this.activeWindow(zIndex);
+                        }}
                         appIndex={this.state.windowIndex[zIndex]}
                     >
-                        <img src={icon} alt={app} />
+                        <img src={icon} alt={openApp} />
                     </AppIcon>
                 ]
             }));
         }
     };
 
-    closeApp = app => {
+    closeApp = async (app, minimize) => {
         if (this.state[app] === "open") {
-            this.setState(prevState => ({
+            await this.setState({ [minimize]: null });
+            await this.setState(prevState => ({
                 [app]: "close",
                 openApps: [
                     ...prevState.openApps.filter(item => item.key !== app)
@@ -88,6 +99,9 @@ class App extends Component {
             calendarOpen,
             calculatorOpen,
             settingsOpen,
+            calculatorMinimize,
+            settingsMinimize,
+            memoryGameMinimize,
             openApps
         } = this.state;
         return (
@@ -118,6 +132,12 @@ class App extends Component {
                                                         memoryGameOpen
                                                     }
                                                     closeApp={this.closeApp}
+                                                    minimizeApp={
+                                                        this.minimizeApp
+                                                    }
+                                                    memoryGameMinimize={
+                                                        memoryGameMinimize
+                                                    }
                                                 />
                                             </Suspense>
                                         ) : (
@@ -134,6 +154,12 @@ class App extends Component {
                                                         calculatorOpen
                                                     }
                                                     closeApp={this.closeApp}
+                                                    minimizeApp={
+                                                        this.minimizeApp
+                                                    }
+                                                    calculatorMinimize={
+                                                        calculatorMinimize
+                                                    }
                                                 />
                                             </Suspense>
                                         ) : (
@@ -154,6 +180,12 @@ class App extends Component {
                                                     }
                                                     settingsOpen={settingsOpen}
                                                     closeApp={this.closeApp}
+                                                    minimizeApp={
+                                                        this.minimizeApp
+                                                    }
+                                                    settingsMinimize={
+                                                        settingsMinimize
+                                                    }
                                                 />
                                             </Suspense>
                                         ) : (

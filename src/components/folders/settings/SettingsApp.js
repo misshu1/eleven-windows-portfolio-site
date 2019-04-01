@@ -34,7 +34,7 @@ class SettingsApp extends Component {
             close: "close"
         });
         setTimeout(() => {
-            this.props.closeApp("settingsOpen");
+            this.props.closeApp("settingsOpen", "settingsMinimize");
         }, 200);
     };
 
@@ -45,12 +45,19 @@ class SettingsApp extends Component {
     };
 
     render() {
-        const { windowIndex, activeWindow, settingsOpen } = this.props;
+        const {
+            windowIndex,
+            activeWindow,
+            settingsOpen,
+            minimizeApp,
+            settingsMinimize
+        } = this.props;
         const { disabled, close } = this.state;
         return (
             <Draggable axis="both" handle=".handle" disabled={disabled}>
                 <AnimateFadeInOut
                     open={settingsOpen}
+                    minimize={settingsMinimize}
                     close={close}
                     appIndex={windowIndex[3]}
                     onClick={() => activeWindow(3)}
@@ -59,7 +66,11 @@ class SettingsApp extends Component {
                         <NameBar>
                             <Name className="handle">Settings</Name>
                             <Buttons>
-                                <div>
+                                <div
+                                    onClick={() =>
+                                        minimizeApp("settingsMinimize", true)
+                                    }
+                                >
                                     <FontAwesomeIcon
                                         icon="window-minimize"
                                         size="sm"

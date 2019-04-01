@@ -35,7 +35,12 @@ const StartMenuApp = props => {
                                 : "/apps"
                         }
                         onClick={() =>
-                            props.startApp("settingsOpen", settingsIcon, 3)
+                            props.startApp(
+                                "settingsOpen",
+                                settingsIcon,
+                                3,
+                                "settingsMinimize"
+                            )
                         }
                     >
                         <FontAwesomeIcon icon={["fa", "cog"]} />
@@ -51,7 +56,12 @@ const StartMenuApp = props => {
                                 : "/apps"
                         }
                         onClick={() => {
-                            props.startApp("memoryGameOpen", mempryGameIcon, 1);
+                            props.startApp(
+                                "memoryGameOpen",
+                                mempryGameIcon,
+                                1,
+                                "memoryGameMinimize"
+                            );
                         }}
                     >
                         <span className="name">Memory Game</span>
@@ -68,7 +78,12 @@ const StartMenuApp = props => {
                                 : "/apps"
                         }
                         onClick={() =>
-                            props.startApp("calculatorOpen", calculatorIcon, 2)
+                            props.startApp(
+                                "calculatorOpen",
+                                calculatorIcon,
+                                2,
+                                "calculatorMinimize"
+                            )
                         }
                     >
                         <span className="name">Calculator</span>
