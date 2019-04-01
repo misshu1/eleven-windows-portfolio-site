@@ -11,14 +11,15 @@ const slideUp = keyframes`
 
 export const LargeWidgetsContainer = styled.div`
     box-sizing: border-box;
-    overflow: auto;
+    position: relative;
+    overflow: scroll;
     animation: ${slideUp} 0.4s ease-out 1 forwards;
 
     /* Hide Scrollbar */
+    -ms-overflow-style: none;
     &&::-webkit-scrollbar {
         display: none;
     }
-    -ms-overflow-style: none;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -37,8 +38,7 @@ export const LargeWidgetsContainer = styled.div`
     grid-gap: 1rem;
     padding: 1rem;
     width: 100%;
-
-    @media (min-width: 28rem) {
-        width: calc(100% + 5rem);
-    }
+    height: 100%;
+    top: 0;
+    left: 0;
 `;

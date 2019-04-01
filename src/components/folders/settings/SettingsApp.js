@@ -110,7 +110,9 @@ class SettingsApp extends Component {
                                             height: "60px"
                                         }}
                                     />
-                                    <span>100%</span>
+                                    <span style={{ fontSize: "16px" }}>
+                                        100%
+                                    </span>
                                 </Icon>
                                 <Icon
                                     onClick={() => this.props.changeAppSize(12)}

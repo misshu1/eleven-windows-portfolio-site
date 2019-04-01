@@ -8,6 +8,12 @@ export const AppContainer = styled.section`
     width: 100%;
     height: calc(100vh - 3.5rem);
     background: ${props => props.theme.background};
+    overflow-y: scroll;
+    /* Hide Scrollbar */
+    -ms-overflow-style: none;
+    &&::-webkit-scrollbar {
+        display: none;
+    }
 
     @media (min-width: 42em) {
         width: 40rem;

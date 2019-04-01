@@ -10,6 +10,7 @@ export const DesktopContainer = styled.section`
     position: relative;
     height: 100vh;
     width: 100%;
+    padding: 0.5rem;
     color: #d6d8de;
     background: url(${bgMobile});
     background-size: cover;

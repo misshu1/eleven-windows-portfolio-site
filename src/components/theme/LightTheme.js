@@ -20,7 +20,7 @@ const LightTheme = {
     // Clock and Lgogo
     clockHover: "rgba(150, 189, 255, 0.5)",
     logoHover: "rgba(150, 189, 255, 0.5)",
-    logoBorder: "#5900ff",
+    logoBorder: "#00B140",
 
     // StartMenu
     startMenuBg: "rgba(196, 217, 252, 0.95)",

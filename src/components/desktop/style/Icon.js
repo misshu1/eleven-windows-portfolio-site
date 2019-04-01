@@ -10,6 +10,7 @@ export const Icon = styled.div`
     width: 5.5rem;
     height: 5.5rem;
     border: 1px solid transparent;
+    margin: 0.5rem;
 
     img {
         height: 3.75rem;
