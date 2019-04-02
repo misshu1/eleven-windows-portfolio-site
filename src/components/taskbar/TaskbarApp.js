@@ -9,7 +9,8 @@ import {
     ContactContainer,
     Logo,
     LogoContainer,
-    OpenAppsContainer
+    OpenAppsContainer,
+    AppIcon
 } from "./style";
 import logoBlue from "./img/logo-blue.svg";
 import logoRed from "./img/logo-red.svg";
@@ -18,8 +19,34 @@ import ClockApp from "./ClockApp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class TaskbarApp extends Component {
+    showIcons = () => {
+        const { minimizeApp, activeWindow, desktopState } = this.props;
+        const create = desktopState.openApps.map(item => {
+            const openApp = item[0];
+            const icon = item[1];
+            const zIndex = item[2];
+            const minimize = item[3];
+
+            return (
+                <AppIcon
+                    key={openApp}
+                    onClick={() => {
+                        if (desktopState[minimize] !== null) {
+                            minimizeApp(minimize, false);
+                        }
+                        activeWindow(zIndex);
+                    }}
+                    appIndex={desktopState.windowIndex[zIndex]}
+                >
+                    <img src={icon} alt={openApp} />
+                </AppIcon>
+            );
+        });
+        return create;
+    };
+
     render() {
-        const { closeApp, toggleAppVisibility, openApps, logo } = this.props;
+        const { closeApp, toggleAppVisibility, logo } = this.props;
         return (
             <Taskbar
                 onClick={() => {
@@ -48,7 +75,7 @@ class TaskbarApp extends Component {
                         />
                     </BorderLogo>
                 </LogoContainer>
-                <OpenAppsContainer>{openApps}</OpenAppsContainer>
+                <OpenAppsContainer>{this.showIcons()}</OpenAppsContainer>
                 <ClockContainer
                     onClick={() => toggleAppVisibility("calendarOpen")}
                 >

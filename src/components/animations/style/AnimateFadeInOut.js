@@ -31,7 +31,7 @@ const minimizeDown = keyframes`
 100% {
     opacity: 0;
     display: none;
-    transform: scale3d(0, 1, 1) translate3d(0, 1000px, 0);
+    transform: scale3d(0, 1, 1) translate3d(0, 55rem, 0);
 }
 `;
 
@@ -39,7 +39,7 @@ const minimizeUp = keyframes`
 0% {
     opacity: 0;
     display: block;
-    transform: scale3d(0, 1, 1) translate3d(0, 1000px, 0);
+    transform: scale3d(0, 1, 1) translate3d(0, 55rem, 0);
     transform-origin: 50% 100%;
 
 }

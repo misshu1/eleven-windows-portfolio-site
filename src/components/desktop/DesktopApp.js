@@ -1,7 +1,7 @@
 import React, { Component, lazy, Suspense } from "react";
 import { Route } from "react-router-dom";
 import TaskbarApp from "../../components/taskbar/TaskbarApp";
-import { Icon, DesktopContainer, AppIcon } from "./style";
+import { Icon, DesktopContainer } from "./style";
 import SpinnerApp from "../../components/animations/SpinnerApp";
 
 const CalendarApp = lazy(() =>
@@ -55,16 +55,7 @@ class App extends Component {
                 [openApp]: "open",
                 openApps: [
                     ...prevState.openApps,
-                    <AppIcon
-                        key={openApp}
-                        onClick={() => {
-                            this.minimizeApp([minimize], false);
-                            this.activeWindow(zIndex);
-                        }}
-                        appIndex={this.state.windowIndex[zIndex]}
-                    >
-                        <img src={icon} alt={openApp} />
-                    </AppIcon>
+                    [openApp, icon, zIndex, minimize]
                 ]
             }));
         }
@@ -76,7 +67,7 @@ class App extends Component {
             await this.setState(prevState => ({
                 [app]: "close",
                 openApps: [
-                    ...prevState.openApps.filter(item => item.key !== app)
+                    ...prevState.openApps.filter(item => item[0] !== app)
                 ]
             }));
         }
@@ -101,8 +92,7 @@ class App extends Component {
             settingsOpen,
             calculatorMinimize,
             settingsMinimize,
-            memoryGameMinimize,
-            openApps
+            memoryGameMinimize
         } = this.state;
         return (
             <Route
@@ -206,6 +196,10 @@ class App extends Component {
                                             activeWindow={this.activeWindow}
                                             memoryGameOpen={memoryGameOpen}
                                             closeApp={this.closeApp}
+                                            minimizeApp={this.minimizeApp}
+                                            memoryGameMinimize={
+                                                memoryGameMinimize
+                                            }
                                         />
                                     </Suspense>
                                 )}
@@ -220,6 +214,10 @@ class App extends Component {
                                             activeWindow={this.activeWindow}
                                             calculatorOpen={calculatorOpen}
                                             closeApp={this.closeApp}
+                                            minimizeApp={this.minimizeApp}
+                                            calculatorMinimize={
+                                                calculatorMinimize
+                                            }
                                         />
                                     </Suspense>
                                 )}
@@ -238,6 +236,8 @@ class App extends Component {
                                             activeWindow={this.activeWindow}
                                             settingsOpen={settingsOpen}
                                             closeApp={this.closeApp}
+                                            minimizeApp={this.minimizeApp}
+                                            settingsMinimize={settingsMinimize}
                                         />
                                     </Suspense>
                                 )}
@@ -266,13 +266,13 @@ class App extends Component {
                         </DesktopContainer>
                         <TaskbarApp
                             logo={this.props.logo}
-                            memoryGameOpen={memoryGameOpen}
-                            calculatorOpen={calculatorOpen}
-                            settingsOpen={settingsOpen}
                             toggleAppVisibility={this.toggleAppVisibility}
                             closeApp={this.closeApp}
                             startApp={this.startApp}
-                            openApps={openApps}
+                            minimizeApp={this.minimizeApp}
+                            minimize={this.state.minimize}
+                            activeWindow={this.activeWindow}
+                            desktopState={this.state}
                         />
                         {calendarOpen === "open" ? (
                             <Suspense fallback={<SpinnerApp />}>

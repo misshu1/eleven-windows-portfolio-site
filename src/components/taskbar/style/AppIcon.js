@@ -1,11 +1,26 @@
 import styled, { css } from "styled-components";
 
 export const AppIcon = styled.div`
+    &&::after {
+        content: "";
+        background: rgb(0, 110, 220);
+        position: absolute;
+        bottom: 0;
+        left: 15%;
+        height: 2px;
+        width: 70%;
+    }
+
     ${props =>
         props.appIndex === 104 &&
         css`
             background: ${props => props.theme.iconBg};
+            &&::after {
+                left: 0;
+                width: 100%;
+            }
         `};
+
     position: relative;
     box-sizing: border-box;
     height: 100%;
@@ -22,16 +37,6 @@ export const AppIcon = styled.div`
         width: 2rem;
         height: 2rem;
         border-radius: 100%;
-    }
-
-    &&::after {
-        content: "";
-        background: rgb(0, 110, 220);
-        position: absolute;
-        bottom: 0;
-        left: 10%;
-        height: 2px;
-        width: 80%;
     }
 
     &&:hover::after {
