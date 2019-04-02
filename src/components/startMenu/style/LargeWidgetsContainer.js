@@ -22,8 +22,8 @@ export const LargeWidgetsContainer = styled.div`
     }
 
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(10, 4.7rem);
+    grid-template-columns: repeat(4, minmax(4.7rem, 1fr));
+    grid-template-rows: repeat(10, minmax(4.7rem, 1fr));
     grid-template-areas:
         "widget-1 widget-1 widget-1 widget-1"
         "widget-1 widget-1 widget-1 widget-1"
@@ -36,9 +36,13 @@ export const LargeWidgetsContainer = styled.div`
         "widget-10 widget-10 widget-11 widget-11"
         "widget-10 widget-10 widget-11 widget-11";
     grid-gap: 1rem;
-    padding: 1rem;
+    padding: 1rem 1rem 3.5rem 1rem;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
+
+    @media (min-width: 28rem) {
+        padding: 1rem;
+    }
 `;

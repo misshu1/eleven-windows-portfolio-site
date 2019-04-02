@@ -31,7 +31,7 @@ const minimizeDown = keyframes`
 100% {
     opacity: 0;
     display: none;
-    transform: scale3d(0, 1, 1) translate3d(0, 100%, 0);
+    transform: scale3d(0, 1, 1) translate3d(0, 1000px, 0);
 }
 `;
 
@@ -39,7 +39,7 @@ const minimizeUp = keyframes`
 0% {
     opacity: 0;
     display: block;
-    transform: scale3d(0, 1, 1) translate3d(0, 100%, 0);
+    transform: scale3d(0, 1, 1) translate3d(0, 1000px, 0);
     transform-origin: 50% 100%;
 
 }
@@ -73,7 +73,7 @@ export const AnimateFadeInOut = styled.div`
                 ${props =>
                     props.minimize === false &&
                     css`
-                        animation: ${minimizeUp} 0.3s ease-in 1 forwards;
+                        animation: ${minimizeUp} 0.3s ease-out 1 forwards;
                     `}
                 ${props =>
                     props.close === "close" &&

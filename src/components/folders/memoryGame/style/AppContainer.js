@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const AppContainer = styled.section`
     position: absolute;
     box-sizing: border-box;
+    padding-bottom: 3.5rem;
     top: 0;
     left: 0;
     width: 100%;
@@ -18,6 +19,7 @@ export const AppContainer = styled.section`
     @media (min-width: 42em) {
         width: 40rem;
         height: 40rem;
+        padding-bottom: 0;
     }
 
     @media (min-width: 60em) {
