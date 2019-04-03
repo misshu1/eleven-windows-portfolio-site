@@ -3,7 +3,6 @@ import { Route } from "react-router-dom";
 import TaskbarApp from "../../components/taskbar/TaskbarApp";
 import { Icon, DesktopContainer } from "./style";
 import SpinnerApp from "../../components/animations/SpinnerApp";
-
 const CalendarApp = lazy(() =>
     import("../../components/taskbar/calendar/CalendarApp")
 );

@@ -15,6 +15,7 @@ import {
 import logoBlue from "./img/logo-blue.svg";
 import logoRed from "./img/logo-red.svg";
 import settingsIcon from "./img/settings-icon-taskbar.png";
+import contactIcon from "./img/contact-icon-taskbar.jpg";
 import ClockApp from "./ClockApp";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -56,7 +57,17 @@ class TaskbarApp extends Component {
                 }}
             >
                 <ContactContainer>
-                    <Link to="#">
+                    <Link
+                        to={"/apps/contact"}
+                        onClick={() =>
+                            this.props.startApp(
+                                "contactOpen",
+                                contactIcon,
+                                3,
+                                "contactMinimize"
+                            )
+                        }
+                    >
                         <FontAwesomeIcon icon={["fa", "address-card"]} />
                     </Link>
                 </ContactContainer>

@@ -11,6 +11,11 @@ import {
 import mempryGameIcon from "../taskbar/img/memory-game-icon-taskbar.jpg";
 import calculatorIcon from "../taskbar/img/calculator-icon-taskbar.jpg";
 import settingsIcon from "../taskbar/img/settings-icon-taskbar.png";
+import neighborhoodIcon from "../taskbar/img/neighborhood-map-icon-taskbar.jpg";
+import weatherIcon from "../taskbar/img/weather-icon-taskbar.jpg";
+import resumeIcon from "../taskbar/img/resume-icon-taskbar.jpg";
+import aboutIcon from "../taskbar/img/about-icon-taskbar.jpg";
+import contactIcon from "../taskbar/img/contact-icon-taskbar.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StartMenuApp = props => {
@@ -27,7 +32,7 @@ const StartMenuApp = props => {
                         onClick={() =>
                             props.startApp(
                                 "aboutOpen",
-                                "none",
+                                aboutIcon,
                                 7,
                                 "aboutMinimize"
                             )
@@ -46,7 +51,7 @@ const StartMenuApp = props => {
                         onClick={() =>
                             props.startApp(
                                 "contactOpen",
-                                "none",
+                                contactIcon,
                                 8,
                                 "contactMinimize"
                             )
@@ -127,7 +132,7 @@ const StartMenuApp = props => {
                         onClick={() =>
                             props.startApp(
                                 "resumeOpen",
-                                "none",
+                                resumeIcon,
                                 6,
                                 "resumeMinimize"
                             )
@@ -202,7 +207,7 @@ const StartMenuApp = props => {
                         onClick={() =>
                             props.startApp(
                                 "neighborhoodOpen",
-                                "none",
+                                neighborhoodIcon,
                                 5,
                                 "neighborhoodMinimize"
                             )
@@ -224,7 +229,7 @@ const StartMenuApp = props => {
                         onClick={() =>
                             props.startApp(
                                 "weatherOpen",
-                                "none",
+                                weatherIcon,
                                 4,
                                 "weatherMinimize"
                             )
