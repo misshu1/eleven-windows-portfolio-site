@@ -5,7 +5,8 @@ const LightTheme = {
     hover: "rgba(150, 189, 255, 0.5)",
 
     // Folder
-    folderBorder: "#202020",
+    folderNameBarBg: "rgba(0, 21, 255, 0.1)",
+    folderNameBarBtnHover: "rgba(0, 21, 255, 0.2)",
 
     // Settings App
     settingsBg: "rgba(0, 0, 0, 0.1)",

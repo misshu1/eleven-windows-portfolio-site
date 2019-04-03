@@ -5,7 +5,8 @@ const DarkTheme = {
     hover: "rgba(100, 100, 100, 0.3)",
 
     // Folder
-    folderBorder: "#444",
+    folderNameBarBg: "rgba(255, 255, 255, 0.1)",
+    folderNameBarBtnHover: "rgba(200, 200, 200, 0.2)",
 
     // Settings App
     settingsBg: "rgba(174, 192, 229, 0.2)",

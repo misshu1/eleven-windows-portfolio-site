@@ -6,7 +6,6 @@ export const Name = styled.div`
     cursor: default;
     align-items: center;
     color: ${props => props.theme.textColor};
-    background: ${props => props.theme.background};
     height: 100%;
     padding-left: 1.5rem;
 `;

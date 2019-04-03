@@ -9,10 +9,12 @@ export const AppIcon = styled.div`
         left: 15%;
         height: 2px;
         width: 70%;
+        transition: all 0.2s;
     }
 
     ${props =>
         props.appIndex === 104 &&
+        props.minimize !== true &&
         css`
             background: ${props => props.theme.iconBg};
             &&::after {
@@ -28,6 +30,7 @@ export const AppIcon = styled.div`
     width: 3.5rem;
     padding: 0 0.5rem;
     margin: 0 1px;
+    transition: all 0.2s;
 
     && img {
         position: absolute;
@@ -47,5 +50,6 @@ export const AppIcon = styled.div`
 
     &&:hover {
         background: ${props => props.theme.iconBgHover};
+        transition: all 0.2s;
     }
 `;

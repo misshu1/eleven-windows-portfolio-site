@@ -6,7 +6,8 @@ export const NameBar = styled.div`
     align-items: center;
     width: 100%;
     height: 2.5rem;
-    border-bottom: 1px solid ${props => props.theme.folderBorder};
+    background: ${props => props.theme.folderNameBarBg};
+
     @media (min-width: 28em) {
         position: static;
     }

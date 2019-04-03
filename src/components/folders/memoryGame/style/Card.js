@@ -6,13 +6,13 @@ export const Card = styled.li`
     width: 7rem;
     background: #2e3d49;
     font-size: 1.56rem;
-    border-radius: 8px;
+    border-radius: 0.5rem;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     list-style: none;
-    box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    box-shadow: 0.31rem 0.125rem 1.5rem 0 rgba(46, 61, 73, 0.5);
 
     /* Open card styles */
     transform: ${props => (props.open ? "rotateY(180deg)" : "")};
@@ -22,7 +22,7 @@ export const Card = styled.li`
     pointer-events: ${props => (props.open ? "none" : "auto")};
     cursor: ${props => (props.open ? "default" : "pointer")};
     && :nth-child(1) {
-        font-size: ${props => (props.open ? "25px" : "0")};
+        font-size: ${props => (props.open ? "2rem" : "0")};
         display: ${props => (props.open ? "box" : "none")};
     }
 

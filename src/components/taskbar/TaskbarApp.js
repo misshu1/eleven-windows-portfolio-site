@@ -30,6 +30,7 @@ class TaskbarApp extends Component {
             return (
                 <AppIcon
                     key={openApp}
+                    minimize={desktopState[minimize]}
                     onClick={() => {
                         if (desktopState[minimize] !== null) {
                             minimizeApp(minimize, false);
