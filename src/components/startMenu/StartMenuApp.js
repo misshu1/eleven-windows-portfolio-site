@@ -18,12 +18,40 @@ const StartMenuApp = props => {
         <StartMenu onClick={() => props.closeApp("startMenuOpen")}>
             <SmallWidgetsContainer>
                 <SmallWidgetBox>
-                    <Link to="#">
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 56.25rem)").matches
+                                ? "/apps/about"
+                                : "/apps"
+                        }
+                        onClick={() =>
+                            props.startApp(
+                                "aboutOpen",
+                                "none",
+                                7,
+                                "aboutMinimize"
+                            )
+                        }
+                    >
                         <FontAwesomeIcon icon={["fa", "file"]} />
                     </Link>
                 </SmallWidgetBox>
                 <SmallWidgetBox>
-                    <Link to="#">
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 56.25rem)").matches
+                                ? "/apps/contact"
+                                : "/apps"
+                        }
+                        onClick={() =>
+                            props.startApp(
+                                "contactOpen",
+                                "none",
+                                8,
+                                "contactMinimize"
+                            )
+                        }
+                    >
                         <FontAwesomeIcon icon={["fa", "address-card"]} />
                     </Link>
                 </SmallWidgetBox>
@@ -90,7 +118,23 @@ const StartMenuApp = props => {
                     </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-4" }}>
-                    widget 4 resume
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 56.25rem)").matches
+                                ? "/apps/resume"
+                                : "/apps"
+                        }
+                        onClick={() =>
+                            props.startApp(
+                                "resumeOpen",
+                                "none",
+                                6,
+                                "resumeMinimize"
+                            )
+                        }
+                    >
+                        <span className="name">Resume</span>
+                    </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-5" }} title="github">
                     <a
@@ -149,13 +193,45 @@ const StartMenuApp = props => {
                     </a>
                 </Widget>
                 <Widget style={{ gridArea: "widget-9" }}>
-                    widget 9 neighborhood map
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 56.25rem)").matches
+                                ? "/apps/neighborhood-map"
+                                : "/apps"
+                        }
+                        onClick={() =>
+                            props.startApp(
+                                "neighborhoodOpen",
+                                "none",
+                                5,
+                                "neighborhoodMinimize"
+                            )
+                        }
+                    >
+                        <span className="name">Neighborhood Map</span>
+                    </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-10" }}>
                     widget 10 notepad
                 </Widget>
                 <Widget style={{ gridArea: "widget-11" }}>
-                    widget 11 weather app
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 56.25rem)").matches
+                                ? "/apps/weather"
+                                : "/apps"
+                        }
+                        onClick={() =>
+                            props.startApp(
+                                "weatherOpen",
+                                "none",
+                                4,
+                                "weatherMinimize"
+                            )
+                        }
+                    >
+                        <span className="name">Weather</span>
+                    </Link>
                 </Widget>
             </LargeWidgetsContainer>
         </StartMenu>

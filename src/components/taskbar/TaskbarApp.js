@@ -22,14 +22,14 @@ class TaskbarApp extends Component {
     showIcons = () => {
         const { minimizeApp, activeWindow, desktopState } = this.props;
         const create = desktopState.openApps.map(item => {
-            const openApp = item[0];
+            const app = item[0];
             const icon = item[1];
             const zIndex = item[2];
             const minimize = item[3];
 
             return (
                 <AppIcon
-                    key={openApp}
+                    key={app}
                     minimize={desktopState[minimize]}
                     onClick={() => {
                         if (desktopState[minimize] !== null) {
@@ -39,7 +39,7 @@ class TaskbarApp extends Component {
                     }}
                     appIndex={desktopState.windowIndex[zIndex]}
                 >
-                    <img src={icon} alt={openApp} />
+                    <img src={icon} alt={app} />
                 </AppIcon>
             );
         });
