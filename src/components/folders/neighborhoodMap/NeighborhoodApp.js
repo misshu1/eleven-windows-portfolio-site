@@ -8,11 +8,13 @@ import { AnimateFadeInOut } from "../../animations/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Draggable from "react-draggable";
 
-let newMarkers = [];
 const style = {
     width: "100%",
-    height: "100%"
+    height: "calc(100% - 2.5rem)"
 };
+let allMarkers = [];
+const LoadingContainer = props => null;
+
 class NeighborhoodApp extends Component {
     state = {
         close: "",
@@ -23,7 +25,7 @@ class NeighborhoodApp extends Component {
         selectedPlace: {}
     };
 
-    componentDidMount() {
+    async componentDidMount() {
         if (window.matchMedia("(min-width: 35rem)").matches) {
             this.handleDrag();
         }
@@ -31,19 +33,17 @@ class NeighborhoodApp extends Component {
         const clientSecret = process.env.REACT_APP_FOURSQUARE_CLIENT_SECRET;
         const url = `https://api.foursquare.com/v2/venues/explore?ll=45.105083,24.364982&client_id=${clientID}&client_secret=${clientSecret}&v=20180819`;
 
-        fetch(url)
-            .then(data => {
-                if (data.ok) {
-                    return data.json();
-                } else {
-                    alert(
-                        "Failed to get data from Foursquare" +
-                            new Error(data.statusText)
-                    );
-                }
-            })
-            .then(data => {
-                const newData = data.response.groups[0].items.map(item => {
+        allMarkers = [];
+        try {
+            const data = await fetch(url);
+            const dataJson = data.ok
+                ? await data.json()
+                : alert(
+                      "Failed to get data from Foursquare" +
+                          new Error(data.statusText)
+                  );
+            const newData = await dataJson.response.groups[0].items.map(
+                item => {
                     return {
                         position: {
                             lat: item.venue.location.lat,
@@ -54,20 +54,17 @@ class NeighborhoodApp extends Component {
                         address: item.venue.location.formattedAddress[0],
                         state: item.venue.location.state
                     };
-                });
-                return this.setState({ placeData: newData });
-            })
-            .catch(err => {
-                console.log(err);
-            });
-    }
+                }
+            );
+            await this.setState({ placeData: newData });
+        } catch (err) {
+            console.log(err);
+        }
 
-    componentDidUpdate() {
-        const { placeData } = this.state;
-        newMarkers = [];
-        placeData.forEach(loc => {
-            newMarkers = [
-                ...newMarkers,
+        allMarkers = [];
+        await this.state.placeData.forEach(loc => {
+            allMarkers = [
+                ...allMarkers,
                 <Marker
                     key={loc.title}
                     onClick={this.onMarkerClick}
@@ -80,6 +77,7 @@ class NeighborhoodApp extends Component {
                 />
             ];
         });
+        this.forceUpdate();
     }
 
     onMarkerClick = async (props, marker, e) => {
@@ -136,7 +134,7 @@ class NeighborhoodApp extends Component {
                     onClick={() => activeWindow(5)}
                 >
                     <AppContainer>
-                        <NameBar style={{ zIndex: 101 }}>
+                        <NameBar>
                             <Name className="handle">Neighborhood Map</Name>
                             <Buttons>
                                 <div
@@ -177,7 +175,7 @@ class NeighborhoodApp extends Component {
                                     lng: 24.364982
                                 }}
                             >
-                                {newMarkers}
+                                {allMarkers}
                                 <InfoWindow
                                     marker={this.state.activeMarker}
                                     visible={this.state.showingInfoWindow}
@@ -202,7 +200,8 @@ class NeighborhoodApp extends Component {
     }
 }
 export default GoogleApiWrapper({
-    apiKey: process.env.REACT_APP_GOOGLE_MAPS_API
+    apiKey: process.env.REACT_APP_GOOGLE_MAPS_API,
+    LoadingContainer: LoadingContainer
 })(NeighborhoodApp);
 
 NeighborhoodApp.propTypes = {
