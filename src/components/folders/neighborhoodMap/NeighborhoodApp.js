@@ -42,6 +42,7 @@ class NeighborhoodApp extends Component {
                       "Failed to get data from Foursquare" +
                           new Error(data.statusText)
                   );
+
             const newData = await dataJson.response.groups[0].items.map(
                 item => {
                     return {
@@ -56,17 +57,20 @@ class NeighborhoodApp extends Component {
                     };
                 }
             );
-            await this.setState({ placeData: newData });
+            this.setState({ placeData: newData });
         } catch (err) {
             console.log(err);
         }
+        this.renderMarkers();
+    }
 
+    renderMarkers = () => {
         allMarkers = [];
-        await this.state.placeData.forEach(loc => {
+        this.state.placeData.forEach(loc => {
             allMarkers = [
                 ...allMarkers,
                 <Marker
-                    key={loc.title}
+                    key={loc.venueId}
                     onClick={this.onMarkerClick}
                     name={loc.title}
                     address={loc.address}
@@ -78,7 +82,7 @@ class NeighborhoodApp extends Component {
             ];
         });
         this.forceUpdate();
-    }
+    };
 
     onMarkerClick = async (props, marker, e) => {
         await this.setState({
@@ -86,8 +90,18 @@ class NeighborhoodApp extends Component {
             activeMarker: marker,
             showingInfoWindow: true
         });
+
         let bounds = new window.google.maps.LatLngBounds();
         await bounds.extend(marker.position);
+
+        if (marker.getAnimation() !== null) {
+            marker.setAnimation(null);
+        } else {
+            marker.setAnimation(window.google.maps.Animation.BOUNCE);
+            setTimeout(() => {
+                marker.setAnimation(window.google.maps.Animation.NULL);
+            }, 500);
+        }
     };
 
     onClose = props => {

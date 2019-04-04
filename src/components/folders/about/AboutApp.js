@@ -89,3 +89,11 @@ class AboutApp extends Component {
     }
 }
 export default AboutApp;
+
+AboutApp.propTypes = {
+    windowIndex: PropTypes.object.isRequired,
+    aboutOpen: PropTypes.string.isRequired,
+    activeWindow: PropTypes.func.isRequired,
+    minimizeApp: PropTypes.func.isRequired,
+    closeApp: PropTypes.func.isRequired
+};

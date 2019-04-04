@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { AppContainer } from "./style";
-
 import { Name, NameBar, Buttons } from "../style";
 import { AnimateFadeInOut } from "../../animations/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -81,7 +80,13 @@ class ResumeApp extends Component {
                                 </Link>
                             </Buttons>
                         </NameBar>
-                        Under Construction Resume App
+                        <div
+                            style={{
+                                width: "100%",
+                                height: "100%",
+                                userSelect: "auto"
+                            }}
+                        />
                     </AppContainer>
                 </AnimateFadeInOut>
             </Draggable>
@@ -89,3 +94,11 @@ class ResumeApp extends Component {
     }
 }
 export default ResumeApp;
+
+ResumeApp.propTypes = {
+    windowIndex: PropTypes.object.isRequired,
+    resumeOpen: PropTypes.string.isRequired,
+    activeWindow: PropTypes.func.isRequired,
+    minimizeApp: PropTypes.func.isRequired,
+    closeApp: PropTypes.func.isRequired
+};

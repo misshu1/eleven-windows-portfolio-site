@@ -89,3 +89,11 @@ class WeatherApp extends Component {
     }
 }
 export default WeatherApp;
+
+WeatherApp.propTypes = {
+    windowIndex: PropTypes.object.isRequired,
+    weatherOpen: PropTypes.string.isRequired,
+    activeWindow: PropTypes.func.isRequired,
+    minimizeApp: PropTypes.func.isRequired,
+    closeApp: PropTypes.func.isRequired
+};
