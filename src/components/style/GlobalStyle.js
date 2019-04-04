@@ -20,4 +20,10 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+@media (min-width: 35em) {
+    .react-draggable {
+        position: absolute;
+    }
+}
 `;
