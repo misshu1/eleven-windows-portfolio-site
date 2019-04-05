@@ -50,16 +50,18 @@ export const Widget = styled.div`
     }
 
     && .name {
-        opacity: 0;
+        opacity: 1;
         display: flex;
         justify-content: center;
         align-items: center;
         font-size: 1.5rem;
         font-weight: 500;
         position: absolute;
+        bottom: 0;
         width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.7);
+        height: 2rem;
+        line-height: 2rem;
+        background: rgba(0, 0, 0, 0.6);
     }
 
     &&:nth-child(5) {
@@ -110,6 +112,19 @@ export const Widget = styled.div`
         -webkit-transform: translateY(-50%, 50%);
     }
     @media (min-width: 28rem) {
+        && .name {
+            opacity: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
         && .name:hover {
             opacity: 1;
             transition: opacity 0.2s ease-out;

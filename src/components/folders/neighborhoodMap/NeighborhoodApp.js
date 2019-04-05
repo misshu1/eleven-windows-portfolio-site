@@ -61,12 +61,11 @@ class NeighborhoodApp extends Component {
         } catch (err) {
             console.log(err);
         }
-        this.renderMarkers();
     }
 
     renderMarkers = () => {
         allMarkers = [];
-        this.state.placeData.forEach(loc => {
+        return this.state.placeData.forEach(loc => {
             allMarkers = [
                 ...allMarkers,
                 <Marker
@@ -81,7 +80,6 @@ class NeighborhoodApp extends Component {
                 />
             ];
         });
-        this.forceUpdate();
     };
 
     onMarkerClick = async (props, marker, e) => {
@@ -99,8 +97,8 @@ class NeighborhoodApp extends Component {
         } else {
             marker.setAnimation(window.google.maps.Animation.BOUNCE);
             setTimeout(() => {
-                marker.setAnimation(window.google.maps.Animation.NULL);
-            }, 500);
+                marker.setAnimation(null);
+            }, 350);
         }
     };
 
@@ -181,6 +179,7 @@ class NeighborhoodApp extends Component {
                         <MapContainer>
                             <Map
                                 google={this.props.google}
+                                onReady={this.renderMarkers()}
                                 zoom={15}
                                 style={style}
                                 styles={MapStyle}

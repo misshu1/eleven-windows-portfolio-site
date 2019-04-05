@@ -11,6 +11,9 @@
 # production
 /build
 
+# Not for public
+/public/data
+
 # misc
 .DS_Store
 .env

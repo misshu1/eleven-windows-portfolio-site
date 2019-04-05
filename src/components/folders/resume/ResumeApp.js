@@ -80,12 +80,11 @@ class ResumeApp extends Component {
                                 </Link>
                             </Buttons>
                         </NameBar>
-                        <div
-                            style={{
-                                width: "100%",
-                                height: "100%",
-                                userSelect: "auto"
-                            }}
+                        <iframe
+                            src="/data/cv.pdf"
+                            frameborder="0"
+                            gesture="media"
+                            allow="encrypted-media"
                         />
                     </AppContainer>
                 </AnimateFadeInOut>
