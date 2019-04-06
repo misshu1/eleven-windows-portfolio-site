@@ -23,12 +23,13 @@ export const AppContainer = styled.section`
         height: 44rem;
         width: 44rem;
         padding-bottom: 0;
-        margin-top: 0;
+        && iframe {
+            margin-top: 0rem;
+        }
     }
 
     @media (min-width: 50em) {
         top: 10rem;
         left: 5rem;
-        margin-top: 0;
     }
 `;
