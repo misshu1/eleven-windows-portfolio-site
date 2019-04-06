@@ -152,7 +152,7 @@ class App extends Component {
                             <Route
                                 exact
                                 path={
-                                    window.matchMedia("(max-width: 56.25rem)")
+                                    window.matchMedia("(max-width: 28rem)")
                                         .matches
                                         ? "/apps/memorygame"
                                         : "/apps"
@@ -179,7 +179,7 @@ class App extends Component {
                             <Route
                                 exact
                                 path={
-                                    window.matchMedia("(max-width: 56.25rem)")
+                                    window.matchMedia("(max-width: 28rem)")
                                         .matches
                                         ? "/apps/calculator"
                                         : "/apps"
@@ -206,7 +206,7 @@ class App extends Component {
                             <Route
                                 exact
                                 path={
-                                    window.matchMedia("(max-width: 56.25rem)")
+                                    window.matchMedia("(max-width: 28rem)")
                                         .matches
                                         ? "/apps/settings"
                                         : "/apps"
@@ -239,7 +239,7 @@ class App extends Component {
                             <Route
                                 exact
                                 path={
-                                    window.matchMedia("(max-width: 56.25rem)")
+                                    window.matchMedia("(max-width: 28rem)")
                                         .matches
                                         ? "/apps/weather"
                                         : "/apps"
@@ -266,7 +266,7 @@ class App extends Component {
                             <Route
                                 exact
                                 path={
-                                    window.matchMedia("(max-width: 56.25rem)")
+                                    window.matchMedia("(max-width: 28rem)")
                                         .matches
                                         ? "/apps/neighborhood-map"
                                         : "/apps"
@@ -296,7 +296,7 @@ class App extends Component {
                             <Route
                                 exact
                                 path={
-                                    window.matchMedia("(max-width: 56.25rem)")
+                                    window.matchMedia("(max-width: 28rem)")
                                         .matches
                                         ? "/apps/resume"
                                         : "/apps"
@@ -322,7 +322,7 @@ class App extends Component {
                             <Route
                                 exact
                                 path={
-                                    window.matchMedia("(max-width: 56.25rem)")
+                                    window.matchMedia("(max-width: 28rem)")
                                         .matches
                                         ? "/apps/about"
                                         : "/apps"
@@ -348,7 +348,7 @@ class App extends Component {
                             <Route
                                 exact
                                 path={
-                                    window.matchMedia("(max-width: 56.25rem)")
+                                    window.matchMedia("(max-width: 28rem)")
                                         .matches
                                         ? "/apps/contact"
                                         : "/apps"
@@ -375,7 +375,7 @@ class App extends Component {
                             <Route
                                 exact
                                 path={
-                                    window.matchMedia("(max-width: 56.25rem)")
+                                    window.matchMedia("(max-width: 28rem)")
                                         .matches
                                         ? "/apps/myprojects"
                                         : "/apps"
@@ -403,9 +403,8 @@ class App extends Component {
                             <Icon>
                                 <Link
                                     to={
-                                        window.matchMedia(
-                                            "(max-width: 56.25rem)"
-                                        ).matches
+                                        window.matchMedia("(max-width: 28rem)")
+                                            .matches
                                             ? "/apps/myprojects"
                                             : "/apps"
                                     }
@@ -436,9 +435,8 @@ class App extends Component {
                             <Icon>
                                 <Link
                                     to={
-                                        window.matchMedia(
-                                            "(max-width: 56.25rem)"
-                                        ).matches
+                                        window.matchMedia("(max-width: 28rem)")
+                                            .matches
                                             ? "/apps/about"
                                             : "/apps"
                                     }
@@ -469,9 +467,8 @@ class App extends Component {
                             <Icon>
                                 <Link
                                     to={
-                                        window.matchMedia(
-                                            "(max-width: 56.25rem)"
-                                        ).matches
+                                        window.matchMedia("(max-width: 28rem)")
+                                            .matches
                                             ? "/apps/contact"
                                             : "/apps"
                                     }

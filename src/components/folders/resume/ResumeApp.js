@@ -68,9 +68,8 @@ class ResumeApp extends Component {
                                 </div>
                                 <Link
                                     to={
-                                        window.matchMedia(
-                                            "(max-width: 56.25rem)"
-                                        ).matches
+                                        window.matchMedia("(max-width: 28rem)")
+                                            .matches
                                             ? "/"
                                             : "#"
                                     }
@@ -82,9 +81,9 @@ class ResumeApp extends Component {
                         </NameBar>
                         <iframe
                             src="/data/cv.pdf"
-                            frameborder="0"
-                            gesture="media"
-                            allow="encrypted-media"
+                            allow="encrypted-media, autoplay"
+                            title="Resume"
+                            frameBorder="0"
                         />
                     </AppContainer>
                 </AnimateFadeInOut>

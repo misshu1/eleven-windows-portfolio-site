@@ -69,9 +69,8 @@ class WeatherApp extends Component {
                                 </div>
                                 <Link
                                     to={
-                                        window.matchMedia(
-                                            "(max-width: 56.25rem)"
-                                        ).matches
+                                        window.matchMedia("(max-width: 28rem)")
+                                            .matches
                                             ? "/"
                                             : "#"
                                     }

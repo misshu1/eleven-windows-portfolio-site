@@ -25,7 +25,7 @@ const StartMenuApp = props => {
                 <SmallWidgetBox>
                     <Link
                         to={
-                            window.matchMedia("(max-width: 56.25rem)").matches
+                            window.matchMedia("(max-width: 28rem)").matches
                                 ? "/apps/about"
                                 : "/apps"
                         }
@@ -44,7 +44,7 @@ const StartMenuApp = props => {
                 <SmallWidgetBox>
                     <Link
                         to={
-                            window.matchMedia("(max-width: 56.25rem)").matches
+                            window.matchMedia("(max-width: 28rem)").matches
                                 ? "/apps/contact"
                                 : "/apps"
                         }
@@ -63,7 +63,7 @@ const StartMenuApp = props => {
                 <SmallWidgetBox>
                     <Link
                         to={
-                            window.matchMedia("(max-width: 56.25rem)").matches
+                            window.matchMedia("(max-width: 28rem)").matches
                                 ? "/apps/settings"
                                 : "/apps"
                         }
@@ -84,7 +84,7 @@ const StartMenuApp = props => {
                 <Widget style={{ gridArea: "widget-1" }}>
                     <Link
                         to={
-                            window.matchMedia("(max-width: 56.25rem)").matches
+                            window.matchMedia("(max-width: 28rem)").matches
                                 ? "/apps/memorygame"
                                 : "/apps"
                         }
@@ -106,7 +106,7 @@ const StartMenuApp = props => {
                 <Widget style={{ gridArea: "widget-3" }}>
                     <Link
                         to={
-                            window.matchMedia("(max-width: 56.25rem)").matches
+                            window.matchMedia("(max-width: 28rem)").matches
                                 ? "/apps/calculator"
                                 : "/apps"
                         }
@@ -125,7 +125,7 @@ const StartMenuApp = props => {
                 <Widget style={{ gridArea: "widget-4" }}>
                     <Link
                         to={
-                            window.matchMedia("(max-width: 56.25rem)").matches
+                            window.matchMedia("(max-width: 28rem)").matches
                                 ? "/apps/resume"
                                 : "/apps"
                         }
@@ -200,7 +200,7 @@ const StartMenuApp = props => {
                 <Widget style={{ gridArea: "widget-9" }}>
                     <Link
                         to={
-                            window.matchMedia("(max-width: 56.25rem)").matches
+                            window.matchMedia("(max-width: 28rem)").matches
                                 ? "/apps/neighborhood-map"
                                 : "/apps"
                         }
@@ -222,7 +222,7 @@ const StartMenuApp = props => {
                 <Widget style={{ gridArea: "widget-11" }}>
                     <Link
                         to={
-                            window.matchMedia("(max-width: 56.25rem)").matches
+                            window.matchMedia("(max-width: 28rem)").matches
                                 ? "/apps/weather"
                                 : "/apps"
                         }
