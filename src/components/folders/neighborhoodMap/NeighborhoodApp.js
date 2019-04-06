@@ -13,7 +13,7 @@ const style = {
     height: "calc(100% - 2.5rem)"
 };
 let allMarkers = [];
-const LoadingContainer = props => null;
+const LoadingContainer = () => null;
 
 class NeighborhoodApp extends Component {
     state = {
