@@ -10,8 +10,10 @@ export const LogoContainer = styled.div`
 
     @media (min-width: 450px) {
         width: 4rem;
-        &&:hover {
+        &&:hover,
+        :focus {
             background: ${props => props.theme.logoHover};
+            outline: none;
         }
     }
 `;

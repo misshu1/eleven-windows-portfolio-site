@@ -7,7 +7,7 @@ import { AnimateFadeInOut } from "../../animations/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Draggable from "react-draggable";
 
-class AboutApp extends Component {
+class MyProjects extends Component {
     state = {
         close: "",
         disabled: true
@@ -24,7 +24,7 @@ class AboutApp extends Component {
             close: "close"
         });
         setTimeout(() => {
-            this.props.closeApp("aboutOpen", "aboutMinimize");
+            this.props.closeApp("myProjectsOpen", "myProjectsMinimize");
         }, 200);
     };
 
@@ -39,26 +39,26 @@ class AboutApp extends Component {
             windowIndex,
             activeWindow,
             minimizeApp,
-            aboutOpen,
-            aboutMinimize
+            myProjectsOpen,
+            myProjectsMinimize
         } = this.props;
         const { disabled, close } = this.state;
         return (
             <Draggable axis="both" handle=".handle" disabled={disabled}>
                 <AnimateFadeInOut
-                    open={aboutOpen}
-                    minimize={aboutMinimize}
+                    open={myProjectsOpen}
+                    minimize={myProjectsMinimize}
                     close={close}
-                    appIndex={windowIndex[7]}
-                    onClick={() => activeWindow(7)}
+                    appIndex={windowIndex[9]}
+                    onClick={() => activeWindow(9)}
                 >
                     <AppContainer>
                         <NameBar>
-                            <Name className="handle">About me</Name>
+                            <Name className="handle">My Projects</Name>
                             <Buttons>
                                 <div
                                     onClick={() =>
-                                        minimizeApp("aboutMinimize", true)
+                                        minimizeApp("myProjectsMinimize", true)
                                     }
                                 >
                                     <FontAwesomeIcon
@@ -80,18 +80,18 @@ class AboutApp extends Component {
                                 </Link>
                             </Buttons>
                         </NameBar>
-                        Under Construction About me
+                        Under Construction My Projects
                     </AppContainer>
                 </AnimateFadeInOut>
             </Draggable>
         );
     }
 }
-export default AboutApp;
+export default MyProjects;
 
-AboutApp.propTypes = {
+MyProjects.propTypes = {
     windowIndex: PropTypes.object.isRequired,
-    aboutOpen: PropTypes.string.isRequired,
+    myProjectsOpen: PropTypes.string.isRequired,
     activeWindow: PropTypes.func.isRequired,
     minimizeApp: PropTypes.func.isRequired,
     closeApp: PropTypes.func.isRequired

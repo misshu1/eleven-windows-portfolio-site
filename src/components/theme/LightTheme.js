@@ -6,6 +6,7 @@ const LightTheme = {
 
     // Folder
     folderNameBarBg: "#b2b7f7",
+    folderBorder: "#202020",
     folderNameBarBtnHover: "rgba(0, 21, 255, 0.2)",
 
     // Settings App

@@ -6,6 +6,7 @@ const DarkTheme = {
 
     // Folder
     folderNameBarBg: "#444",
+    folderBorder: "#444",
     folderNameBarBtnHover: "rgba(200, 200, 200, 0.2)",
 
     // Settings App

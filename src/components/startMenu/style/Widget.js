@@ -125,7 +125,8 @@ export const Widget = styled.div`
             background: rgba(0, 0, 0, 0.7);
         }
 
-        && .name:hover {
+        && .name:hover,
+        && a:focus span {
             opacity: 1;
             transition: opacity 0.2s ease-out;
         }

@@ -47,6 +47,12 @@ class TaskbarApp extends Component {
         return create;
     };
 
+    handleKeyPress = (e, app) => {
+        if (e.charCode === 13) {
+            this.props.toggleAppVisibility(app);
+        }
+    };
+
     render() {
         const { closeApp, toggleAppVisibility, logo } = this.props;
         return (
@@ -73,6 +79,8 @@ class TaskbarApp extends Component {
                 </ContactContainer>
 
                 <LogoContainer
+                    tabIndex="0"
+                    onKeyPress={e => this.handleKeyPress(e, "startMenuOpen")}
                     onClick={() => toggleAppVisibility("startMenuOpen")}
                 >
                     <BorderLogo>
@@ -89,6 +97,8 @@ class TaskbarApp extends Component {
                 </LogoContainer>
                 <OpenAppsContainer>{this.showIcons()}</OpenAppsContainer>
                 <ClockContainer
+                    tabIndex="0"
+                    onKeyPress={e => this.handleKeyPress(e, "calendarOpen")}
                     onClick={() => toggleAppVisibility("calendarOpen")}
                 >
                     <ClockApp />

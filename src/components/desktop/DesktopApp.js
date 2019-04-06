@@ -1,7 +1,10 @@
 import React, { Component, lazy, Suspense } from "react";
-import { Route } from "react-router-dom";
+import { Route, Link } from "react-router-dom";
 import TaskbarApp from "../../components/taskbar/TaskbarApp";
 import { Icon, DesktopContainer } from "./style";
+import aboutIcon from "../../components/taskbar/img/about-icon-taskbar.jpg";
+import myProjectsIcon from "../../components/taskbar/img/my-projects-icon-taskbar.jpg";
+import contactIcon from "../../components/taskbar/img/contact-icon-taskbar.jpg";
 import SpinnerApp from "../../components/animations/SpinnerApp";
 const CalendarApp = lazy(() =>
     import("../../components/taskbar/calendar/CalendarApp")
@@ -31,6 +34,10 @@ const AboutApp = lazy(() => import("../../components/folders/about/AboutApp"));
 const ContactApp = lazy(() =>
     import("../../components/folders/contact/ContactApp")
 );
+const MyProjectsApp = lazy(() =>
+    import("../../components/folders/myProjects/MyProjectsApp")
+);
+
 class App extends Component {
     state = {
         startMenuOpen: "close",
@@ -43,6 +50,7 @@ class App extends Component {
         resumeOpen: "close",
         aboutOpen: "close",
         contactOpen: "close",
+        myProjectsOpen: "close",
         memoryGameMinimize: null,
         calculatorMinimize: null,
         settingsMinimize: null,
@@ -51,6 +59,7 @@ class App extends Component {
         resumeMinimize: null,
         aboutMinimize: null,
         contactMinimize: null,
+        myProjectsMinimize: null,
         openApps: [],
         windowIndex: {
             1: 100,
@@ -59,7 +68,8 @@ class App extends Component {
             5: 100,
             6: 100,
             7: 100,
-            8: 100
+            8: 100,
+            9: 100
         }
     };
 
@@ -124,7 +134,9 @@ class App extends Component {
             aboutOpen,
             aboutMinimize,
             contactOpen,
-            contactMinimize
+            contactMinimize,
+            myProjectsOpen,
+            myProjectsMinimize
         } = this.state;
         return (
             <Route
@@ -315,6 +327,34 @@ class App extends Component {
                                         ) : (
                                             ""
                                         )}
+                                        {myProjectsOpen === "open" ? (
+                                            <Suspense fallback={<SpinnerApp />}>
+                                                <MyProjectsApp
+                                                    changeTheme={
+                                                        this.props.changeTheme
+                                                    }
+                                                    changeAppSize={
+                                                        this.props.changeAppSize
+                                                    }
+                                                    windowIndex={windowIndex}
+                                                    activeWindow={
+                                                        this.activeWindow
+                                                    }
+                                                    closeApp={this.closeApp}
+                                                    minimizeApp={
+                                                        this.minimizeApp
+                                                    }
+                                                    myProjectsOpen={
+                                                        myProjectsOpen
+                                                    }
+                                                    myProjectsMinimize={
+                                                        myProjectsMinimize
+                                                    }
+                                                />
+                                            </Suspense>
+                                        ) : (
+                                            ""
+                                        )}
                                     </React.Fragment>
                                 )}
                             />
@@ -461,27 +501,99 @@ class App extends Component {
                                     </Suspense>
                                 )}
                             />
+                            <Route
+                                exact
+                                path="/apps/myprojects"
+                                render={() => (
+                                    <Suspense fallback={<SpinnerApp />}>
+                                        <MyProjectsApp
+                                            windowIndex={windowIndex}
+                                            activeWindow={this.activeWindow}
+                                            myProjectsOpen={myProjectsOpen}
+                                            closeApp={this.closeApp}
+                                            minimizeApp={this.minimizeApp}
+                                            myProjectsMinimize={
+                                                myProjectsMinimize
+                                            }
+                                        />
+                                    </Suspense>
+                                )}
+                            />
 
-                            <Icon tabIndex="1">
-                                <img
-                                    src={require("../../components/desktop/img/folder-icon.png")}
-                                    alt="my stuff"
-                                />
-                                <div>My Stuff</div>
+                            <Icon>
+                                <Link
+                                    to={
+                                        window.matchMedia(
+                                            "(max-width: 56.25rem)"
+                                        ).matches
+                                            ? "/apps/myprojects"
+                                            : "/apps"
+                                    }
+                                    onClick={() =>
+                                        this.startApp(
+                                            "myProjectsOpen",
+                                            myProjectsIcon,
+                                            9,
+                                            "myProjectsMinimize"
+                                        )
+                                    }
+                                >
+                                    <img
+                                        src={require("../../components/desktop/img/folder-icon.png")}
+                                        alt="Projects"
+                                    />
+                                    <div>My Projects</div>
+                                </Link>
                             </Icon>
-                            <Icon tabIndex="2">
-                                <img
-                                    src={require("../../components/desktop/img/folder-icon.png")}
-                                    alt="test"
-                                />
-                                <div>Documents</div>
+                            <Icon>
+                                <Link
+                                    to={
+                                        window.matchMedia(
+                                            "(max-width: 56.25rem)"
+                                        ).matches
+                                            ? "/apps/about"
+                                            : "/apps"
+                                    }
+                                    onClick={() =>
+                                        this.startApp(
+                                            "aboutOpen",
+                                            aboutIcon,
+                                            7,
+                                            "aboutMinimize"
+                                        )
+                                    }
+                                >
+                                    <img
+                                        src={require("../../components/desktop/img/folder-icon.png")}
+                                        alt="About me"
+                                    />
+                                    <div>About me</div>
+                                </Link>
                             </Icon>
-                            <Icon tabIndex="3">
-                                <img
-                                    src={require("../../components/desktop/img/folder-icon.png")}
-                                    alt="test"
-                                />
-                                <div>About</div>
+                            <Icon>
+                                <Link
+                                    to={
+                                        window.matchMedia(
+                                            "(max-width: 56.25rem)"
+                                        ).matches
+                                            ? "/apps/contact"
+                                            : "/apps"
+                                    }
+                                    onClick={() =>
+                                        this.startApp(
+                                            "contactOpen",
+                                            contactIcon,
+                                            8,
+                                            "contactMinimize"
+                                        )
+                                    }
+                                >
+                                    <img
+                                        src={require("../../components/desktop/img/folder-icon.png")}
+                                        alt="Contact"
+                                    />
+                                    <div>Contact</div>
+                                </Link>
                             </Icon>
                         </DesktopContainer>
                         <TaskbarApp

@@ -23,13 +23,16 @@ export const Buttons = styled.div`
         color: #d6d8de;
     }
 
-    && div:hover {
+    && div:hover,
+    && div:focus {
         background: ${props => props.theme.folderNameBarBtnHover};
     }
 
-    && :nth-child(2):hover {
+    && :nth-child(2):hover,
+    && :nth-child(2):focus {
         background: #ff0000;
         color: #d6d8de;
+        outline: none;
     }
     @media (min-width: 28rem) {
         width: 6rem;
