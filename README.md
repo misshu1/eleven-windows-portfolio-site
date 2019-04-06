@@ -44,7 +44,7 @@
 ### How to run
 
 ```sh
-$ cd the-business-company
+$ cd eleven-windows-portfolio-site
 $ npm install
 $ npm start
 ```
