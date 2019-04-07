@@ -11,6 +11,13 @@ export const BackgroundContainer = styled.div`
     background-size: cover;
     color: #fff;
     margin-top: 2.5rem;
+    overflow-y: scroll;
+    /* Hide Scrollbar */
+    &&::-webkit-scrollbar {
+        display: none;
+    }
+    -ms-overflow-style: none;
+
     @media (min-width: 28em) {
         margin-top: 0;
     }

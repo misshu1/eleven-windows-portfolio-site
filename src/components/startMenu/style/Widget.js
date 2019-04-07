@@ -4,6 +4,8 @@ import calculator from "../img/calculator.png";
 import neighborhood from "../img/neighborhood-map.jpg";
 import resume from "../img/resume.jpg";
 import weather from "../img/weather.jpg";
+import business from "../img/the-business-company.jpg";
+import calendar from "../img/calendar.jpg";
 
 export const Widget = styled.div`
     background: #007bff;
@@ -11,7 +13,13 @@ export const Widget = styled.div`
     position: relative;
 
     &&:nth-child(1) {
-        background: url(${memoryGame});
+        background: url(${neighborhood});
+        background-position: center;
+        background-size: cover;
+    }
+
+    &&:nth-child(2) {
+        background: url(${calendar});
         background-position: center;
         background-size: cover;
     }
@@ -29,7 +37,12 @@ export const Widget = styled.div`
     }
 
     &&:nth-child(9) {
-        background: url(${neighborhood});
+        background: url(${business});
+        background-position: center;
+        background-size: cover;
+    }
+    &&:nth-child(10) {
+        background: url(${memoryGame});
         background-position: center;
         background-size: cover;
     }

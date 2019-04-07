@@ -16,7 +16,7 @@ export const AppContainer = styled.section`
     }
 
     @media (min-width: 50em) {
-        top: 10rem;
-        left: 5rem;
+        top: 7rem;
+        left: 7rem;
     }
 `;

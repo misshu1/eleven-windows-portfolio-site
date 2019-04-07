@@ -8,6 +8,11 @@ const LightTheme = {
     folderNameBarBg: "#b2b7f7",
     folderBorder: "#202020",
     folderNameBarBtnHover: "rgba(0, 21, 255, 0.2)",
+    folderHoverBg: "rgba(0, 0, 0, 0.1)",
+    folderHoverOutline: "rgb(0, 0, 0, 0.3)",
+    folderFocusBg: "rgba(0, 0, 0, 0.2)",
+    folderFocusOutline: "rgb(0, 0, 0, 0.4)",
+    backButtonColor: "#41a83a",
 
     // Settings App
     settingsBg: "rgba(0, 0, 0, 0.1)",

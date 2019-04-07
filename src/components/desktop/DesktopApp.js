@@ -5,7 +5,9 @@ import { Icon, DesktopContainer } from "./style";
 import aboutIcon from "../../components/taskbar/img/about-icon-taskbar.jpg";
 import myProjectsIcon from "../../components/taskbar/img/my-projects-icon-taskbar.jpg";
 import contactIcon from "../../components/taskbar/img/contact-icon-taskbar.jpg";
+import folderIcon from "../../components/desktop/img/folder-icon.png";
 import SpinnerApp from "../../components/animations/SpinnerApp";
+
 const CalendarApp = lazy(() =>
     import("../../components/taskbar/calendar/CalendarApp")
 );
@@ -37,6 +39,12 @@ const ContactApp = lazy(() =>
 const MyProjectsApp = lazy(() =>
     import("../../components/folders/myProjects/MyProjectsApp")
 );
+const TheBusinessCompanyApp = lazy(() =>
+    import("../../components/folders/theBusinessCompany/TheBusinessCompanyApp")
+);
+const CalendarFullApp = lazy(() =>
+    import("../../components/folders/calendar/CalendarFullApp")
+);
 
 class App extends Component {
     state = {
@@ -51,6 +59,8 @@ class App extends Component {
         aboutOpen: "close",
         contactOpen: "close",
         myProjectsOpen: "close",
+        businessCompanyOpen: "close",
+        calendarFullOpen: "close",
         memoryGameMinimize: null,
         calculatorMinimize: null,
         settingsMinimize: null,
@@ -60,6 +70,8 @@ class App extends Component {
         aboutMinimize: null,
         contactMinimize: null,
         myProjectsMinimize: null,
+        businessCompanyMinimize: null,
+        calendarFullMinimize: null,
         openApps: [],
         windowIndex: {
             1: 100,
@@ -69,7 +81,9 @@ class App extends Component {
             6: 100,
             7: 100,
             8: 100,
-            9: 100
+            9: 100,
+            10: 100,
+            11: 100
         }
     };
 
@@ -136,7 +150,11 @@ class App extends Component {
             contactOpen,
             contactMinimize,
             myProjectsOpen,
-            myProjectsMinimize
+            myProjectsMinimize,
+            businessCompanyOpen,
+            businessCompanyMinimize,
+            calendarFullOpen,
+            calendarFullMinimize
         } = this.state;
         return (
             <Route
@@ -399,6 +417,64 @@ class App extends Component {
                                     </Suspense>
                                 )}
                             />
+                            <Route
+                                exact
+                                path={
+                                    window.matchMedia("(max-width: 28rem)")
+                                        .matches
+                                        ? "/apps/thebusinesscompany"
+                                        : "/apps"
+                                }
+                                render={() => (
+                                    <Suspense fallback={<SpinnerApp />}>
+                                        {businessCompanyOpen === "open" ? (
+                                            <TheBusinessCompanyApp
+                                                windowIndex={windowIndex}
+                                                activeWindow={this.activeWindow}
+                                                businessCompanyOpen={
+                                                    businessCompanyOpen
+                                                }
+                                                closeApp={this.closeApp}
+                                                minimizeApp={this.minimizeApp}
+                                                businessCompanyMinimize={
+                                                    businessCompanyMinimize
+                                                }
+                                            />
+                                        ) : (
+                                            ""
+                                        )}
+                                    </Suspense>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path={
+                                    window.matchMedia("(max-width: 28rem)")
+                                        .matches
+                                        ? "/apps/calendar"
+                                        : "/apps"
+                                }
+                                render={() => (
+                                    <Suspense fallback={<SpinnerApp />}>
+                                        {calendarFullOpen === "open" ? (
+                                            <CalendarFullApp
+                                                windowIndex={windowIndex}
+                                                activeWindow={this.activeWindow}
+                                                calendarFullOpen={
+                                                    calendarFullOpen
+                                                }
+                                                closeApp={this.closeApp}
+                                                minimizeApp={this.minimizeApp}
+                                                calendarFullMinimize={
+                                                    calendarFullMinimize
+                                                }
+                                            />
+                                        ) : (
+                                            ""
+                                        )}
+                                    </Suspense>
+                                )}
+                            />
 
                             <Icon>
                                 <Link
@@ -425,10 +501,7 @@ class App extends Component {
                                         )
                                     }
                                 >
-                                    <img
-                                        src={require("../../components/desktop/img/folder-icon.png")}
-                                        alt="Projects"
-                                    />
+                                    <img src={folderIcon} alt="Projects" />
                                     <div>My Projects</div>
                                 </Link>
                             </Icon>
@@ -457,10 +530,7 @@ class App extends Component {
                                         )
                                     }
                                 >
-                                    <img
-                                        src={require("../../components/desktop/img/folder-icon.png")}
-                                        alt="About me"
-                                    />
+                                    <img src={folderIcon} alt="About me" />
                                     <div>About me</div>
                                 </Link>
                             </Icon>
@@ -489,10 +559,7 @@ class App extends Component {
                                         )
                                     }
                                 >
-                                    <img
-                                        src={require("../../components/desktop/img/folder-icon.png")}
-                                        alt="Contact"
-                                    />
+                                    <img src={folderIcon} alt="Contact" />
                                     <div>Contact</div>
                                 </Link>
                             </Icon>

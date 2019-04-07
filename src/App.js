@@ -28,7 +28,12 @@ import {
     faLinkedinIn,
     faGithub,
     faInstagram,
-    faCodepen
+    faCodepen,
+    faReact,
+    faJs,
+    faFoursquare,
+    faHtml5,
+    faCss3Alt
 } from "@fortawesome/free-brands-svg-icons";
 library.add(
     faLongArrowAltLeft,
@@ -51,7 +56,12 @@ library.add(
     faSpinner,
     faFile,
     faAddressCard,
-    faArrowLeft
+    faArrowLeft,
+    faReact,
+    faJs,
+    faFoursquare,
+    faHtml5,
+    faCss3Alt
 );
 
 class App extends Component {

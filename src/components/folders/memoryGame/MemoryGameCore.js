@@ -26,6 +26,10 @@ class MemoryGameCore extends Component {
         this.setCards();
     }
 
+    componentWillUnmount() {
+        this.restartGame();
+    }
+
     setCards = () => {
         const cards = [
             { id: 1, name: "gem", open: false, match: false },

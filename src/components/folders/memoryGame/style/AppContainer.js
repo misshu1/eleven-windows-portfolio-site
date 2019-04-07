@@ -9,12 +9,6 @@ export const AppContainer = styled.section`
     width: 100%;
     height: calc(100vh - 3.5rem);
     background: ${props => props.theme.background};
-    overflow-y: scroll;
-    /* Hide Scrollbar */
-    -ms-overflow-style: none;
-    &&::-webkit-scrollbar {
-        display: none;
-    }
 
     @media (min-width: 28em) {
         height: 44rem;
@@ -24,6 +18,6 @@ export const AppContainer = styled.section`
 
     @media (min-width: 50em) {
         top: 8rem;
-        left: 3rem;
+        left: 8rem;
     }
 `;

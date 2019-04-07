@@ -8,6 +8,11 @@ const DarkTheme = {
     folderNameBarBg: "#444",
     folderBorder: "#444",
     folderNameBarBtnHover: "rgba(200, 200, 200, 0.2)",
+    folderHoverBg: "rgba(174, 192, 229, 0.1)",
+    folderHoverOutline: "rgb(220, 227, 242, 0.5)",
+    folderFocusBg: "rgba(174, 192, 229, 0.2)",
+    folderFocusOutline: "rgb(220, 227, 242, 0.7)",
+    backButtonColor: "#26c11b",
 
     // Settings App
     settingsBg: "rgba(174, 192, 229, 0.2)",

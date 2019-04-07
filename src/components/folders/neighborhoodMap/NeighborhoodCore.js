@@ -121,7 +121,11 @@ class NeighborhoodCore extends Component {
                         visible={showingInfoWindow}
                         onClose={this.onClose}
                     >
-                        <div>
+                        <div
+                            style={
+                                this.props.textBlack ? { color: "black" } : {}
+                            }
+                        >
                             <h4>{selectedPlace.name}</h4>
                             {selectedPlace.state !== undefined ? (
                                 <p>State: {selectedPlace.state}</p>

@@ -16,6 +16,8 @@ import weatherIcon from "../taskbar/img/weather-icon-taskbar.jpg";
 import resumeIcon from "../taskbar/img/resume-icon-taskbar.jpg";
 import aboutIcon from "../taskbar/img/about-icon-taskbar.jpg";
 import contactIcon from "../taskbar/img/contact-icon-taskbar.jpg";
+import businessIcon from "../taskbar/img/the-business-company-icon-taskbar.jpg";
+import calendarIcon from "../taskbar/img/calendar-icon-taskbar.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StartMenuApp = props => {
@@ -85,23 +87,39 @@ const StartMenuApp = props => {
                     <Link
                         to={
                             window.matchMedia("(max-width: 28rem)").matches
-                                ? "/apps/memorygame"
+                                ? "/apps/neighborhood-map"
                                 : "/apps"
                         }
-                        onClick={() => {
+                        onClick={() =>
                             props.startApp(
-                                "memoryGameOpen",
-                                mempryGameIcon,
-                                1,
-                                "memoryGameMinimize"
-                            );
-                        }}
+                                "neighborhoodOpen",
+                                neighborhoodIcon,
+                                5,
+                                "neighborhoodMinimize"
+                            )
+                        }
                     >
-                        <span className="name">Memory Game</span>
+                        <span className="name">Neighborhood Map</span>
                     </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-2" }}>
-                    widget 2 calendar
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 28rem)").matches
+                                ? "/apps/calendar"
+                                : "/apps"
+                        }
+                        onClick={() =>
+                            props.startApp(
+                                "calendarFullOpen",
+                                calendarIcon,
+                                11,
+                                "calendarFullMinimize"
+                            )
+                        }
+                    >
+                        <span className="name">Calendar</span>
+                    </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-3" }}>
                     <Link
@@ -201,23 +219,39 @@ const StartMenuApp = props => {
                     <Link
                         to={
                             window.matchMedia("(max-width: 28rem)").matches
-                                ? "/apps/neighborhood-map"
+                                ? "/apps/thebusinesscompany"
                                 : "/apps"
                         }
                         onClick={() =>
                             props.startApp(
-                                "neighborhoodOpen",
-                                neighborhoodIcon,
-                                5,
-                                "neighborhoodMinimize"
+                                "businessCompanyOpen",
+                                businessIcon,
+                                10,
+                                "businessCompanyMinimize"
                             )
                         }
                     >
-                        <span className="name">Neighborhood Map</span>
+                        <span className="name">The Business Company</span>
                     </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-10" }}>
-                    widget 10 notepad
+                    <Link
+                        to={
+                            window.matchMedia("(max-width: 28rem)").matches
+                                ? "/apps/memorygame"
+                                : "/apps"
+                        }
+                        onClick={() => {
+                            props.startApp(
+                                "memoryGameOpen",
+                                mempryGameIcon,
+                                1,
+                                "memoryGameMinimize"
+                            );
+                        }}
+                    >
+                        <span className="name">Memory Game</span>
+                    </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-11" }}>
                     <Link

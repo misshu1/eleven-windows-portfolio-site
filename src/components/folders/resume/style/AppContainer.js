@@ -29,7 +29,7 @@ export const AppContainer = styled.section`
     }
 
     @media (min-width: 50em) {
-        top: 10rem;
-        left: 5rem;
+        top: 6rem;
+        left: 6rem;
     }
 `;
