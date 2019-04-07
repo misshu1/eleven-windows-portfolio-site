@@ -22,7 +22,11 @@ import {
     faSpinner,
     faFile,
     faAddressCard,
-    faArrowLeft
+    faArrowLeft,
+    faLock,
+    faAngleRight,
+    faAngleLeft,
+    faMedal
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faLinkedinIn,
@@ -61,7 +65,11 @@ library.add(
     faJs,
     faFoursquare,
     faHtml5,
-    faCss3Alt
+    faCss3Alt,
+    faLock,
+    faAngleRight,
+    faAngleLeft,
+    faMedal
 );
 
 class App extends Component {

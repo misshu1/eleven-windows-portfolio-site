@@ -12,6 +12,7 @@ export const LoginContainer = styled.div`
     font-size: 4vw;
 
     && button {
+        font-size: 1rem;
         color: #fff;
         outline: none;
         border: none;

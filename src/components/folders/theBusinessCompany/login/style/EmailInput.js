@@ -4,6 +4,7 @@ export const EmailInput = styled.input.attrs(() => ({
     type: "email",
     placeholder: "Your e-mail"
 }))`
+    font-size: 1rem;
     padding: 0.5rem;
     background: #8c8c8c;
     outline: none;

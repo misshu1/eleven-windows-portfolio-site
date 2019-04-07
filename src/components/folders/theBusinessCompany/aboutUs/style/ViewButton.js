@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const ViewButton = styled.button`
+    font-size: 1rem;
     display: block;
     margin: 0 auto;
     padding: 0 1.5rem;

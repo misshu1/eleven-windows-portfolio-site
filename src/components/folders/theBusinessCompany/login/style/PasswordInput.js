@@ -4,6 +4,7 @@ export const PasswordInput = styled.input.attrs(() => ({
     type: "password",
     placeholder: "Your password"
 }))`
+    font-size: 1rem;
     padding: 0.5rem;
     background: #8c8c8c;
     outline: none;
