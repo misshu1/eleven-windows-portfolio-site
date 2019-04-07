@@ -41,6 +41,16 @@
 
 -   Under construction
 
+### Routing
+
+#### Desktop
+
+-   All apps opens on the same route **'/apps'**
+
+#### Mobile
+
+-   Each app opens on its own route **'/apps/#appName'**, multitasking not possible on mobile.
+
 ### How to run
 
 ```sh
