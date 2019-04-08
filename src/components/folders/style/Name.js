@@ -8,4 +8,5 @@ export const Name = styled.div`
     color: ${props => props.theme.textColor};
     height: 100%;
     padding-left: 1.5rem;
+    transition: color 0.2s ease-in-out;
 `;

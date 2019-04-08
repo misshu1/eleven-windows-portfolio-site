@@ -7,6 +7,8 @@ export const Buttons = styled.div`
     height: 100%;
     width: 3rem;
     color: ${props => props.theme.textColor};
+    transition: color 0.2s ease-in-out;
+
     && div {
         display: none;
     }
@@ -47,6 +49,7 @@ export const Buttons = styled.div`
             width: 50%;
             color: ${props => props.theme.textColor};
             background: transparent;
+            transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
         }
     }
 `;

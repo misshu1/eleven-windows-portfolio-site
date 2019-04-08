@@ -11,6 +11,7 @@ export const AppContainer = styled.section`
     background: ${props => props.theme.background};
     color: ${props => props.theme.textColor};
     overflow: hidden;
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
 
     && iframe {
         width: 100%;

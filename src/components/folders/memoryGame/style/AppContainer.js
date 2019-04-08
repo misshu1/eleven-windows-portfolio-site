@@ -9,6 +9,7 @@ export const AppContainer = styled.section`
     width: 100%;
     height: calc(100vh - 3.5rem);
     background: ${props => props.theme.background};
+    transition: background 0.2s ease-in-out;
 
     @media (min-width: 28em) {
         height: 44rem;
