@@ -14,6 +14,7 @@ export const Section = styled.section`
     -ms-overflow-style: none;
 
     @media (min-width: 28em) {
+        height: calc(100% - 2.5rem);
         padding-top: 0;
     }
 `;

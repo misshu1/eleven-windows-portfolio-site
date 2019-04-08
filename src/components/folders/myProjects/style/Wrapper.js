@@ -4,7 +4,6 @@ export const Wrapper = styled.div`
     box-sizing: border-box;
     display: flex;
     flex-direction: row;
-    align-items: center;
     margin: 0.3rem;
 
     .date {
@@ -25,6 +24,7 @@ export const Wrapper = styled.div`
         width: 100%;
         padding: 0.3rem 0.5rem;
         margin: 0.1rem 0;
+        align-items: center;
 
         .date {
             display: block;

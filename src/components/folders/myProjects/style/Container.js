@@ -7,6 +7,7 @@ export const Container = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
+    height: 100%;
     padding: 1rem;
     overflow-y: scroll;
     /* Hide Scrollbar */
@@ -16,6 +17,7 @@ export const Container = styled.div`
     -ms-overflow-style: none;
 
     @media (min-width: 28em) {
+        height: calc(100% - 2.5rem);
         margin-top: 0;
         flex-direction: column;
     }

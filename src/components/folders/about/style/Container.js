@@ -4,7 +4,7 @@ export const Container = styled.div`
     box-sizing: border-box;
     margin-top: 2.5rem;
     width: 100%;
-    height: calc(100% - 2.5rem);
+    height: 100%;
     padding: 1.5rem;
     overflow-y: scroll;
     /* Hide Scrollbar */
@@ -14,6 +14,7 @@ export const Container = styled.div`
     -ms-overflow-style: none;
 
     @media (min-width: 28em) {
+        height: calc(100% - 2.5rem);
         margin-top: 0;
     }
 `;
