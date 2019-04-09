@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const MessageInput = styled.textarea`
     box-sizing: border-box;
     width: 100%;
+    font-size: 1rem;
     padding: 1rem 0.5rem;
     margin: 1rem 0;
     background: transparent;

@@ -8,7 +8,8 @@ import {
     LeftContainer,
     EmailInput,
     NameInput,
-    MessageInput
+    MessageInput,
+    Button
 } from "./style";
 
 import { Name, NameBar, Buttons } from "../style";
@@ -168,6 +169,7 @@ class ContactApp extends Component {
                                     <NameInput placeholder="Name" />
                                     <EmailInput placeholder="Email" />
                                     <MessageInput placeholder="Message" />
+                                    <Button>Send</Button>
                                 </form>
                             </RightContainer>
                         </Container>

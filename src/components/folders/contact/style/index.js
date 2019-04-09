@@ -5,3 +5,4 @@ export { RightContainer } from "./RightContainer";
 export { EmailInput } from "./EmailInput";
 export { NameInput } from "./NameInput";
 export { MessageInput } from "./MessageInput";
+export { Button } from "./Button";
