@@ -26,7 +26,8 @@ import {
     faLock,
     faAngleRight,
     faAngleLeft,
-    faMedal
+    faMedal,
+    faPlus
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faLinkedinIn,
@@ -69,7 +70,8 @@ library.add(
     faLock,
     faAngleRight,
     faAngleLeft,
-    faMedal
+    faMedal,
+    faPlus
 );
 
 class App extends Component {

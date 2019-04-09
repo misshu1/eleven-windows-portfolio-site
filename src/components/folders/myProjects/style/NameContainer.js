@@ -8,6 +8,7 @@ export const NameContainer = styled.div`
     height: 6rem;
 
     && span {
+        text-align: center;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -38,6 +39,7 @@ export const NameContainer = styled.div`
         && span {
             white-space: normal;
             text-overflow: initial;
+            text-align: left;
         }
     }
 `;

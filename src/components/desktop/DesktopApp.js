@@ -42,8 +42,8 @@ const MyProjectsApp = lazy(() =>
 const TheBusinessCompanyApp = lazy(() =>
     import("../../components/folders/theBusinessCompany/TheBusinessCompanyApp")
 );
-const CalendarFullApp = lazy(() =>
-    import("../../components/folders/calendar/CalendarFullApp")
+const MyReadsApp = lazy(() =>
+    import("../../components/folders/myReads/MyReadsApp")
 );
 
 class App extends Component {
@@ -60,7 +60,7 @@ class App extends Component {
         contactOpen: "close",
         myProjectsOpen: "close",
         businessCompanyOpen: "close",
-        calendarFullOpen: "close",
+        myReadsOpen: "close",
         memoryGameMinimize: null,
         calculatorMinimize: null,
         settingsMinimize: null,
@@ -71,7 +71,7 @@ class App extends Component {
         contactMinimize: null,
         myProjectsMinimize: null,
         businessCompanyMinimize: null,
-        calendarFullMinimize: null,
+        myReadsMinimize: null,
         openApps: [],
         windowIndex: {
             1: 100,
@@ -153,8 +153,8 @@ class App extends Component {
             myProjectsMinimize,
             businessCompanyOpen,
             businessCompanyMinimize,
-            calendarFullOpen,
-            calendarFullMinimize
+            myReadsOpen,
+            myReadsMinimize
         } = this.state;
         return (
             <Route
@@ -451,22 +451,20 @@ class App extends Component {
                                 path={
                                     window.matchMedia("(max-width: 28rem)")
                                         .matches
-                                        ? "/apps/calendar"
+                                        ? "/apps/myreads"
                                         : "/apps"
                                 }
                                 render={() => (
                                     <Suspense fallback={<SpinnerApp />}>
-                                        {calendarFullOpen === "open" ? (
-                                            <CalendarFullApp
+                                        {myReadsOpen === "open" ? (
+                                            <MyReadsApp
                                                 windowIndex={windowIndex}
                                                 activeWindow={this.activeWindow}
-                                                calendarFullOpen={
-                                                    calendarFullOpen
-                                                }
+                                                myReadsOpen={myReadsOpen}
                                                 closeApp={this.closeApp}
                                                 minimizeApp={this.minimizeApp}
-                                                calendarFullMinimize={
-                                                    calendarFullMinimize
+                                                myReadsMinimize={
+                                                    myReadsMinimize
                                                 }
                                             />
                                         ) : (

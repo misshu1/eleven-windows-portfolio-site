@@ -7,6 +7,7 @@ import mempryGameIcon from "../../taskbar/img/memory-game-icon-taskbar.jpg";
 import neighborhoodIcon from "../../taskbar/img/neighborhood-map-icon-taskbar.jpg";
 import googleMapsIcon from "./img/google-maps-icon.svg";
 import businessIcon from "../../taskbar/img/the-business-company-icon-taskbar.jpg";
+import myReadsIcon from "../../taskbar/img/my-reads-icon-taskbar.jpg";
 import {
     AppContainer,
     Wrapper,
@@ -26,6 +27,7 @@ const MemoryGameCore = lazy(() => import("../memoryGame/MemoryGameCore"));
 const TheBusinessCompanyCore = lazy(() =>
     import("../theBusinessCompany/TheBusinessCompanyCore")
 );
+const MyReadsCore = lazy(() => import("../myReads/MyReadsCore"));
 
 class MyProjects extends Component {
     state = {
@@ -36,7 +38,8 @@ class MyProjects extends Component {
         projects: {
             neighborhoodMap: false,
             memoryGame: false,
-            theBusinessCompany: false
+            theBusinessCompany: false,
+            myReads: false
         }
     };
 
@@ -234,6 +237,38 @@ class MyProjects extends Component {
                                 <Wrapper
                                     tabIndex="0"
                                     onDoubleClick={() =>
+                                        this.showApp("myReads", " - My Reads")
+                                    }
+                                    onTouchStart={() =>
+                                        this.showApp("myReads", " - My Reads")
+                                    }
+                                >
+                                    <NameContainer>
+                                        <img
+                                            src={
+                                                window.matchMedia(
+                                                    "(max-width: 28rem)"
+                                                ).matches
+                                                    ? myReadsIcon
+                                                    : folderIcon
+                                            }
+                                            alt="My Reads"
+                                        />
+                                        <span>My Reads</span>
+                                    </NameContainer>
+                                    <Tehnologies>
+                                        <FontAwesomeIcon
+                                            icon={["fab", "react"]}
+                                            style={{ color: "#00d8ff" }}
+                                            title="React.JS"
+                                        />
+                                    </Tehnologies>
+                                    <span className="date">July 2018</span>
+                                </Wrapper>
+
+                                <Wrapper
+                                    tabIndex="0"
+                                    onDoubleClick={() =>
                                         this.showApp(
                                             "memoryGame",
                                             " - Memory Game"
@@ -300,6 +335,13 @@ class MyProjects extends Component {
                         {projects.theBusinessCompany ? (
                             <Suspense fallback={<SpinnerApp />}>
                                 <TheBusinessCompanyCore />
+                            </Suspense>
+                        ) : (
+                            ""
+                        )}
+                        {projects.myReads ? (
+                            <Suspense fallback={<SpinnerApp />}>
+                                <MyReadsCore />
                             </Suspense>
                         ) : (
                             ""

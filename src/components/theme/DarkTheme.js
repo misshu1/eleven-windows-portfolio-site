@@ -3,6 +3,7 @@ const DarkTheme = {
     textColor: "#d6d8de",
     background: "#202020",
     hover: "rgba(100, 100, 100, 0.3)",
+    whiteBlack: "#fff",
 
     // Folder
     folderNameBarBg: "#444",

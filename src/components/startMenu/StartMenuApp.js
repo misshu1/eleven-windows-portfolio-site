@@ -17,7 +17,7 @@ import resumeIcon from "../taskbar/img/resume-icon-taskbar.jpg";
 import aboutIcon from "../taskbar/img/about-icon-taskbar.jpg";
 import contactIcon from "../taskbar/img/contact-icon-taskbar.jpg";
 import businessIcon from "../taskbar/img/the-business-company-icon-taskbar.jpg";
-import calendarIcon from "../taskbar/img/calendar-icon-taskbar.jpg";
+import myReadsIcon from "../taskbar/img/my-reads-icon-taskbar.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const StartMenuApp = props => {
@@ -106,19 +106,19 @@ const StartMenuApp = props => {
                     <Link
                         to={
                             window.matchMedia("(max-width: 28rem)").matches
-                                ? "/apps/calendar"
+                                ? "/apps/myreads"
                                 : "/apps"
                         }
                         onClick={() =>
                             props.startApp(
-                                "calendarFullOpen",
-                                calendarIcon,
+                                "myReadsOpen",
+                                myReadsIcon,
                                 11,
-                                "calendarFullMinimize"
+                                "myReadsMinimize"
                             )
                         }
                     >
-                        <span className="name">Calendar</span>
+                        <span className="name">My Reads</span>
                     </Link>
                 </Widget>
                 <Widget style={{ gridArea: "widget-3" }}>

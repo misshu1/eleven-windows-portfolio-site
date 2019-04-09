@@ -3,6 +3,7 @@ const LightTheme = {
     textColor: "#212121",
     background: "#c4d9fc",
     hover: "rgba(150, 189, 255, 0.5)",
+    whiteBlack: "#000",
 
     // Folder
     folderNameBarBg: "#b2b7f7",

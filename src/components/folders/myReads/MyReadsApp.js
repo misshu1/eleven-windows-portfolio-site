@@ -1,13 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+import MyReadsCore from "./MyReadsCore";
 import { AppContainer } from "./style";
 import { Name, NameBar, Buttons } from "../style";
 import { AnimateFadeInOut } from "../../animations/style";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Draggable from "react-draggable";
 
-class CalendarFullApp extends Component {
+class MyReadsApp extends Component {
     state = {
         close: "",
         disabled: true
@@ -24,7 +25,7 @@ class CalendarFullApp extends Component {
             close: "close"
         });
         setTimeout(() => {
-            this.props.closeApp("calendarFullOpen", "calendarFullMinimize");
+            this.props.closeApp("myReadsOpen", "myReadsMinimize");
         }, 200);
     };
 
@@ -39,29 +40,26 @@ class CalendarFullApp extends Component {
             windowIndex,
             activeWindow,
             minimizeApp,
-            calendarFullOpen,
-            calendarFullMinimize
+            myReadsOpen,
+            myReadsMinimize
         } = this.props;
         const { disabled, close } = this.state;
         return (
             <Draggable axis="both" handle=".handle" disabled={disabled}>
                 <AnimateFadeInOut
-                    open={calendarFullOpen}
-                    minimize={calendarFullMinimize}
+                    open={myReadsOpen}
+                    minimize={myReadsMinimize}
                     close={close}
                     appIndex={windowIndex[11]}
                     onClick={() => activeWindow(11)}
                 >
                     <AppContainer>
                         <NameBar>
-                            <Name className="handle">Calendar</Name>
+                            <Name className="handle">My Reads</Name>
                             <Buttons>
                                 <div
                                     onClick={() =>
-                                        minimizeApp(
-                                            "calendarFullMinimize",
-                                            true
-                                        )
+                                        minimizeApp("myReadsMinimize", true)
                                     }
                                 >
                                     <FontAwesomeIcon
@@ -82,18 +80,18 @@ class CalendarFullApp extends Component {
                                 </Link>
                             </Buttons>
                         </NameBar>
-                        Under Construction Calendar Full App
+                        <MyReadsCore />
                     </AppContainer>
                 </AnimateFadeInOut>
             </Draggable>
         );
     }
 }
-export default CalendarFullApp;
+export default MyReadsApp;
 
-CalendarFullApp.propTypes = {
+MyReadsApp.propTypes = {
     windowIndex: PropTypes.object.isRequired,
-    calendarFullOpen: PropTypes.string.isRequired,
+    myReadsOpen: PropTypes.string.isRequired,
     activeWindow: PropTypes.func.isRequired,
     minimizeApp: PropTypes.func.isRequired,
     closeApp: PropTypes.func.isRequired

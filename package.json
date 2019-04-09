@@ -9,6 +9,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.8.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "dotenv": "^7.0.0",
+    "escape-string-regexp": "^1.0.5",
     "google-maps-react": "^2.0.2",
     "npm": "^6.9.0",
     "react": "^16.8.6",

@@ -6,7 +6,6 @@ export const AchievementsContainer = styled.div`
     flex-direction: row;
     background: #e8e8e8;
     color: black;
-    min-width: 100%;
     max-width: 30rem;
     min-height: 6.25rem;
     padding: 0.5rem;

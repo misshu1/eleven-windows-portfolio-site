@@ -5,7 +5,7 @@ import neighborhood from "../img/neighborhood-map.jpg";
 import resume from "../img/resume.jpg";
 import weather from "../img/weather.jpg";
 import business from "../img/the-business-company.jpg";
-import calendar from "../img/calendar.jpg";
+import myReads from "../img/my-reads.jpg";
 
 export const Widget = styled.div`
     background: #007bff;
@@ -19,7 +19,7 @@ export const Widget = styled.div`
     }
 
     &&:nth-child(2) {
-        background: url(${calendar});
+        background: url(${myReads});
         background-position: center;
         background-size: cover;
     }
