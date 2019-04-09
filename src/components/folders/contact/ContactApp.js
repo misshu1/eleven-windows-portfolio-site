@@ -1,7 +1,15 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-import { AppContainer } from "./style";
+import {
+    AppContainer,
+    Container,
+    RightContainer,
+    LeftContainer,
+    EmailInput,
+    NameInput,
+    MessageInput
+} from "./style";
 
 import { Name, NameBar, Buttons } from "../style";
 import { AnimateFadeInOut } from "../../animations/style";
@@ -80,7 +88,89 @@ class ContactApp extends Component {
                                 </Link>
                             </Buttons>
                         </NameBar>
-                        Under Construction Contact Page
+                        <Container>
+                            <LeftContainer>
+                                <h2>Contact me</h2>
+                                <p>
+                                    If you have any questions feel free to
+                                    contact me.
+                                </p>
+                                <p>I'll reply in maximum 48 hours.</p>
+                                <p>
+                                    <FontAwesomeIcon
+                                        icon="at"
+                                        color="#d6d8de"
+                                        className="fa-sm"
+                                        style={{ paddingRight: ".5rem" }}
+                                    />{" "}
+                                    {process.env.REACT_APP_EMAIL_ADDRESS}
+                                </p>
+                                <p>
+                                    <FontAwesomeIcon
+                                        icon="phone"
+                                        color="#d6d8de"
+                                        className="fa-sm"
+                                        style={{ paddingRight: ".5rem" }}
+                                    />{" "}
+                                    <span
+                                        id="phone-number"
+                                        onClick={this.revealPhone}
+                                    >
+                                        {process.env.REACT_APP_PHONE_NUMBER}
+                                    </span>
+                                </p>
+                                <p>
+                                    <FontAwesomeIcon
+                                        icon="map-marker-alt"
+                                        color="#d6d8de"
+                                        className="fa-sm"
+                                        style={{ paddingRight: ".5rem" }}
+                                    />{" "}
+                                    Ramnicu Valcea, RO
+                                </p>
+                                <span className="contact-icons">
+                                    <a
+                                        href="https://github.com/misshu1"
+                                        target="_blank"
+                                        rel="external noopener noreferrer"
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={["fab", "github-square"]}
+                                            size="lg"
+                                        />
+                                    </a>
+
+                                    <a
+                                        href="https://www.linkedin.com/in/andreinedelus/"
+                                        target="_blank"
+                                        rel="external noopener noreferrer"
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={["fab", "linkedin"]}
+                                            size="lg"
+                                        />
+                                    </a>
+
+                                    <a
+                                        href="https://www.instagram.com/andreinedelus.ro/"
+                                        target="_blank"
+                                        rel="external noopener noreferrer"
+                                    >
+                                        <FontAwesomeIcon
+                                            icon={["fab", "instagram"]}
+                                            size="lg"
+                                        />
+                                    </a>
+                                </span>
+                            </LeftContainer>
+                            <RightContainer>
+                                <form>
+                                    <NameInput placeholder="Name" />
+                                    <EmailInput placeholder="Email" />
+                                    <MessageInput placeholder="Message" />
+                                </form>
+                            </RightContainer>
+                        </Container>
                     </AppContainer>
                 </AnimateFadeInOut>
             </Draggable>

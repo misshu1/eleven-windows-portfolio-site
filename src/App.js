@@ -27,7 +27,10 @@ import {
     faAngleRight,
     faAngleLeft,
     faMedal,
-    faPlus
+    faPlus,
+    faAt,
+    faPhone,
+    faMapMarkerAlt
 } from "@fortawesome/free-solid-svg-icons";
 import {
     faLinkedinIn,
@@ -38,7 +41,9 @@ import {
     faJs,
     faFoursquare,
     faHtml5,
-    faCss3Alt
+    faCss3Alt,
+    faGithubSquare,
+    faLinkedin
 } from "@fortawesome/free-brands-svg-icons";
 library.add(
     faLongArrowAltLeft,
@@ -71,7 +76,12 @@ library.add(
     faAngleRight,
     faAngleLeft,
     faMedal,
-    faPlus
+    faPlus,
+    faAt,
+    faPhone,
+    faMapMarkerAlt,
+    faGithubSquare,
+    faLinkedin
 );
 
 class App extends Component {
