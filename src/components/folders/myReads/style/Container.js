@@ -70,6 +70,7 @@ export const Container = styled.div`
 
     && .book-details span:nth-child(1) {
         color: ${props => props.theme.whiteBlack};
+        transition: color 0.2s ease-in-out;
     }
 
     && .book-details span:nth-child(2) {
