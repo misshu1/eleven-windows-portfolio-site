@@ -13,6 +13,10 @@ export const Container = styled.div`
     }
     -ms-overflow-style: none;
 
+    && p {
+        line-height: 1.3;
+    }
+
     @media (min-width: 28em) {
         height: calc(100% - 2.5rem);
         margin-top: 0;

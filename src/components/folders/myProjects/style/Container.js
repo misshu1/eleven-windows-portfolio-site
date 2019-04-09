@@ -6,8 +6,9 @@ export const Container = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
-    height: 100%;
+    height: fit-content;
     padding: 1rem;
     overflow-y: scroll;
     /* Hide Scrollbar */
@@ -20,5 +21,6 @@ export const Container = styled.div`
         height: calc(100% - 2.5rem);
         margin-top: 0;
         flex-direction: column;
+        justify-content: flex-start;
     }
 `;

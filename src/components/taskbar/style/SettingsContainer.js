@@ -14,6 +14,7 @@ export const SettingsContainer = styled.div`
         width: 100%;
         height: 100%;
         cursor: default;
+        transition: color 0.2s ease-in-out;
     }
     @media (min-width: 28rem) {
         display: none;
