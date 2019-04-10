@@ -498,6 +498,7 @@ class App extends Component {
                                             "myProjectsMinimize"
                                         )
                                     }
+                                    aria-label="my projects"
                                 >
                                     <img src={folderIcon} alt="Projects" />
                                     <div>My Projects</div>
@@ -527,6 +528,7 @@ class App extends Component {
                                             "aboutMinimize"
                                         )
                                     }
+                                    aria-label="about"
                                 >
                                     <img src={folderIcon} alt="About me" />
                                     <div>About me</div>
@@ -556,6 +558,7 @@ class App extends Component {
                                             "contactMinimize"
                                         )
                                     }
+                                    aria-label="contact"
                                 >
                                     <img src={folderIcon} alt="Contact" />
                                     <div>Contact</div>

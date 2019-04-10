@@ -73,6 +73,7 @@ class TaskbarApp extends Component {
                                 "contactMinimize"
                             )
                         }
+                        aria-label="contact"
                     >
                         <FontAwesomeIcon icon={["fa", "address-card"]} />
                     </Link>
@@ -114,6 +115,7 @@ class TaskbarApp extends Component {
                                 "settingsMinimize"
                             )
                         }
+                        aria-label="settings"
                     >
                         <FontAwesomeIcon icon={["fa", "cog"]} />
                     </Link>

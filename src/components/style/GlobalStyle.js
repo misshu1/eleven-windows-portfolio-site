@@ -18,6 +18,7 @@ body {
     padding: 0;
     overflow: hidden;
     font-family: 'Josefin Sans', sans-serif;
+    font-display: fallback;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
