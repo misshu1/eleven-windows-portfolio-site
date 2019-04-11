@@ -20,4 +20,5 @@ export const CalculatorInput = styled.input.attrs({
     text-align: right;
     background: ${props => props.theme.background};
     color: ${props => props.theme.textColor};
+    transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
 `;

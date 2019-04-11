@@ -13,6 +13,7 @@ export const Operators = styled.div`
         font-size: 1.8rem;
         background: ${props => props.theme.calcOperatorButtonBg};
         color: ${props => props.theme.textColor};
+        transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
     }
     && button:hover,
     button:focus {

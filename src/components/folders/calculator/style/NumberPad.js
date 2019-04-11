@@ -8,6 +8,7 @@ export const NumberPad = styled.div`
         box-sizing: border-box;
         background: ${props => props.theme.calcNumButtonBg};
         color: ${props => props.theme.textColor};
+        transition: background 0.2s ease-in-out, color 0.2s ease-in-out;
         font-size: 1.8rem;
         margin: 1px;
         padding: 0;
