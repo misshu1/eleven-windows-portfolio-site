@@ -18,5 +18,10 @@ export const ItemInfo = styled.div`
     background: #53b8c4;
     color: #fff;
     padding: 1rem 0.5rem;
+    font-size: 1rem;
+    font-size: 4vw;
     animation: ${fadeIn} 0.3s ease-out 1 forwards;
+    @media (min-width: 22rem) {
+        font-size: 1rem;
+    }
 `;

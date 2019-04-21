@@ -21,6 +21,7 @@ export const Wrapper = styled.div`
         color: #53b8c4;
         text-transform: uppercase;
         font-size: 0.8rem;
+        font-size: 3vw;
         font-weight: 900;
     }
 
@@ -33,6 +34,9 @@ export const Wrapper = styled.div`
     @media (min-width: 25rem) {
         && p {
             font-size: 1rem;
+        }
+        && a {
+            font-size: 0.8rem;
         }
     }
 

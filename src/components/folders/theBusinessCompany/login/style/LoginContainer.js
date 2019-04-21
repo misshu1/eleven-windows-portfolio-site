@@ -12,14 +12,18 @@ export const LoginContainer = styled.div`
     font-size: 4vw;
 
     && button {
-        font-size: 1rem;
+        font-size: 4vw;
         color: #fff;
         outline: none;
         border: none;
+        padding: 0;
         background: transparent;
     }
     @media (min-width: 25rem) {
         && {
+            font-size: 1rem;
+        }
+        && button {
             font-size: 1rem;
         }
     }

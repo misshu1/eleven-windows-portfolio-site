@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ShortInfo = styled.div`
-    padding: 0 1rem;
+    padding: 0 0 0 1rem;
     && h2 {
         margin: 0;
         font-size: 1.2rem;

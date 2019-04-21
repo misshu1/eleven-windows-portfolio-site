@@ -110,13 +110,15 @@ class App extends Component {
     };
 
     render() {
+        const { theme, size, logo } = this.state;
+
         return (
-            <ThemeProvider theme={this.state.theme}>
+            <ThemeProvider theme={theme}>
                 <React.Fragment>
-                    <GlobalStyle size={this.state.size} />
+                    <GlobalStyle size={size} />
                     <DesktopApp
                         changeTheme={this.changeTheme}
-                        logo={this.state.logo}
+                        logo={logo}
                         changeAppSize={this.changeAppSize}
                     />
                 </React.Fragment>

@@ -14,6 +14,7 @@ export const ExpandButton = styled.div`
         outline: none;
         font-size: 1.6rem;
         font-size: 12vw;
+        padding: 0 1vw 0 0;
     }
 
     @media (min-width: 25rem) {

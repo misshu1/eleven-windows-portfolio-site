@@ -6,6 +6,7 @@ export const Container = styled.section`
     width: 100%;
     padding: 1rem;
     margin-top: 2rem;
+    z-index: 1;
 
     && h2 {
         margin: 0;

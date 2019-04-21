@@ -13,10 +13,12 @@ const fadeIn = keyframes`
 
 const initialItemsVisible = null;
 
-export const ItemName = styled.h3`
+export const ItemName = styled.div`
     position: relative;
     width: 6rem;
-    margin: 0;
+    font-size: 1.2rem;
+    font-size: 6vw;
+    font-weight: bold;
     padding-right: 1.5rem;
     line-height: 1.2;
     white-space: nowrap;
@@ -28,4 +30,7 @@ export const ItemName = styled.h3`
         css`
             animation: ${fadeIn} 0.3s ease-out 1 forwards;
         `}
+    @media (min-width: 22rem) {
+        font-size: 1.2rem;
+    }
 `;
