@@ -13,7 +13,7 @@ export const AppContainer = styled.section`
 
     @media (min-width: 28em) {
         height: 44rem;
-        width: 44rem;
+        width: 47rem;
         padding-bottom: 0;
     }
 

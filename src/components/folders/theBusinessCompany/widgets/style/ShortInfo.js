@@ -6,6 +6,7 @@ export const ShortInfo = styled.div`
         margin: 0;
         font-size: 1.2rem;
         font-size: 6vw;
+        line-height: 1.1;
     }
     && p {
         margin: 0;

@@ -53,8 +53,7 @@ class LoginBar extends Component {
 const loginStyle = {
     position: "absolute",
     right: 0,
-    background: "#8c8c8c",
-    opacity: "0.7",
+    background: "rgba(140, 140, 140, 0.8)",
     zIndex: "5",
     width: "25rem"
 };

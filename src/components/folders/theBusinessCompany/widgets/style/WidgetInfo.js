@@ -19,12 +19,14 @@ export const WidgetInfo = styled.div`
     animation: ${animate} 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
     font-size: 0.8rem;
     font-size: 4vw;
+    text-align: justify;
 
     @media (min-width: 28rem) {
         && {
             margin-left: 8rem;
             width: calc(100% - 8rem);
             font-size: 1rem;
+            text-align: left;
         }
     }
 `;
