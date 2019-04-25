@@ -6,6 +6,7 @@ export const BoxIcon = styled.div`
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-bottom: 2.5rem;
 
     @media (min-width: 28em) {
         justify-content: left;

@@ -7,7 +7,7 @@ export const SearchIcon = styled.div`
     align-items: center;
     position: sticky;
     color: #fff;
-    bottom: 0;
+    bottom: 2.5rem;
     margin-left: 90%;
     width: 2.5rem;
     height: 2.5rem;

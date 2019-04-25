@@ -1,11 +1,13 @@
 import styled from "styled-components";
 
 export const ScorePanel = styled.div`
+    box-sizing: border-box;
     display: flex;
     justify-content: space-around;
     align-items: center;
     width: 100%;
     padding: 1rem;
+    margin: 0 auto;
 
     && :nth-child(1) {
         display: flex;
@@ -26,7 +28,7 @@ export const ScorePanel = styled.div`
         border-radius: 5px;
         cursor: pointer;
     }
-    @media (min-width: 660px) {
+    @media (min-width: 40em) {
         width: 30rem;
     }
 `;

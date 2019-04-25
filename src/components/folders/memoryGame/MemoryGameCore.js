@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import {
     BackgroundContainer,
     Card,
-    Container,
     Deck,
     ResultPopUp,
     ScorePanel
@@ -215,77 +214,75 @@ class MemoryGameCore extends Component {
         const { moves, seconds, minutes, matchedCards } = this.state;
         return (
             <BackgroundContainer>
-                <Container>
-                    <ScorePanel>
-                        {/* Stop timer when all cards match */}
-                        {matchedCards === 16 ? clearInterval(timer) : ""}
-                        <ul>
-                            <li style={{ color: "yellow" }}>
-                                <FontAwesomeIcon icon="star" size="lg" />
-                            </li>
-                            <li
-                                style={
-                                    moves > 40
-                                        ? { color: "#fff" }
-                                        : { color: "yellow" }
-                                }
-                            >
-                                <FontAwesomeIcon icon="star" size="lg" />
-                            </li>
-                            <li
-                                style={
-                                    moves > 32
-                                        ? { color: "#fff" }
-                                        : { color: "yellow" }
-                                }
-                            >
-                                <FontAwesomeIcon icon="star" size="lg" />
-                            </li>
-                        </ul>
-                        <span>{moves} Moves</span>
+                <ScorePanel>
+                    {/* Stop timer when all cards match */}
+                    {matchedCards === 16 ? clearInterval(timer) : ""}
+                    <ul>
+                        <li style={{ color: "yellow" }}>
+                            <FontAwesomeIcon icon="star" size="lg" />
+                        </li>
+                        <li
+                            style={
+                                moves > 40
+                                    ? { color: "#fff" }
+                                    : { color: "yellow" }
+                            }
+                        >
+                            <FontAwesomeIcon icon="star" size="lg" />
+                        </li>
+                        <li
+                            style={
+                                moves > 32
+                                    ? { color: "#fff" }
+                                    : { color: "yellow" }
+                            }
+                        >
+                            <FontAwesomeIcon icon="star" size="lg" />
+                        </li>
+                    </ul>
+                    <span>{moves} Moves</span>
+                    <span>
+                        {minutes > 0 ? minutes : 0} {" : "}
+                        {seconds > 0 ? seconds : 0}
+                    </span>
+                    <div onClick={this.restartGame}>Restart Game</div>
+                </ScorePanel>
+                <Deck>{this.createCards()}</Deck>
+                <ResultPopUp matchedCards={matchedCards}>
+                    <h2>Well done!</h2>
+                    <p>Completed in {moves} moves.</p>
+                    <p>
+                        Time:{" "}
                         <span>
                             {minutes > 0 ? minutes : 0} {" : "}
                             {seconds > 0 ? seconds : 0}
                         </span>
-                        <div onClick={this.restartGame}>Restart Game</div>
-                    </ScorePanel>
-                    <Deck>{this.createCards()}</Deck>
-                    <ResultPopUp matchedCards={matchedCards}>
-                        <h2>Well done!</h2>
-                        <p>Completed in {moves} moves.</p>
-                        <p>
-                            Time:{" "}
-                            <span>
-                                {minutes > 0 ? minutes : 0} {" : "}
-                                {seconds > 0 ? seconds : 0}
-                            </span>
-                        </p>
-                        <ul>
-                            <li style={{ color: "yellow" }}>
-                                <FontAwesomeIcon icon="star" size="lg" />
-                            </li>
-                            <li
-                                style={
-                                    moves > 40
-                                        ? { color: "#fff" }
-                                        : { color: "yellow" }
-                                }
-                            >
-                                <FontAwesomeIcon icon="star" size="lg" />
-                            </li>
-                            <li
-                                style={
-                                    moves > 32
-                                        ? { color: "#fff" }
-                                        : { color: "yellow" }
-                                }
-                            >
-                                <FontAwesomeIcon icon="star" size="lg" />
-                            </li>
-                        </ul>
-                        <button onClick={this.restartGame}>Play again!</button>
-                    </ResultPopUp>
-                </Container>
+                    </p>
+                    <ul>
+                        <li style={{ color: "yellow" }}>
+                            <FontAwesomeIcon icon="star" size="lg" />
+                        </li>
+                        <li
+                            style={
+                                moves > 40
+                                    ? { color: "#fff" }
+                                    : { color: "yellow" }
+                            }
+                        >
+                            <FontAwesomeIcon icon="star" size="lg" />
+                        </li>
+                        <li
+                            style={
+                                moves > 32
+                                    ? { color: "#fff" }
+                                    : { color: "yellow" }
+                            }
+                        >
+                            <FontAwesomeIcon icon="star" size="lg" />
+                        </li>
+                    </ul>
+                    <button onClick={this.restartGame}>Play again!</button>
+                </ResultPopUp>
             </BackgroundContainer>
         );
     }

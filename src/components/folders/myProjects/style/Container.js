@@ -1,15 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    margin-top: 2.5rem;
     box-sizing: border-box;
+    /* margin: 2.5rem 0; */
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     width: 100%;
-    height: fit-content;
-    padding: 1rem;
+    max-height: 100%;
+    padding: 3.5rem 1rem 1rem 1rem;
     overflow-y: scroll;
     /* Hide Scrollbar */
     &&::-webkit-scrollbar {
@@ -19,7 +19,7 @@ export const Container = styled.div`
 
     @media (min-width: 28em) {
         height: calc(100% - 2.5rem);
-        margin-top: 0;
+        padding: 1rem;
         flex-direction: column;
         justify-content: flex-start;
     }

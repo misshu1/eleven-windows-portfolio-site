@@ -3,7 +3,7 @@ import arrowDown from "../img/arrow-drop-down.svg";
 
 export const Container = styled.div`
     box-sizing: border-box;
-    margin-top: 2.5rem;
+    margin: 2.5rem 0;
     width: 100%;
     height: 100%;
     padding: 1.5rem;

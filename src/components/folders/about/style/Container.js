@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     box-sizing: border-box;
-    margin-top: 2.5rem;
     width: 100%;
     height: 100%;
-    padding: 1.5rem;
+    padding: 2.5rem 1.5rem;
     overflow-y: scroll;
     /* Hide Scrollbar */
     &&::-webkit-scrollbar {
@@ -19,6 +18,6 @@ export const Container = styled.div`
 
     @media (min-width: 28em) {
         height: calc(100% - 2.5rem);
-        margin-top: 0;
+        padding: 1.5rem;
     }
 `;

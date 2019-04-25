@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const AppContainer = styled.section`
     position: absolute;
     box-sizing: border-box;
-    padding-bottom: 3.5rem;
     top: 0;
     left: 0;
     width: 100%;

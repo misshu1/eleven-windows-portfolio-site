@@ -11,7 +11,7 @@ export const Container = styled.div`
     color: #000;
     width: 100%;
     height: 100%;
-    padding-top: 2.5rem;
+    padding: 2.5rem 0;
     overflow-y: scroll;
     /* Hide Scrollbar */
     &&::-webkit-scrollbar {

@@ -5,12 +5,12 @@ export const BackgroundContainer = styled.div`
     box-sizing: border-box;
     width: 100%;
     height: 100%;
-    min-height: fit-content;
+    max-height: 100%;
     background: url(${bg}) no-repeat;
     background-position: center;
     background-size: cover;
     color: #fff;
-    margin-top: 2.5rem;
+    padding: 2.5rem 0;
     overflow-y: scroll;
     /* Hide Scrollbar */
     &&::-webkit-scrollbar {
@@ -20,6 +20,6 @@ export const BackgroundContainer = styled.div`
 
     @media (min-width: 28em) {
         height: calc(100% - 2.5rem);
-        margin-top: 0;
+        padding: 0;
     }
 `;

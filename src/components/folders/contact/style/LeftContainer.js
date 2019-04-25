@@ -6,7 +6,7 @@ export const LeftContainer = styled.div`
     box-sizing: border-box;
     justify-content: flex-end;
     width: 100%;
-    height: 50%;
+    height: fit-content;
     padding: 2rem;
     && p {
         line-height: 1.6;
