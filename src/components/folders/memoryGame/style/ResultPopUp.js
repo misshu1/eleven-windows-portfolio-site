@@ -11,6 +11,10 @@ export const ResultPopUp = styled.div`
     padding: 2rem;
     width: 90%;
     height: 70%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
     && ul {
         list-style: none;
         display: flex;

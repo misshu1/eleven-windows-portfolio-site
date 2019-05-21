@@ -53,6 +53,17 @@
 
 ### How to run
 
+-   Before running create a .env file in root folder of the project
+-   Paste the following code with your own API Keys
+
+| Variable Name                      | API / Information     |
+| ---------------------------------- | --------------------- |
+| REACT_APP_GOOGLE_MAPS_API          | Your own API Key      |
+| REACT_APP_FOURSQUARE_CLIENT_ID     | Your own API Key      |
+| REACT_APP_FOURSQUARE_CLIENT_SECRET | Your own API Key      |
+| REACT_APP_PHONE_NUMBER             | Your own informations |
+| REACT_APP_EMAIL_ADDRESS            | Your own informations |
+
 ```sh
 $ cd eleven-windows-portfolio-site
 $ npm install
